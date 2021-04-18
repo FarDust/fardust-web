@@ -1,2 +1,76 @@
 /* You can add global styles to this file, and also import other style files */
+@use "sass:color"
 @import ./template.css
+
+@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap')
+
+
+$primary : #343a40
+
+$primary-light : #5e646b
+
+$primary-dark : #0e141a
+
+$secondary : #002b36
+
+$secondary-light: #2f5460
+
+$secondary-Dark: #000010
+
+$engineer-uc-yellow: #FED802
+
+body
+  font-family: 'Noto Sans', sans-serif
+
+li.list-group-item-dark 
+  background-color: $primary-light
+  color: white
+  
+.floating-text
+  background-color: color.adjust($secondary, $alpha: -0.4)
+  padding: .5rem 2rem 1rem 1rem
+  border-radius: 0 .25rem
+
+.console
+  font-weight: 700
+  font-family:'Inconsolata', monospace
+  text-align: left
+
+.console h6
+  font-weight: 700
+  font-family: 'Inconsolata', monospace
+
+.console-header
+  background-color:  color.adjust(#3F3F3F, $alpha: -0.2)
+  width: 100%
+  height: 30px
+  border-radius: .125rem 0
+
+.ingenieria-uc
+  color: $engineer-uc-yellow
+
+.console-home
+  color: #5BCCCD
+
+.console-input
+  color: #43A145
+
+.console-command
+  color: #DEE002
+
+.shorcuts
+  margin-top: 1rem
+  text-align: justify
+
+.btn-primary
+  background-color: $secondary
+  border-color: $primary-light
+
+.btn-primary:hover
+  background-color: $primary
+  border-color: $secondary-light
+
+a.list-group-item-dark
+  background-color: $primary
+  color: white

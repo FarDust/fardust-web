@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faUniversity } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
+  
+  faUniversity = faUniversity;
 
   constructor() { }
 
