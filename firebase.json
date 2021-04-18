@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "fardust",
-    "public": "./build",
+    "public": "./dist",
     "ignore": [
       "firebase.json",
       "**/.*",
