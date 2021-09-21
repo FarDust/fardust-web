@@ -32,6 +32,8 @@
               "src/manifest.webmanifest"
             ],
             "styles": [
+              "src/assets/vendor/fontawesome-free/css/all.min.css",
+              "src/assets/vendor/simple-line-icons/css/simple-line-icons.css",
               "src/styles.sass"
             ],
             "scripts": []
