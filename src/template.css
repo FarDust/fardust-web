@@ -20,11 +20,14 @@ h6 {
 
 header.masthead {
   position: relative;
-  background-color: #343a40;
-  background: url("assets/img/blue-sky-nathan-anderson.jpg") no-repeat center center;
-  background-size: cover;
   padding-top: 4rem;
   padding-bottom: 10rem;
+}
+
+.background {
+  background-color: #343a40;
+  background: url("assets/img/space-2901400_1280.webp") no-repeat center center;
+  background-size: cover;
 }
 
 header.masthead .overlay {
