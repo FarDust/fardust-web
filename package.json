@@ -24,7 +24,7 @@
     "@fortawesome/angular-fontawesome": "^0.8.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-brands-svg-icons": "^5.15.2",
-    "@fortawesome/free-regular-svg-icons": "^5.15.2",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "rxjs": "~6.6.7",
     "tslib": "^2.0.0",
