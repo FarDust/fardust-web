@@ -1,0 +1,47 @@
+<!-- Footer -->
+<footer class="footer bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item">
+            <a href="https://www.linkedin.com/in/gnfaundez/">Visita mi log</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="mailto:gnfaundez@uc.cl">Contacto</a>
+          </li>
+          <li class="list-inline-item">&sdot;</li>
+          <li class="list-inline-item">
+            <a href="{{ (githubService$ | async)?.html_url }}/fardust-web">Source</a>
+          </li>
+        </ul>
+        <p class="text-muted small mb-4 mb-lg-0">&copy; Gabriel Faundez 2021.</p>
+      </div>
+      <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item mr-3">
+            <a href="{{ (githubService$ | async)?.html_url }}" target="_blank" rel="noopener" aria-label="Github">
+              <i class="fab fa-github fa-2x fa-fw"></i>
+            </a>
+          </li>
+          <li class="list-inline-item mr-3">
+            <a href="https://www.linkedin.com/in/gnfaundez/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <i class="fab fa-linkedin fa-2x fa-fw"></i>
+            </a>
+          </li>
+          <li class="list-inline-item mr-3">
+            <a href="https://twitter.com/gxfaundez" target="_blank" rel="noopener" aria-label="Twitter">
+              <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a href="https://www.instagram.com/gabrielxfs/" target="_blank" rel="noopener" aria-label="Instagram">
+              <i class="fab fa-instagram fa-2x fa-fw"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
