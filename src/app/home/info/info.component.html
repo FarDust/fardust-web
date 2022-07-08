@@ -1,0 +1,46 @@
+<!-- Masthead -->
+<div class="background">
+  <div class="blur">
+    <header class="masthead text-white text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="{{ (githubService$ | async)?.avatar_url }}" alt="">
+              <h5>I'm a Software Developer</h5>
+              <p class="font-weight-light mb-0">"Me gusta crear aplicaciones funcionales y placenteras al uso. Me
+                interesa incorporar y aprender nuevas tecnologías en los proyectos que desarrollo."</p>
+            </div>
+          </div>
+          <div class="col-lg-1"></div>
+          <div class="col-lg-7">
+            <div class="mx-auto">
+              <h1 class="mb-5">{{ (githubService$ | async)?.name }}</h1>
+            </div>
+            <app-console [header]="'UC Engineer 2.0.16'" [degree]="'Computer Science Engineer'"
+              [major]="'Software Engineer'" [minor]="'Data Science & Analytics'"></app-console>
+            <div class="shorcuts">
+              <ul class="list-group">
+                <li><a href="{{ (githubService$ | async)?.html_url }}"
+                    class="list-group-item list-group-item-action list-group-item-dark"> ✔️ Repositorio personal en <i
+                      class="fab fa-github"></i> github</a></li>
+                <li><a href="https://github.com/open-source-uc/"
+                    class="list-group-item list-group-item-action list-group-item-dark"> 🔨 Actualmente parte de <i
+                      class="fab fa-osi"></i> Open Source UC</a></li>
+                <li><a href="{{ (githubService$ | async)?.html_url }}/we-may-chat"
+                    class="list-group-item list-group-item-action list-group-item-dark">💬 We May Chat hecho en <i
+                      class="fab fa-python"></i> Django</a></li>
+                <li><a href="https://fardust.itch.io/dungeonscape"
+                    class="list-group-item list-group-item-action list-group-item-dark"> 🎮 Dungeon Scape hecho en <i
+                      class="fab fa-unity"></i> Unity</a></li>
+                <li><a href="https://bedit.herokuapp.com"
+                    class="list-group-item list-group-item-action list-group-item-dark"> 🐤 "My first web app" hecho en
+                    <i class="far fa-gem"></i> Ruby on Rails</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>

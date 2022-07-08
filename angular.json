@@ -39,6 +39,11 @@
               "src/assets/vendor/simple-line-icons/css/simple-line-icons.css",
               "src/styles.sass"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/theme/*"
+              ]
+            },
             "scripts": []
           },
           "configurations": {

@@ -1,0 +1,18 @@
+<div class="console-header"></div>
+<div id="estudios" class="container text-lg-left floating-text console">
+  <h6>
+    <span class="console-home">~</span> via <span class="ingenieria-uc">
+      <fa-icon [icon]="faUniversity"></fa-icon> {{ header }}
+    </span>
+  </h6>
+  <p>
+    <span *ngIf="(countryservice$ | async)?.country === defaultCountry"><span class="console-input">> </span> <span
+        class="console-command">Degree</span> in {{degree}}<br></span>
+    <span class="console-input">> </span> <span
+      *ngIf="(countryservice$ | async)?.country === 'CL'; then chileBlock else globalBlock"></span> <br>
+    <span class="console-input">> </span> <span class="console-command">Minor</span> in {{ minor }} <br>
+  </p>
+</div>
+
+<ng-template #chileBlock><span class="console-command">Major</span> of {{ major }}</ng-template>
+<ng-template #globalBlock><span class="console-command">Degree</span> in {{ major }}ing</ng-template>
