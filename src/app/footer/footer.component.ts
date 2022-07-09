@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { GithubService } from '../services/github.service';
 
 @Component({
@@ -8,7 +9,9 @@ import { GithubService } from '../services/github.service';
 })
 export class FooterComponent {
 
-  constructor(readonly githubService$: GithubService) { }
+  constructor(readonly githubService$: GithubService, private router: Router) { }
 
-
+  goToCurriculum() { 
+    this.router.navigate(['/experience']);
+  }
 }

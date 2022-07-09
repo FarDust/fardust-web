@@ -1,0 +1,25 @@
+@import "../../../theme/variables"
+
+.pdf-viewer
+  display: flex
+  padding: 0 48px
+  justify-content: center
+  margin: 5px 0
+  .pdf-wrapper
+    display: flex
+    justify-content: center
+    padding: 5px
+    border: 1px solid #ccc
+    border-radius: 5px
+    box-shadow: 0 0 10px #ccc
+    flex-grow: 1
+    pdf-viewer
+      min-height: 100vh
+      width: 100%
+      canvas
+        width: 100% !important
+
+@media only screen and (max-width: $tablet)
+  .pdf-viewer
+    padding: 0 5px
+    
