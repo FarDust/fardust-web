@@ -1,0 +1,5 @@
+name: "Code scanning CodeQL config"
+
+query-filters:
+- exclude:
+     id: src/assets/vendor

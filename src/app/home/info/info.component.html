@@ -1,15 +1,14 @@
 <!-- Masthead -->
 <div class="background">
-  <div class="blur">
+  <div class="backdrop-blur">
     <header class="masthead text-white text-center">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
-            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-              <img class="img-fluid rounded-circle mb-3" src="{{ (githubService$ | async)?.avatar_url }}" alt="">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0 vertical-flex-center">
+              <img class="img-fluid rounded-circle mb-3 max-w-xs" src="{{ (githubService$ | async)?.avatar_url }}" alt="">
               <h5>I'm a Software Developer</h5>
-              <p class="font-weight-light mb-0">"Me gusta crear aplicaciones funcionales y placenteras al uso. Me
-                interesa incorporar y aprender nuevas tecnologías en los proyectos que desarrollo."</p>
+              <p class="font-weight-light mb-0">"Incorporating artificial intelligence systems into the products we use every day is my passion."</p>
             </div>
           </div>
           <div class="col-lg-1"></div>
@@ -25,16 +24,19 @@
                     class="list-group-item list-group-item-action list-group-item-dark"> ✔️ Personal repository on <i
                       class="fab fa-github"></i> github</a></li>
                 <li><a href="{{ (githubService$ | async)?.html_url }}/we-may-chat"
-                    class="list-group-item list-group-item-action list-group-item-dark">💬 We May Chat develop in <i
+                    class="list-group-item list-group-item-action list-group-item-dark">💬 Small realtime chat  using socket.io develop on <i
                       class="fab fa-python"></i> Django</a></li>
                 <li><a href="https://fardust.itch.io/dungeonscape"
-                    class="list-group-item list-group-item-action list-group-item-dark"> 🎮 Dungeon Scape develop in <i
+                    class="list-group-item list-group-item-action list-group-item-dark"> 🎮 Dungeon Scape a game develop in <i
                       class="fab fa-unity"></i> Unity</a></li>
                 <li><a href="https://bedit.herokuapp.com"
-                    class="list-group-item list-group-item-action list-group-item-dark"> 🐤 My first web app develop in
-                    <i class="far fa-gem"></i> Ruby on Rails</a></li>
+                    class="list-group-item list-group-item-action list-group-item-dark"> 🛡️ Federated GCP infrastructure on
+                    <i class="fas fa-vihara"></i> Terraform</a></li>
+                <li><a href="https://bedit.herokuapp.com"
+                  class="list-group-item list-group-item-action list-group-item-dark"> 🔄 Automatic CV Deploy written in 
+                  <i class="fas fa-pen-fancy"></i> Latex</a></li>
                 <li><a href="https://github.com/open-source-uc/"
-                    class="list-group-item list-group-item-action list-group-item-dark"> 🔨 Member of <i
+                    class="list-group-item list-group-item-action list-group-item-dark"> 🔨 Legacy Member of <i
                       class="fab fa-osi"></i> Open Source UC comunity</a></li>
               </ul>
             </div>
