@@ -1,4 +1,4 @@
-name: "My code scanning CodeQL config"
+name: "Code scanning CodeQL config"
 
 query-filters:
 - exclude:
