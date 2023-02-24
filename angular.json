@@ -57,9 +57,9 @@
               "optimization": {
                 "scripts": true,
                 "styles": {
-                    "minify": true,
-                    "inlineCritical": false
-                    },
+                  "minify": true,
+                  "inlineCritical": false
+                },
                 "fonts": true
               },
               "outputHashing": "all",
@@ -144,5 +144,13 @@
       }
     }
   },
-  "defaultProject": "landing-fardust"
+  "defaultProject": "landing-fardust",
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
+  }
 }
