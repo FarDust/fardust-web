@@ -47,7 +47,7 @@
     "@angular/language-service": "~15.2.0",
     "@types/jasmine": "~4.0.3",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^18.0.0",
+    "@types/node": "^18.14.6",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
     "autoprefixer": "^10.4.13",
