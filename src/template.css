@@ -28,6 +28,7 @@ header.masthead {
   background-color: #343a40;
   background: url("assets/img/space-2901400_1280.webp") no-repeat center center;
   background-size: cover;
+  min-height: 100vh;
 }
 
 header.masthead .overlay {
