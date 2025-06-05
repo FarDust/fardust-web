@@ -1,27 +1,56 @@
-# LandingFardust
+# FarDust Landing Page 🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.2.
+Welcome to the source code for **FarDust**'s personal landing page. This single page application is built with [Angular](https://angular.io/) and deployed through Firebase Hosting.
 
-## Development server
+## ✨ Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Lazy loaded modules for `home`, `experience` and `projects`.
+- Fetches GitHub profile data and visitor country via RxJS services.
+- Styled with TailwindCSS, Bootstrap and FontAwesome.
+- PWA ready thanks to the Angular Service Worker.
+- Continuous deployment to Firebase using GitHub Actions.
 
-## Code scaffolding
+## 🛠️ Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Install dependencies and start the dev server:
 
-## Build
+```bash
+npm install
+npm start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Navigate to `http://localhost:4200/` and the app will reload on file changes.
 
-## Running unit tests
+## 🧪 Tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run unit tests with Karma:
 
-## Running end-to-end tests
+```bash
+npm test
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## 🚀 Deployment
 
-## Further help
+Build and deploy to Firebase Hosting:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```bash
+npm run build
+npm run deploy
+```
+
+## 🔧 Angular CLI Cheat Sheet
+
+```bash
+ng serve            # Start the dev server
+ng generate component <name>
+ng generate service <name>
+ng test             # Run unit tests
+ng lint             # Lint and fix code
+ng build --configuration production
+npm run deploy      # Deploy to Firebase
+```
+
+## 📚 Learn More
+
+Check the source code for examples of Angular modules, components and RxJS usage. Feel free to explore the project and modify it to suit your own portfolio! 💻
+
