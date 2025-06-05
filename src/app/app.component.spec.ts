@@ -28,5 +28,4 @@ describe('AppComponent', () => {
     const footerEl: HTMLElement | null = fixture.nativeElement.querySelector('app-footer');
     expect(footerEl?.classList.contains('mt-auto')).toBeTrue();
   });
-
 });
