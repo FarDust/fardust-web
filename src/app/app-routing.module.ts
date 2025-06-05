@@ -8,6 +8,7 @@ const routes: Routes = [
     path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   { path: 'experience', loadChildren: () => import('./experience/experience.module').then(m => m.ExperienceModule) },
+  { path: 'ball', loadChildren: () => import('./ball/ball.module').then(m => m.BallModule) },
   { path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
   { path: '**', component: PageNotFoundComponent }
 ];
