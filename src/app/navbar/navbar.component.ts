@@ -7,7 +7,7 @@ import { GithubService } from '../services/github.service';
   styleUrls: ['./navbar.component.sass']
 })
 export class NavbarComponent {
-  menuOpen = false;
+  menuOpen: boolean = false;
 
   constructor(readonly githubService$: GithubService) { }
 
