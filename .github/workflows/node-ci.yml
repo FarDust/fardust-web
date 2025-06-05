@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.0.2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
       - run: npm ci
       - run: npm test -- --browsers ChromeHeadlessNoSandbox --watch=false
       - run: npm run lint
