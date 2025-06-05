@@ -1,47 +1,45 @@
 <!-- Footer -->
-<footer class="footer bg-dark">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
-        <ul class="list-inline mb-2">
-          <li class="list-inline-item">
-            <a class="curriculum-link" role="button" (click)="goToCurriculum()" class="text-white">Curriculum</a>
-          </li>
-          <li class="list-inline-item">&sdot;</li>
-          <li class="list-inline-item">
-            <a href="mailto:gnfaundez@uc.cl" class="text-white">Email</a>
-          </li>
-          <li class="list-inline-item">&sdot;</li>
-          <li class="list-inline-item">
-            <a href="{{ (githubService$ | async)?.html_url }}/fardust-web" class="text-white">Source</a>
-          </li>
-        </ul>
-        <p class="text-muted small mb-4 mb-lg-0">&copy; Gabriel Faundez 2021.</p>
-      </div>
-      <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
-        <ul class="list-inline mb-0">
-          <li class="list-inline-item mr-3">
-            <a href="{{ (githubService$ | async)?.html_url }}" target="_blank" rel="noopener" aria-label="Github" class="text-white">
-              <i class="fab fa-github fa-2x fa-fw"></i>
-            </a>
-          </li>
-          <li class="list-inline-item mr-3">
-            <a href="https://www.linkedin.com/in/gnfaundez/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-white">
-              <i class="fab fa-linkedin fa-2x fa-fw"></i>
-            </a>
-          </li>
-          <li class="list-inline-item mr-3">
-            <a href="https://twitter.com/gxfaundez" target="_blank" rel="noopener" aria-label="Twitter" class="text-white">
-              <i class="fab fa-twitter-square fa-2x fa-fw"></i>
-            </a>
-          </li>
-          <li class="list-inline-item">
-            <a href="https://www.instagram.com/gabrielxfs/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white">
-              <i class="fab fa-instagram fa-2x fa-fw"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+<footer class="bg-gray-800 text-white">
+  <div class="max-w-screen-lg mx-auto px-4 py-6 md:flex md:items-center md:justify-between">
+    <div class="md:flex-1 text-center md:text-left">
+      <ul class="flex flex-wrap justify-center md:justify-start mb-2 space-x-2">
+        <li>
+          <button class="curriculum-link underline" type="button" (click)="goToCurriculum()">Curriculum</button>
+        </li>
+        <li>&sdot;</li>
+        <li>
+          <a href="mailto:gnfaundez@uc.cl" class="underline">Email</a>
+        </li>
+        <li>&sdot;</li>
+        <li>
+          <a href="{{ (githubService$ | async)?.html_url }}/fardust-web" class="underline">Source</a>
+        </li>
+      </ul>
+      <p class="text-gray-400 text-sm">&copy; Gabriel Faundez 2021.</p>
+    </div>
+    <div class="mt-4 md:mt-0 md:flex-1 text-center md:text-right">
+      <ul class="flex justify-center md:justify-end space-x-3">
+        <li>
+          <a href="{{ (githubService$ | async)?.html_url }}" target="_blank" rel="noopener" aria-label="Github" class="text-white hover:text-gray-300">
+            <i class="fab fa-github fa-2x fa-fw"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/gnfaundez/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-white hover:text-gray-300">
+            <i class="fab fa-linkedin fa-2x fa-fw"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/gxfaundez" target="_blank" rel="noopener" aria-label="Twitter" class="text-white hover:text-gray-300">
+            <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/gabrielxfs/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white hover:text-gray-300">
+            <i class="fab fa-instagram fa-2x fa-fw"></i>
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </footer>

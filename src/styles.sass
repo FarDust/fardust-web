@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use "sass:color"
 @import ./template.css
-@import "node_modules/bootstrap/scss/bootstrap"
 @import "assets/vendor/fontawesome-free/css/all.min.css"
 @import "assets/vendor/simple-line-icons/css/simple-line-icons.css"
 
@@ -14,7 +13,7 @@
 @tailwind components
 @tailwind utilities
 
-// TODO: change bootstrap color scheme
+// TODO: adjust color scheme
 
 a
   text-decoration: none
@@ -22,9 +21,6 @@ a
 body
   font-family: 'Noto Sans', sans-serif
 
-li.list-group-item-dark 
-  background-color: $primary-light
-  color: white
   
 .floating-text
   background-color: color.adjust($secondary, $alpha: -0.4)
@@ -70,9 +66,6 @@ li.list-group-item-dark
   background-color: $primary
   border-color: $secondary-light
 
-a.list-group-item-dark
-  background-color: $primary
-  color: white
 
 .backdrop-blur
   background: rgba(27,27,27,30%)

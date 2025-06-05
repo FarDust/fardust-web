@@ -22,4 +22,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  it('should position footer at the bottom on large screens', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const footerEl: HTMLElement | null = fixture.nativeElement.querySelector('app-footer');
+    expect(footerEl?.classList.contains('mt-auto')).toBeTrue();
+  });
 });
