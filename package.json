@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build --configuration production",
     "test": "ng test",
-    "test:dryrun": "npm run test -- --browsers ChromeHeadless --watch=false",
+    "test:dryrun": "npm run test -- --browsers ChromeHeadlessNoSandbox --watch=false",
     "lint": "ng lint",
     "fix": "ng lint --fix",
     "e2e": "ng e2e",
