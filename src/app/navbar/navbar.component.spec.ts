@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { GithubService } from '../services/github.service';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -8,7 +10,11 @@ describe('NavbarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [ NavbarComponent ],
+      imports: [HttpClientTestingModule],
+      providers: [
+        { provide: GithubService, useValue: { subscribe: () => ({ unsubscribe() {} }) } }
+      ]
     })
     .compileComponents();
   }));
