@@ -7,7 +7,7 @@ import * as THREE from 'three';
   styleUrls: ['./ball.component.sass']
 })
 export class BallComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('canvas', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
 
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
