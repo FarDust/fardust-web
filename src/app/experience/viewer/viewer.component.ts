@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import type { PDFDocumentProxy } from 'pdfjs-dist/types/src/display/api';
 
 @Component({
   selector: 'app-viewer',
@@ -15,8 +16,8 @@ export class ViewerComponent {
 
   constructor() { }
 
-  onPdfLoad(pdf: any): void {
-    this.totalPages = pdf?.numPages ?? pdf?._pdfInfo?.numPages;
+  onPdfLoad(pdf: PDFDocumentProxy): void {
+    this.totalPages = pdf.numPages;
   }
 
   nextPage(): void {
