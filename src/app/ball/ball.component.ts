@@ -27,6 +27,10 @@ export class BallComponent implements AfterViewInit, OnDestroy {
     if (this.renderer) {
       this.renderer.dispose();
     }
+    if (this.sphere) {
+      this.sphere.geometry.dispose();
+      (this.sphere.material as THREE.Material).dispose();
+    }
     window.removeEventListener('resize', this.onWindowResize);
   }
 
