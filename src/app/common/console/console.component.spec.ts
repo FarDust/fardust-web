@@ -9,12 +9,15 @@ describe('ConsoleComponent', () => {
   let component: ConsoleComponent;
   let fixture: ComponentFixture<ConsoleComponent>;
 
+  let checkIPSpy: jasmine.Spy;
+
   beforeEach(async () => {
+    checkIPSpy = jasmine.createSpy('checkIP');
     await TestBed.configureTestingModule({
       declarations: [ ConsoleComponent ],
       imports: [HttpClientTestingModule],
       providers: [
-        { provide: CountryService, useValue: { checkIP: () => {}, subscribe: () => ({unsubscribe() {}}) } }
+        { provide: CountryService, useValue: { checkIP: checkIPSpy, subscribe: () => ({unsubscribe() {}}) } }
       ],
       schemas: [NO_ERRORS_SCHEMA]
     })
@@ -27,5 +30,9 @@ describe('ConsoleComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should request IP on init', () => {
+    expect(checkIPSpy).toHaveBeenCalledWith('');
   });
 });

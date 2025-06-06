@@ -28,4 +28,10 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should toggle menu state', () => {
+    expect(component.menuOpen).toBeFalse();
+    component.toggleMenu();
+    expect(component.menuOpen).toBeTrue();
+  });
 });
