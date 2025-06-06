@@ -1,8 +1,5 @@
 <div class="personal-info my-4">
   <p class="mb-4 whitespace-pre-line">{{ publicBio }}</p>
-  <div class="mb-2">
-    <input type="password" [(ngModel)]="token" (ngModelChange)="tokenChanged()" placeholder="Access token" class="border p-1 mr-2">
-  </div>
   <p *ngIf="error" class="text-red-600">{{ error }}</p>
   <div *ngIf="personal$ | async as personal" class="mt-2 whitespace-pre-line">{{ personal.privateBio }}</div>
 </div>
