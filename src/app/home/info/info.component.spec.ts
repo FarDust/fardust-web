@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { CountryService } from 'src/app/services/country.service';
 import { GithubService } from 'src/app/services/github.service';
 
@@ -13,7 +14,7 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ InfoComponent ],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, TranslateModule.forRoot()],
       providers: [
         { provide: CountryService, useValue: { checkIP: () => {}, subscribe: () => ({unsubscribe(){}}) } },
         { provide: GithubService, useValue: { subscribe: () => ({unsubscribe(){}}) } }
