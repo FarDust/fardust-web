@@ -24,7 +24,10 @@
                   <a href="{{ (githubService$ | async)?.html_url }}" class="block bg-[#343a40] hover:bg-[#2f5460] text-white px-4 py-2 rounded transition-transform duration-300 hover:-translate-y-1"> ✔️ Personal repository on <i class="fab fa-github"></i> github</a>
                 </li>
                 <li>
-                  <a href="{{ (githubService$ | async)?.html_url }}/we-may-chat" class="block bg-[#343a40] hover:bg-[#2f5460] text-white px-4 py-2 rounded transition-transform duration-300 hover:-translate-y-1">💬 Small realtime chat  using socket.io develop on <i class="fab fa-python"></i> Django</a>
+                  <a routerLink="/projects" class="block bg-[#343a40] hover:bg-[#2f5460] text-white px-4 py-2 rounded transition-transform duration-300 hover:-translate-y-1">📁 Browse my projects</a>
+                </li>
+                <li>
+                  <a routerLink="/chat" class="block bg-[#343a40] hover:bg-[#2f5460] text-white px-4 py-2 rounded transition-transform duration-300 hover:-translate-y-1">💬 AI chat about my experience</a>
                 </li>
                 <li>
                   <a href="https://fardust.itch.io/dungeonscape" class="block bg-[#343a40] hover:bg-[#2f5460] text-white px-4 py-2 rounded transition-transform duration-300 hover:-translate-y-1"> 🎮 Dungeon Scape a game develop in <i class="fab fa-unity"></i> Unity</a>
