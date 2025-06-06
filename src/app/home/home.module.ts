@@ -24,7 +24,7 @@ import { HomeRoutingModule } from './home-routing.module';
     HttpClientModule,
     ConsoleModule,
     FontAwesomeModule,
-    TranslateModule
+    TranslateModule,
     FormsModule
   ]
 })
