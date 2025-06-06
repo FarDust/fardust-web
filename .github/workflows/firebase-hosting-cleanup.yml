@@ -1,6 +1,6 @@
 name: Cleanup Firebase preview channels
 
-'on':
+on:
   pull_request:
     types: [closed]
 
