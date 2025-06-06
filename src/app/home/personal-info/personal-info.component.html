@@ -1,9 +1,18 @@
 <div class="personal-info my-8 flex justify-center">
-  <div class="bg-gray-800/50 p-6 rounded-lg shadow-lg space-y-4 w-full">
-    <h2 class="text-xl font-semibold text-center">{{ 'bio_title' | translate }}</h2>
-    <p class="whitespace-pre-line text-justify leading-relaxed">{{
-      'public_bio' | translate
-    }}</p>
+  <div
+    class="bg-gradient-to-br from-gray-900/60 via-gray-800/70 to-black/70 p-8 rounded-xl shadow-2xl backdrop-blur-md space-y-6 w-full"
+  >
+    <img
+      src="assets/img/fardust.jpeg"
+      [alt]="'avatar_alt' | translate"
+      class="w-24 h-24 rounded-full mx-auto border-4 border-gray-700 shadow-md"
+    />
+    <h2 class="text-2xl font-semibold text-center text-cyan-300">
+      {{ 'bio_title' | translate }}
+    </h2>
+    <p class="whitespace-pre-line text-justify leading-relaxed">
+      {{ 'public_bio' | translate }}
+    </p>
     <p *ngIf="error" class="text-red-600 text-center">{{ error }}</p>
     <div
       *ngIf="personal$ | async as personal"
