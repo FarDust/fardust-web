@@ -1,7 +1,28 @@
 <!-- Navigation -->
-<nav class="navbar navbar-dark bg-dark static-top">
-  <div class="container">
-    <a class="navbar-brand" href="/">{{ (githubService$ | async)?.name }}</a>
-    <a class="btn btn-primary" href="{{ (githubService$ | async)?.html_url }}" rel="noopener" target="_blank"><i class="fab fa-github"></i> {{ (githubService$ | async)?.login }}</a>
+<nav class="bg-[#343a40] text-white">
+  <div class="max-w-screen-lg mx-auto flex items-center justify-between p-4">
+    <a class="text-lg font-bold" href="/">{{ (githubService$ | async)?.name }}</a>
+    <button
+      class="md:hidden focus:outline-none"
+      type="button"
+      aria-controls="mainNavbar"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div
+      id="mainNavbar"
+      class="md:flex md:items-center md:justify-end w-full md:w-auto"
+      [class.hidden]="!menuOpen"
+      [class.block]="menuOpen">
+      <a
+        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded"
+        href="{{ (githubService$ | async)?.html_url }}"
+        rel="noopener noreferrer"
+        target="_blank">
+        <i class="fab fa-github"></i> {{ (githubService$ | async)?.login }}
+      </a>
+    </div>
   </div>
 </nav>
