@@ -10,7 +10,9 @@
     "lint": "ng lint",
     "fix": "ng lint --fix",
     "e2e": "ng e2e",
-    "deploy": "firebase deploy --only hosting:fardust"
+    "deploy": "firebase deploy --only hosting:fardust",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "private": true,
   "dependencies": {
@@ -62,12 +64,14 @@
     "karma-jasmine-html-reporter": "^2.0.0",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.0",
+    "prettier": "^3.5.3",
     "tailwindcss": "^3.2.7",
     "ts-node": "~10.8.0",
     "typescript": "~4.9.5"
   },
   "pre-commit": [
     "fix",
-    "test:dryrun"
+    "test:dryrun",
+    "format:check"
   ]
 }
