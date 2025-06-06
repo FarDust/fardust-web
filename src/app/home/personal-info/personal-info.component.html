@@ -1,7 +1,15 @@
-<div class="personal-info my-4">
-  <p class="mb-4 whitespace-pre-line">{{ 'public_bio' | translate }}</p>
-  <p *ngIf="error" class="text-red-600">{{ error }}</p>
-  <div *ngIf="personal$ | async as personal" class="mt-2 whitespace-pre-line">
-    {{ personal.privateBio }}
+<div class="personal-info my-8 flex justify-center">
+  <div class="bg-gray-800/50 p-6 rounded-lg shadow-lg space-y-4 w-full">
+    <h2 class="text-xl font-semibold text-center">{{ 'bio_title' | translate }}</h2>
+    <p class="whitespace-pre-line text-justify leading-relaxed">{{
+      'public_bio' | translate
+    }}</p>
+    <p *ngIf="error" class="text-red-600 text-center">{{ error }}</p>
+    <div
+      *ngIf="personal$ | async as personal"
+      class="whitespace-pre-line text-sm opacity-80 text-center"
+    >
+      {{ personal.privateBio }}
+    </div>
   </div>
 </div>
