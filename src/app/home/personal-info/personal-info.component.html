@@ -1,5 +1,7 @@
 <div class="personal-info my-4">
-  <p class="mb-4 whitespace-pre-line">{{ publicBio }}</p>
+  <p class="mb-4 whitespace-pre-line">{{ 'public_bio' | translate }}</p>
   <p *ngIf="error" class="text-red-600">{{ error }}</p>
-  <div *ngIf="personal$ | async as personal" class="mt-2 whitespace-pre-line">{{ personal.privateBio }}</div>
+  <div *ngIf="personal$ | async as personal" class="mt-2 whitespace-pre-line">
+    {{ personal.privateBio }}
+  </div>
 </div>
