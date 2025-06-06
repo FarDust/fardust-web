@@ -25,7 +25,7 @@ header.masthead {
 }
 
 .background {
-  background-color: #343a40;
+  background-color: #607d8b;
   background: url("assets/img/space-2901400_1280.webp") no-repeat center center;
   background-size: cover;
   min-height: 100vh;
@@ -33,7 +33,7 @@ header.masthead {
 
 header.masthead .overlay {
   position: absolute;
-  background-color: #212529;
+  background-color: #37474f;
   height: 100%;
   width: 100%;
   top: 0;
@@ -107,7 +107,7 @@ header.masthead h1 {
 
 .call-to-action {
   position: relative;
-  background-color: #343a40;
+  background-color: #607d8b;
   background: url("assets/img/bg-masthead.jpg") no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
@@ -116,7 +116,7 @@ header.masthead h1 {
 
 .call-to-action .overlay {
   position: absolute;
-  background-color: #212529;
+  background-color: #37474f;
   height: 100%;
   width: 100%;
   top: 0;
