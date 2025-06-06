@@ -50,6 +50,15 @@ ng build --configuration production
 npm run deploy      # Deploy to Firebase
 ```
 
+### Personal section
+
+Set `personalInfoUrl` in `src/environments/environment.ts` to the Cloud Run
+endpoint that returns your private bio. The personal section shows a short
+public summary by default and automatically fetches additional details when a
+valid token is available. The token will be sent as a `token` query parameter
+(e.g. `?token=YOUR_TOKEN`) and persisted in a `personal_token` cookie so you
+don't have to re-enter it.
+
 ## 📚 Learn More
 
 Check the source code for examples of Angular modules, components and RxJS usage. Feel free to explore the project and modify it to suit your own portfolio! 💻
