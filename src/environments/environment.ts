@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  githubUser: 'FarDust'
+  githubUser: 'FarDust',
+  projectsUrl: 'assets/projects.json',
+  chatApiUrl: '/api/chat'
 };
 
 /*

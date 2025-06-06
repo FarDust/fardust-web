@@ -17,6 +17,16 @@
       [class.hidden]="!menuOpen"
       [class.block]="menuOpen">
       <a
+        routerLink="/projects"
+        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded">
+        <i class="fas fa-th-large"></i> Projects
+      </a>
+      <a
+        routerLink="/chat"
+        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded">
+        <i class="fas fa-robot"></i> Chat
+      </a>
+      <a
         class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded"
         href="{{ (githubService$ | async)?.html_url }}"
         rel="noopener noreferrer"
