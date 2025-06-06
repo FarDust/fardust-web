@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="bg-[#343a40] text-white">
+<nav class="bg-[#607d8b] text-white">
   <div class="max-w-screen-lg mx-auto flex items-center justify-between p-4">
     <a class="text-lg font-bold" href="/">{{ (githubService$ | async)?.name }}</a>
     <button
@@ -17,7 +17,7 @@
       [class.hidden]="!menuOpen"
       [class.block]="menuOpen">
       <a
-        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded"
+        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#00796b] hover:bg-[#607d8b] text-white px-4 py-2 rounded"
         href="{{ (githubService$ | async)?.html_url }}"
         rel="noopener noreferrer"
         target="_blank">
