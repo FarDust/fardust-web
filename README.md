@@ -9,6 +9,7 @@ Welcome to the source code for **FarDust**'s personal landing page. This single 
 - Styled with TailwindCSS, Bootstrap and FontAwesome.
 - PWA ready thanks to the Angular Service Worker.
 - Continuous deployment to Firebase using GitHub Actions.
+- Merged or closed pull requests automatically remove their preview channels.
 
 ## 🛠️ Development
 

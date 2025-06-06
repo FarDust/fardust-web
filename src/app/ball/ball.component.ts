@@ -25,6 +25,19 @@ export class BallComponent implements AfterViewInit, OnDestroy {
     if (this.animationId) {
       cancelAnimationFrame(this.animationId);
     }
+    if (this.sphere) {
+      if (this.sphere.geometry) {
+        this.sphere.geometry.dispose();
+      }
+      if (this.sphere.material) {
+        if (Array.isArray(this.sphere.material)) {
+          this.sphere.material.forEach(material => material.dispose());
+        } else {
+          this.sphere.material.dispose();
+        }
+      }
+      this.sphere = null!;
+    }
     if (this.renderer) {
       this.renderer.dispose();
     }
@@ -41,6 +54,8 @@ export class BallComponent implements AfterViewInit, OnDestroy {
     this.camera.position.z = 5;
 
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+
+    this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.setSize(width, height);
 
     const geometry = new THREE.SphereGeometry(1, 64, 64);
