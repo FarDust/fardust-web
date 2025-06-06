@@ -17,7 +17,7 @@
       [class.hidden]="!menuOpen"
       [class.block]="menuOpen">
       <a
-        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded"
+        class="block w-full text-center mt-2 md:mt-0 md:ml-4 md:inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded"
         href="{{ (githubService$ | async)?.html_url }}"
         rel="noopener noreferrer"
         target="_blank">
