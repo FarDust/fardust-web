@@ -4,7 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
+  standalone: false,
 })
 export class AppComponent {
   title = 'landing-fardust';

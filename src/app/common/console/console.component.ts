@@ -1,32 +1,31 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faUniversity, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUniversity,
+  IconDefinition,
+} from '@fortawesome/free-solid-svg-icons';
 import { CountryService } from '../../services/country.service';
-
-
 
 @Component({
   selector: 'app-console',
   templateUrl: './console.component.html',
-  styleUrls: ['./console.component.sass']
+  styleUrls: ['./console.component.sass'],
+  standalone: false,
 })
 export class ConsoleComponent implements OnInit {
-
   faUniversity: IconDefinition = faUniversity;
-  defaultCountry: string = "CL";
+  defaultCountry: string = 'CL';
   @Input()
-  header: string = "Console";
+  header: string = 'Console';
   @Input()
-  degree: string = "";
+  degree: string = '';
   @Input()
-  major: string = "";
+  major: string = '';
   @Input()
-  minor: string = "";
+  minor: string = '';
 
-  constructor(readonly countryservice$: CountryService) {
-  }
+  constructor(readonly countryservice$: CountryService) {}
 
   ngOnInit(): void {
-    this.countryservice$.checkIP('')
+    this.countryservice$.checkIP('');
   }
-
 }

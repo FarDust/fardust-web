@@ -1,13 +1,21 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import * as THREE from 'three';
 
 @Component({
   selector: 'app-ball',
   templateUrl: './ball.component.html',
-  styleUrls: ['./ball.component.sass']
+  styleUrls: ['./ball.component.sass'],
+  standalone: false,
 })
 export class BallComponent implements AfterViewInit, OnDestroy {
-  @ViewChild('canvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('canvas', { static: true })
+  canvasRef!: ElementRef<HTMLCanvasElement>;
 
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
@@ -31,7 +39,7 @@ export class BallComponent implements AfterViewInit, OnDestroy {
       }
       if (this.sphere.material) {
         if (Array.isArray(this.sphere.material)) {
-          this.sphere.material.forEach(material => material.dispose());
+          this.sphere.material.forEach((material) => material.dispose());
         } else {
           this.sphere.material.dispose();
         }
@@ -59,7 +67,11 @@ export class BallComponent implements AfterViewInit, OnDestroy {
     this.renderer.setSize(width, height);
 
     const geometry = new THREE.SphereGeometry(1, 64, 64);
-    const material = new THREE.MeshPhongMaterial({ color: 0x2194ce, shininess: 100, specular: 0x888888 });
+    const material = new THREE.MeshPhongMaterial({
+      color: 0x2194ce,
+      shininess: 100,
+      specular: 0x888888,
+    });
     this.sphere = new THREE.Mesh(geometry, material);
     this.scene.add(this.sphere);
 
@@ -81,8 +93,10 @@ export class BallComponent implements AfterViewInit, OnDestroy {
     // swirling motion with slight jitter
     this.sphere.position.set(
       Math.sin(t * 0.8) * 1.5 + (Math.random() - 0.5) * 0.02,
-      Math.sin(t * 1.2) * 1 + Math.sin(t * 0.5) * 0.5 + (Math.random() - 0.5) * 0.02,
-      Math.cos(t * 0.8) * 1.5 + (Math.random() - 0.5) * 0.02
+      Math.sin(t * 1.2) * 1 +
+        Math.sin(t * 0.5) * 0.5 +
+        (Math.random() - 0.5) * 0.02,
+      Math.cos(t * 0.8) * 1.5 + (Math.random() - 0.5) * 0.02,
     );
 
     this.sphere.rotation.x += 0.02;
