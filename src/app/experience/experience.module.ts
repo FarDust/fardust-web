@@ -6,18 +6,13 @@ import { ExperienceComponent } from './experience.component';
 import { ExperienceRoutingModule } from './experience-routing.module';
 import { ViewerComponent } from './viewer/viewer.component';
 
-
-
 @NgModule({
-  declarations: [
-    ExperienceComponent,
-    ViewerComponent
-  ],
+  declarations: [ExperienceComponent, ViewerComponent],
   imports: [
     CommonModule,
     ExperienceRoutingModule,
     PdfViewerModule,
-    TranslateModule
-  ]
+    TranslateModule,
+  ],
 })
-export class ExperienceModule { }
+export class ExperienceModule {}
