@@ -54,13 +54,19 @@ npm run deploy      # Deploy to Firebase
 ### Personal section
 
 Set `personalInfoUrl` in `src/environments/environment.ts` to the Cloud Run
-endpoint that returns your private bio. The personal section shows a short
-public summary by default and automatically fetches additional details when a
-valid token is available. The token will be sent as a `token` query parameter
-(e.g. `?token=YOUR_TOKEN`) and persisted in a `personal_token` cookie so you
-don't have to re-enter it.
+endpoint that returns your private bio. If `personalInfoUrl` is left blank, the
+private notes feature stays disabled and no request is made from the landing
+page.
+
+The personal section shows a short public summary by default and can fetch
+additional details when a valid token is available. The frontend sends the
+token in an `Authorization: Bearer <token>` header and persists it in a
+`personal_token` cookie so you don't have to re-enter it.
+
+> **Security note:** Treat this token as sensitive. Prefer HTTPS, keep tokens
+> short-lived, and use cookie attributes such as `Secure` and `SameSite=Strict`
+> when persisting it client-side.
 
 ## 📚 Learn More
 
 Check the source code for examples of Angular modules, components and RxJS usage. Feel free to explore the project and modify it to suit your own portfolio! 💻
-
