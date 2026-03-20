@@ -123,8 +123,8 @@
                   <a
                     routerLink="/ball"
                     class="block bg-[#343a40] hover:bg-[#2f5460] text-white px-4 py-2 rounded"
-                    aria-label="WebGL Ball Demo"
-                    >🟢 WebGL Ball Demo</a
+                    [attr.aria-label]="'webgl_ball_demo' | translate"
+                    >🟢 {{ 'webgl_ball_demo' | translate }}</a
                   >
                 </li>
               </ul>

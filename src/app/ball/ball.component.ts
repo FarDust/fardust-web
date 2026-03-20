@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   OnDestroy,
@@ -17,35 +18,42 @@ export class BallComponent implements AfterViewInit, OnDestroy {
   @ViewChild('canvas', { static: true })
   canvasRef!: ElementRef<HTMLCanvasElement>;
 
-  private renderer!: THREE.WebGLRenderer;
-  private scene!: THREE.Scene;
-  private camera!: THREE.PerspectiveCamera;
-  private sphere!: THREE.Mesh;
+  renderError = false;
+
+  private renderer?: THREE.WebGLRenderer;
+  private scene?: THREE.Scene;
+  private camera?: THREE.PerspectiveCamera;
+  private sphere?: THREE.Mesh;
   private animationId?: number;
   private clock = new THREE.Clock();
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngAfterViewInit(): void {
-    this.initScene();
-    this.animate();
+    try {
+      this.initScene();
+      this.animate();
+    } catch {
+      this.renderError = true;
+      this.cdr.detectChanges();
+    }
   }
 
   ngOnDestroy(): void {
     if (this.animationId) {
       cancelAnimationFrame(this.animationId);
     }
-    if (this.sphere) {
-      if (this.sphere.geometry) {
-        this.sphere.geometry.dispose();
-      }
-      if (this.sphere.material) {
-        if (Array.isArray(this.sphere.material)) {
-          this.sphere.material.forEach((material) => material.dispose());
-        } else {
-          this.sphere.material.dispose();
-        }
-      }
-      this.sphere = null!;
+    if (this.sphere?.geometry) {
+      this.sphere.geometry.dispose();
     }
+    if (this.sphere?.material) {
+      if (Array.isArray(this.sphere.material)) {
+        this.sphere.material.forEach((material) => material.dispose());
+      } else {
+        this.sphere.material.dispose();
+      }
+    }
+    this.sphere = undefined;
     if (this.renderer) {
       this.renderer.dispose();
     }
@@ -86,6 +94,10 @@ export class BallComponent implements AfterViewInit, OnDestroy {
   }
 
   private animate = (): void => {
+    if (!this.renderer || !this.camera || !this.sphere) {
+      return;
+    }
+
     this.animationId = requestAnimationFrame(this.animate);
 
     const t = this.clock.getElapsedTime();
@@ -106,6 +118,10 @@ export class BallComponent implements AfterViewInit, OnDestroy {
   };
 
   private onWindowResize = (): void => {
+    if (!this.camera || !this.renderer) {
+      return;
+    }
+
     const canvas = this.canvasRef.nativeElement;
     const width = canvas.clientWidth;
     const height = canvas.clientHeight;

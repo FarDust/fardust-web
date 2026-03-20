@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 export interface PrivateInfo {
@@ -8,13 +8,38 @@ export interface PrivateInfo {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PersonalInfoService {
   constructor(private http: HttpClient) {}
 
+  isConfigured(): boolean {
+    return this.resolveUrl() !== null;
+  }
+
   getPersonalInfo(token: string): Observable<PrivateInfo> {
-    const params = new HttpParams().set('token', token);
-    return this.http.get<PrivateInfo>(environment.personalInfoUrl, { params });
+    const resolvedUrl = this.resolveUrl();
+    if (!resolvedUrl) {
+      return throwError(() => new Error('Personal info URL is not configured'));
+    }
+
+    return this.http.get<PrivateInfo>(resolvedUrl, {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`,
+      }),
+    });
+  }
+
+  private resolveUrl(): string | null {
+    const rawUrl = environment.personalInfoUrl?.trim();
+    if (!rawUrl) {
+      return null;
+    }
+
+    try {
+      return new URL(rawUrl, window.location.origin).toString();
+    } catch {
+      return null;
+    }
   }
 }
