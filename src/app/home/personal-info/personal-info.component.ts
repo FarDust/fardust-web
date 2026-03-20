@@ -54,7 +54,8 @@ export class PersonalInfoComponent implements OnInit {
     this.token = '';
     this.errorKey = '';
     this.personal$ = undefined;
-    document.cookie = `${TOKEN_COOKIE}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict`;
+    const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `${TOKEN_COOKIE}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict${secure}`;
   }
 
   load(): void {

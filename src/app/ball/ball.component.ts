@@ -94,7 +94,7 @@ export class BallComponent implements AfterViewInit, OnDestroy {
   }
 
   private animate = (): void => {
-    if (!this.renderer || !this.camera || !this.sphere) {
+    if (!this.renderer || !this.scene || !this.camera || !this.sphere) {
       return;
     }
 

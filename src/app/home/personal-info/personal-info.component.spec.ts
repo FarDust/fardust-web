@@ -11,8 +11,8 @@ describe('PersonalInfoComponent', () => {
   let personalInfoService: jasmine.SpyObj<PersonalInfoService>;
 
   const clearTokenCookie = () => {
-    document.cookie =
-      'personal_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict';
+    const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `personal_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict${secure}`;
   };
 
   beforeEach(async () => {

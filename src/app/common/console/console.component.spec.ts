@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { CountryService } from '../../services/country.service';
 
 import { ConsoleComponent } from './console.component';
@@ -10,13 +10,18 @@ describe('ConsoleComponent', () => {
   let fixture: ComponentFixture<ConsoleComponent>;
 
   let checkIPSpy: jasmine.Spy;
-  let countryServiceStub: CountryService;
+  let countryServiceStub: {
+    checkIP: jasmine.Spy;
+    subscribe: typeof Observable.prototype.subscribe;
+  };
 
   beforeEach(async () => {
     checkIPSpy = jasmine.createSpy('checkIP');
-    countryServiceStub = Object.assign(of({ ip: '', country: 'US' }), {
+    const countryResult$ = of({ ip: '', country: 'US' });
+    countryServiceStub = {
       checkIP: checkIPSpy,
-    }) as unknown as CountryService;
+      subscribe: countryResult$.subscribe.bind(countryResult$),
+    };
 
     await TestBed.configureTestingModule({
       declarations: [ConsoleComponent],
