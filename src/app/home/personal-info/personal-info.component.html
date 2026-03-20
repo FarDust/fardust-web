@@ -17,6 +17,9 @@
           [(ngModel)]="token"
           class="w-full rounded border border-white/20 bg-black/20 px-3 py-2 text-white placeholder:text-white/50"
           [placeholder]="'personal_info_token_placeholder' | translate"
+          autocomplete="off"
+          spellcheck="false"
+          autocapitalize="none"
         />
         <div class="flex flex-wrap gap-2">
           <button

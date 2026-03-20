@@ -33,7 +33,11 @@ export class BallComponent implements AfterViewInit, OnDestroy {
     try {
       this.initScene();
       this.animate();
-    } catch {
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      if (!/webgl/i.test(message)) {
+        console.error('Failed to initialize BallComponent 3D scene:', error);
+      }
       this.renderError = true;
       this.cdr.detectChanges();
     }
