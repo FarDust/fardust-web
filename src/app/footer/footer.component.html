@@ -1,41 +1,99 @@
 <!-- Footer -->
-<footer class="bg-gray-800 text-white">
-  <div class="max-w-screen-lg mx-auto px-4 py-6 md:flex md:items-center md:justify-between">
-    <div class="md:flex-1 text-center md:text-left">
-      <ul class="flex flex-wrap justify-center md:justify-start mb-2 space-x-2">
+<footer class="border-t border-white/10 bg-[#060e20] text-white">
+  <div
+    class="mx-auto flex max-w-screen-xl flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8"
+  >
+    <div class="space-y-4 text-center lg:text-left">
+      <div>
+        <p
+          class="font-mono text-[10px] uppercase tracking-[0.32em] text-[#81ecff]/70"
+        >
+          System Links
+        </p>
+        <p class="mt-2 max-w-xl text-sm text-slate-400">
+          Portfolio routes, source access, and direct contact endpoints for the
+          landing system.
+        </p>
+      </div>
+      <ul class="flex flex-wrap justify-center gap-2 lg:justify-start">
         <li>
-          <button class="curriculum-link underline" type="button" (click)="goToCurriculum()">Curriculum</button>
+          <button
+            class="curriculum-link rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-[#81ecff]/40 hover:bg-white/10"
+            type="button"
+            (click)="goToCurriculum()"
+          >
+            Curriculum
+          </button>
         </li>
-        <li>&sdot;</li>
         <li>
-          <a href="mailto:gnfaundez@uc.cl" class="underline">Email</a>
+          <a
+            href="mailto:gnfaundez@uc.cl"
+            class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-[#81ecff]/40 hover:bg-white/10"
+          >
+            Email
+          </a>
         </li>
-        <li>&sdot;</li>
         <li>
-          <a href="{{ (githubService$ | async)?.html_url }}/fardust-web" class="underline">Source</a>
+          <a
+            href="{{ (githubService$ | async)?.html_url }}/fardust-web"
+            class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-[#81ecff]/40 hover:bg-white/10"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Source
+          </a>
         </li>
       </ul>
-      <p class="text-gray-400 text-sm">&copy; Gabriel Faundez 2021.</p>
+      <p class="text-sm text-slate-500">&copy; Gabriel Faundez 2021.</p>
     </div>
-    <div class="mt-4 md:mt-0 md:flex-1 text-center md:text-right">
-      <ul class="flex justify-center md:justify-end space-x-3">
+    <div class="text-center lg:text-right">
+      <p
+        class="font-mono text-[10px] uppercase tracking-[0.32em] text-white/40"
+      >
+        Social Channels
+      </p>
+      <ul class="mt-4 flex justify-center gap-3 lg:justify-end">
         <li>
-          <a href="{{ (githubService$ | async)?.html_url }}" target="_blank" rel="noopener" aria-label="Github" class="text-white hover:text-gray-300">
+          <a
+            href="{{ (githubService$ | async)?.html_url }}"
+            target="_blank"
+            rel="noopener"
+            aria-label="Github"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
+          >
             <i class="fab fa-github fa-2x fa-fw"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin.com/in/gnfaundez/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-white hover:text-gray-300">
+          <a
+            href="https://www.linkedin.com/in/gnfaundez/"
+            target="_blank"
+            rel="noopener"
+            aria-label="LinkedIn"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
+          >
             <i class="fab fa-linkedin fa-2x fa-fw"></i>
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/gxfaundez" target="_blank" rel="noopener" aria-label="Twitter" class="text-white hover:text-gray-300">
+          <a
+            href="https://twitter.com/gxfaundez"
+            target="_blank"
+            rel="noopener"
+            aria-label="Twitter"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
+          >
             <i class="fab fa-twitter-square fa-2x fa-fw"></i>
           </a>
         </li>
         <li>
-          <a href="https://www.instagram.com/gabrielxfs/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white hover:text-gray-300">
+          <a
+            href="https://www.instagram.com/gabrielxfs/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
+          >
             <i class="fab fa-instagram fa-2x fa-fw"></i>
           </a>
         </li>

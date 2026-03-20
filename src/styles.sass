@@ -4,8 +4,7 @@
 @import "assets/vendor/fontawesome-free/css/all.min.css"
 @import "assets/vendor/simple-line-icons/css/simple-line-icons.css"
 
-@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap')
 
 @import "./theme/colors"
 
@@ -19,40 +18,47 @@ a
   text-decoration: none
 
 body
-  font-family: 'Noto Sans', sans-serif
+  font-family: 'Inter', sans-serif
+  background-color: #0b1326
+  color: #dae2fd
+
+h1, h2, h3, h4, h5, h6
+  font-family: 'Space Grotesk', sans-serif
 
   
 .floating-text
-  background-color: color.adjust($secondary, $alpha: -0.4)
-  padding: .5rem 2rem 1rem 1rem
-  border-radius: 0 .25rem
+  background: linear-gradient(180deg, rgba(19,27,46,0.92), rgba(11,19,38,0.92))
+  border: 1px solid rgba(173, 198, 255, 0.14)
+  box-shadow: 0 20px 60px rgba(6, 14, 32, 0.38)
+  padding: .75rem 1rem 1rem
+  border-radius: 1rem
 
 .console
   font-weight: 25
-  font-family:'Inconsolata', monospace
+  font-family:'JetBrains Mono', monospace
   text-align: left
 
 .console h6
   font-weight: 25
-  font-family: 'Inconsolata', monospace
+  font-family: 'JetBrains Mono', monospace
 
 .console-header
-  background-color:  color.adjust(#3F3F3F, $alpha: -0.2)
+  background: linear-gradient(90deg, rgba(173, 198, 255, 0.22), rgba(129, 236, 255, 0.1))
   width: 100%
-  height: 30px
-  border-radius: .125rem 0
+  height: 0.35rem
+  border-radius: 1rem 1rem 0 0
 
 .ingenieria-uc
   color: $engineer-uc-yellow
 
 .console-home
-  color: #5BCCCD
+  color: #81ecff
 
 .console-input
-  color: #43A145
+  color: #72fe88
 
 .console-command
-  color: #DEE002
+  color: #d8e2ff
 
 .shorcuts
   margin-top: 1rem
@@ -68,5 +74,5 @@ body
 
 
 .backdrop-blur
-  background: rgba(27,27,27,30%)
-  backdrop-filter: blur(1px)
+  background: rgba(6, 14, 32, 0.42)
+  backdrop-filter: blur(14px)

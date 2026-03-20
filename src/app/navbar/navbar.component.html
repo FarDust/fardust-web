@@ -1,28 +1,70 @@
 <!-- Navigation -->
-<nav class="bg-[#607d8b] text-white">
-  <div class="max-w-screen-lg mx-auto flex items-center justify-between p-4">
-    <a class="text-lg font-bold" href="/">{{ (githubService$ | async)?.name }}</a>
+<nav
+  class="sticky top-0 z-50 border-b border-white/10 bg-[#0b1326]/90 text-white backdrop-blur-xl"
+>
+  <div
+    class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8"
+  >
+    <div class="flex items-center gap-3">
+      <a
+        class="font-display text-sm font-bold tracking-[0.35em] text-[#adc6ff] sm:text-base"
+        href="/"
+      >
+        SOVEREIGN_CONSOLE
+      </a>
+      <div
+        class="hidden rounded-full border border-white/10 bg-[#131b2e]/80 px-3 py-1 sm:block"
+      >
+        <p
+          class="font-mono text-[10px] uppercase tracking-[0.3em] text-white/50"
+        >
+          Operator
+        </p>
+        <p class="text-sm font-semibold text-white">
+          {{ (githubService$ | async)?.name }}
+        </p>
+      </div>
+    </div>
     <button
-      class="md:hidden focus:outline-none"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#adc6ff] transition hover:border-[#81ecff]/50 hover:bg-white/10 md:hidden"
       type="button"
       aria-controls="mainNavbar"
       [attr.aria-expanded]="menuOpen"
       aria-label="Toggle navigation"
-      (click)="toggleMenu()">
+      (click)="toggleMenu()"
+    >
       <i class="fas fa-bars"></i>
     </button>
     <div
       id="mainNavbar"
-      class="md:flex md:items-center md:justify-end w-full md:w-auto"
+      class="w-full md:flex md:w-auto md:items-center md:justify-end"
       [class.hidden]="!menuOpen"
-      [class.block]="menuOpen">
-      <a
-        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#00796b] hover:bg-[#607d8b] text-white px-4 py-2 rounded"
-        href="{{ (githubService$ | async)?.html_url }}"
-        rel="noopener noreferrer"
-        target="_blank">
-        <i class="fab fa-github"></i> {{ (githubService$ | async)?.login }}
-      </a>
+      [class.block]="menuOpen"
+    >
+      <div
+        class="flex flex-col gap-3 border-t border-white/10 pt-3 md:flex-row md:items-center md:border-0 md:pt-0"
+      >
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-2"
+        >
+          <span
+            class="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.8)]"
+          ></span>
+          <span
+            class="font-mono text-[10px] uppercase tracking-[0.28em] text-emerald-100"
+          >
+            Build Stable
+          </span>
+        </div>
+        <a
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#81ecff] to-[#4b8eff] px-4 py-2 text-sm font-semibold text-[#001a41] shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5 hover:shadow-cyan-400/30"
+          href="{{ (githubService$ | async)?.html_url }}"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <i class="fab fa-github"></i> {{ (githubService$ | async)?.login }}
+        </a>
+      </div>
     </div>
   </div>
 </nav>
