@@ -1,0 +1,26 @@
+[
+  {
+    "name": "litellm-proxy",
+    "description": "Proxy on Cloud Run to a local LiteLLM instance via Tailscale",
+    "url": "https://github.com/FarDust/litellm-proxy",
+    "tags": ["ai", "cloud run"]
+  },
+  {
+    "name": "dungeonscape",
+    "description": "Small dungeon crawler built with Unity",
+    "url": "https://github.com/FarDust/dungeonscape",
+    "tags": ["unity", "game"]
+  },
+  {
+    "name": "terraform-infrastructure",
+    "description": "Federated GCP infrastructure using Terraform",
+    "url": "https://github.com/FarDust/terraform-infrastructure",
+    "tags": ["gcp", "terraform"]
+  },
+  {
+    "name": "spell-system",
+    "description": "Spell management system for Unity projects",
+    "url": "https://github.com/FarDust/SpellSystem",
+    "tags": ["unity", "tool"]
+  }
+]
