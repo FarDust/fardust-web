@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  githubUser: 'FarDust'
+  githubUser: 'FarDust',
+  personalInfoUrl: ''
 };
 
 /*

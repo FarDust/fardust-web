@@ -1,8 +1,12 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { GithubService } from '../services/github.service';
 
 import { NavbarComponent } from './navbar.component';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -10,13 +14,17 @@ describe('NavbarComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ],
-      imports: [HttpClientTestingModule],
+      declarations: [NavbarComponent],
+      imports: [],
       providers: [
-        { provide: GithubService, useValue: { subscribe: () => ({ unsubscribe() {} }) } }
-      ]
-    })
-    .compileComponents();
+        {
+          provide: GithubService,
+          useValue: { subscribe: () => ({ unsubscribe() {} }) },
+        },
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -27,5 +35,11 @@ describe('NavbarComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should toggle menu state', () => {
+    expect(component.menuOpen).toBeFalse();
+    component.toggleMenu();
+    expect(component.menuOpen).toBeTrue();
   });
 });
