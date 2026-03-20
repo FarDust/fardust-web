@@ -6,10 +6,10 @@ import { GithubService } from 'src/app/services/github.service';
 @Component({
   selector: 'app-info',
   templateUrl: './info.component.html',
-  styleUrls: ['./info.component.sass']
+  styleUrls: ['./info.component.sass'],
+  standalone: false,
 })
 export class InfoComponent implements OnInit {
-
   faUniversity = faUniversity;
 
   secretSequence: string[] = ['t', 'e', 'c', 'h'];
@@ -20,10 +20,13 @@ export class InfoComponent implements OnInit {
   starIndex = 0;
   starTrekEgg = false;
 
-  constructor(readonly githubService$: GithubService, readonly countryservice$: CountryService) { }
+  constructor(
+    readonly githubService$: GithubService,
+    readonly countryservice$: CountryService,
+  ) {}
 
   ngOnInit(): void {
-    this.countryservice$.checkIP('')
+    this.countryservice$.checkIP('');
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -49,5 +52,4 @@ export class InfoComponent implements OnInit {
       this.starIndex = 0;
     }
   }
-
 }
