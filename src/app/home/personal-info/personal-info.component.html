@@ -1,51 +1,67 @@
-<div class="personal-info my-4">
-  <p class="mb-4 whitespace-pre-line">
-    {{ 'personal_info_public_bio' | translate }}
-  </p>
-  @if (personalInfoEnabled) {
-    <details class="rounded border border-white/10 bg-black/10 p-4 text-left">
-      <summary class="cursor-pointer font-semibold">
-        {{ 'personal_info_toggle' | translate }}
-      </summary>
-      <div class="mt-3 space-y-3">
-        <label class="block text-sm font-medium" for="personal-token">
-          {{ 'personal_info_token_label' | translate }}
-        </label>
-        <input
-          id="personal-token"
-          type="password"
-          [(ngModel)]="token"
-          class="w-full rounded border border-white/20 bg-black/20 px-3 py-2 text-white placeholder:text-white/50"
-          [placeholder]="'personal_info_token_placeholder' | translate"
-          autocomplete="off"
-          spellcheck="false"
-          autocapitalize="none"
-        />
-        <div class="flex flex-wrap gap-2">
-          <button
-            type="button"
-            class="rounded bg-cyan-700 px-3 py-2 text-sm text-white hover:bg-cyan-600"
-            (click)="submitToken()"
-          >
-            {{ 'personal_info_load' | translate }}
-          </button>
-          @if (token) {
+<div class="personal-info my-8 flex justify-center">
+  <div
+    class="w-full rounded-xl bg-gradient-to-br from-gray-900/60 via-gray-800/70 to-black/70 p-8 shadow-2xl backdrop-blur-md space-y-6"
+  >
+    <img
+      src="assets/img/fardust.jpeg"
+      [alt]="'avatar_alt' | translate"
+      class="mx-auto h-24 w-24 rounded-full border-4 border-gray-700 shadow-md"
+    />
+    <div class="space-y-3 text-white">
+      <h2 class="text-center text-2xl font-semibold text-cyan-300">
+        {{ 'bio_title' | translate }}
+      </h2>
+      <p class="whitespace-pre-line text-justify leading-relaxed">
+        {{ 'personal_info_public_bio' | translate }}
+      </p>
+    </div>
+    @if (personalInfoEnabled) {
+      <details class="rounded border border-white/10 bg-black/10 p-4 text-left">
+        <summary class="cursor-pointer font-semibold">
+          {{ 'personal_info_toggle' | translate }}
+        </summary>
+        <div class="mt-3 space-y-3">
+          <label class="block text-sm font-medium" for="personal-token">
+            {{ 'personal_info_token_label' | translate }}
+          </label>
+          <input
+            id="personal-token"
+            type="password"
+            [(ngModel)]="token"
+            class="w-full rounded border border-white/20 bg-black/20 px-3 py-2 text-white placeholder:text-white/50"
+            [placeholder]="'personal_info_token_placeholder' | translate"
+            autocomplete="off"
+            spellcheck="false"
+            autocapitalize="none"
+          />
+          <div class="flex flex-wrap gap-2">
             <button
               type="button"
-              class="rounded border border-white/20 px-3 py-2 text-sm text-white hover:bg-white/10"
-              (click)="clearToken()"
+              class="rounded bg-cyan-700 px-3 py-2 text-sm text-white hover:bg-cyan-600"
+              (click)="submitToken()"
             >
-              {{ 'personal_info_clear' | translate }}
+              {{ 'personal_info_load' | translate }}
             </button>
-          }
+            @if (token) {
+              <button
+                type="button"
+                class="rounded border border-white/20 px-3 py-2 text-sm text-white hover:bg-white/10"
+                (click)="clearToken()"
+              >
+                {{ 'personal_info_clear' | translate }}
+              </button>
+            }
+          </div>
         </div>
+      </details>
+    }
+    @if (errorKey) {
+      <p class="mt-3 text-center text-red-300">{{ errorKey | translate }}</p>
+    }
+    @if (personal$ | async; as personal) {
+      <div class="whitespace-pre-line text-center text-sm opacity-80">
+        {{ personal.privateBio }}
       </div>
-    </details>
-  }
-  @if (errorKey) {
-    <p class="mt-3 text-red-300">{{ errorKey | translate }}</p>
-  }
-  @if (personal$ | async; as personal) {
-    <div class="mt-2 whitespace-pre-line">{{ personal.privateBio }}</div>
-  }
+    }
+  </div>
 </div>

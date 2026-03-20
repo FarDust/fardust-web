@@ -16,5 +16,7 @@
   "personal_info_token_placeholder": "Enter a token to load private notes",
   "personal_info_load": "Load private notes",
   "personal_info_clear": "Clear token",
-  "personal_info_load_failed": "Could not load personal info"
+  "personal_info_load_failed": "Could not load personal info",
+  "bio_title": "About me",
+  "avatar_alt": "Profile photo"
 }

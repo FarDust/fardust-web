@@ -16,5 +16,7 @@
   "personal_info_token_placeholder": "Ingresa un token para cargar notas privadas",
   "personal_info_load": "Cargar notas privadas",
   "personal_info_clear": "Borrar token",
-  "personal_info_load_failed": "No se pudo cargar la informaci\u00F3n personal"
+  "personal_info_load_failed": "No se pudo cargar la informaci\u00F3n personal",
+  "bio_title": "Sobre mí",
+  "avatar_alt": "Foto de perfil"
 }
