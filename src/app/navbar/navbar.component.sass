@@ -1,0 +1,187 @@
+.console-navbar
+  position: sticky
+  top: 0
+  z-index: 50
+  border-bottom: 1px solid rgba(45, 52, 73, 0.92)
+  background: rgba(11, 19, 38, 0.84)
+  color: #dae2fd
+  backdrop-filter: blur(16px)
+
+.console-navbar__inner
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: space-between
+  gap: 0.9rem
+  max-width: 96rem
+  margin: 0 auto
+  min-height: 3.9rem
+  padding: 0.75rem 1rem
+
+.console-navbar__cluster,
+.console-navbar__actions
+  display: flex
+  align-items: center
+  gap: 0.85rem
+
+.console-navbar__brand
+  display: grid
+  gap: 0.16rem
+  color: inherit
+
+.console-navbar__brand-mark
+  font-family: 'Inter Tight', sans-serif
+  font-size: 0.98rem
+  font-weight: 800
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--console-primary)
+
+.console-navbar__brand-context
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.56rem
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.58)
+
+.console-navbar__links
+  display: none
+  align-items: center
+  gap: 1.25rem
+  padding-left: 0.35rem
+
+.console-navbar__status
+  display: none
+  align-items: center
+  gap: 0.5rem
+  margin: 0
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.58rem
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  white-space: nowrap
+
+.console-navbar__status-label
+  color: rgba(193, 198, 215, 0.56)
+
+.console-navbar__status-value
+  color: var(--console-success)
+
+.console-navbar__github
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  gap: 0.5rem
+  min-height: 2.35rem
+  padding: 0 0.9rem
+  border: 1px solid rgba(45, 52, 73, 0.92)
+  border-radius: .125rem
+  background: rgba(19, 27, 46, 0.92)
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.68rem
+  font-weight: 700
+  letter-spacing: 0.12em
+  text-transform: uppercase
+  color: #dae2fd
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease
+
+.console-navbar__github:hover
+  border-color: rgba(173, 198, 255, 0.36)
+  background: rgba(26, 36, 61, 0.95)
+  color: #fff
+
+.console-navbar__toggle
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: 2.35rem
+  height: 2.35rem
+  border: 1px solid rgba(45, 52, 73, 0.92)
+  border-radius: .125rem
+  background: rgba(19, 27, 46, 0.9)
+  color: var(--console-primary)
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease
+
+.console-navbar__toggle:hover
+  border-color: rgba(173, 198, 255, 0.36)
+  background: rgba(26, 36, 61, 0.95)
+
+.console-navbar__mobile
+  width: 100%
+
+.console-navbar__mobile-links
+  display: grid
+  gap: 0.8rem
+  padding-top: 0.9rem
+  border-top: 1px solid rgba(45, 52, 73, 0.82)
+
+.console-navbar__mobile-status
+  margin: 0
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.58rem
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--console-success)
+
+.nav-link
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.64rem
+  font-weight: 700
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: rgba(218, 226, 253, 0.62)
+  transition: color 180ms ease
+
+.nav-link:hover
+  color: #fff
+
+.nav-link--active
+  color: #adc6ff
+  text-decoration: underline
+  text-decoration-thickness: 2px
+  text-underline-offset: 8px
+
+.mobile-nav-link
+  border: 1px solid #2d3449
+  border-radius: .125rem
+  background: rgba(19, 27, 46, 0.9)
+  padding: 0.5rem 1rem
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 11px
+  letter-spacing: 0.08em
+  text-transform: uppercase
+  color: rgba(255, 255, 255, 0.8)
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease
+
+.mobile-nav-link:hover
+  border-color: rgba(173, 198, 255, 0.4)
+  background: #1a243d
+  color: #fff
+
+.mobile-nav-link--active
+  border-color: rgba(173, 198, 255, 0.4)
+  color: #adc6ff
+
+@media (min-width: 640px)
+  .console-navbar__inner
+    padding-right: 1.5rem
+    padding-left: 1.5rem
+
+@media (min-width: 768px)
+  .console-navbar__links
+    display: flex
+
+  .console-navbar__toggle,
+  .console-navbar__mobile
+    display: none
+
+  .console-navbar__github
+    min-width: 8.6rem
+
+@media (min-width: 1024px)
+  .console-navbar__inner
+    padding-right: 2rem
+    padding-left: 2rem
+
+  .console-navbar__status
+    display: inline-flex

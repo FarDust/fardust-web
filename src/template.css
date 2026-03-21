@@ -4,10 +4,25 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-landing-page/blob/master/LICENSE)
  */
 
+:root {
+  --console-bg: #0b1326;
+  --console-surface-low: #0f172b;
+  --console-surface: #131b2e;
+  --console-surface-high: #162035;
+  --console-surface-highest: #1a243d;
+  --console-outline: #2d3449;
+  --console-text: #f8fafc;
+  --console-muted: #94a3b8;
+  --console-primary: #adc6ff;
+  --console-secondary: #e9b3ff;
+  --console-tertiary: #ffdd7c;
+  --console-success: #53e16f;
+}
+
 body {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: #0b1326;
-  color: #dae2fd;
+  background-color: var(--console-bg);
+  color: var(--console-text);
 }
 
 h1,
@@ -17,34 +32,25 @@ h4,
 h5,
 h6 {
   font-family:
-    'Space Grotesk', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    'Inter Tight', 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700;
 }
 
 header.masthead {
   position: relative;
-  padding-top: 4.5rem;
-  padding-bottom: 8rem;
+  padding-top: 0.75rem;
+  padding-bottom: 3rem;
 }
 
 .background {
-  background-color: #0b1326;
+  background-color: var(--console-bg);
   background-image:
     radial-gradient(
       circle at top right,
-      rgba(129, 236, 255, 0.18),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(233, 179, 255, 0.16),
+      rgba(173, 198, 255, 0.14),
       transparent 28%
     ),
-    linear-gradient(180deg, rgba(6, 14, 32, 0.68), rgba(6, 14, 32, 0.94)),
-    url('assets/img/space-2901400_1280.webp');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    linear-gradient(180deg, rgba(11, 19, 38, 0.9), rgba(11, 19, 38, 0.98));
   min-height: 100vh;
   isolation: isolate;
 }
@@ -54,17 +60,30 @@ header.masthead {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(173, 198, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(173, 198, 255, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(45, 52, 73, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 52, 73, 0.22) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.55), transparent 88%);
   pointer-events: none;
   z-index: 0;
 }
 
+.console-route {
+  position: relative;
+  min-height: calc(100vh - 2.5rem);
+}
+
+.console-route__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 4.75rem;
+}
+
 header.masthead .overlay {
   position: absolute;
-  background-color: #0b1326;
+  background-color: var(--console-bg);
   height: 100%;
   width: 100%;
   top: 0;
@@ -78,11 +97,24 @@ header.masthead h1 {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 8rem;
-    padding-bottom: 16rem;
+    padding-top: 1.25rem;
+    padding-bottom: 5rem;
   }
+
+  .console-route__inner {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
   header.masthead h1 {
     font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .console-route__inner {
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 }
 
@@ -138,7 +170,7 @@ header.masthead h1 {
 
 .call-to-action {
   position: relative;
-  background-color: #0b1326;
+  background-color: var(--console-bg);
   background: url('assets/img/bg-masthead.jpg') no-repeat center center;
   background-size: cover;
   padding-top: 7rem;
@@ -147,7 +179,7 @@ header.masthead h1 {
 
 .call-to-action .overlay {
   position: absolute;
-  background-color: #0b1326;
+  background-color: var(--console-bg);
   height: 100%;
   width: 100%;
   top: 0;

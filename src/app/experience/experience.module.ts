@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ExperienceComponent } from './experience.component';
 import { ExperienceRoutingModule } from './experience-routing.module';
 import { ViewerComponent } from './viewer/viewer.component';
+import { ConsoleLeftRailComponent } from '../home/info/console-left-rail.component';
 
 @NgModule({
   declarations: [ExperienceComponent, ViewerComponent],
@@ -13,6 +14,7 @@ import { ViewerComponent } from './viewer/viewer.component';
     ExperienceRoutingModule,
     PdfViewerModule,
     TranslateModule,
+    ConsoleLeftRailComponent,
   ],
 })
 export class ExperienceModule {}

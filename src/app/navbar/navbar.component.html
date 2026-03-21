@@ -1,69 +1,91 @@
-<!-- Navigation -->
-<nav
-  class="sticky top-0 z-50 border-b border-white/10 bg-[#0b1326]/90 text-white backdrop-blur-xl"
->
-  <div
-    class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8"
-  >
-    <div class="flex items-center gap-3">
+<nav class="console-navbar">
+  <div class="console-navbar__inner">
+    <div class="console-navbar__cluster">
       <a
-        class="font-display text-sm font-bold tracking-[0.35em] text-[#adc6ff] sm:text-base"
-        href="/"
+        class="console-navbar__brand"
+        [routerLink]="['/']"
+        fragment="console-core"
       >
-        SOVEREIGN_CONSOLE
+        <span class="console-navbar__brand-mark">G.FAUNDEZ</span>
+        <span class="console-navbar__brand-context">PROFILE_CONSOLE</span>
       </a>
-      <div
-        class="hidden rounded-full border border-white/10 bg-[#131b2e]/80 px-3 py-1 sm:block"
-      >
-        <p
-          class="font-mono text-[10px] uppercase tracking-[0.3em] text-white/50"
+
+      <div class="console-navbar__links" aria-label="Primary navigation">
+        <a
+          class="nav-link"
+          [class.nav-link--active]="isHomeRoute()"
+          [routerLink]="['/']"
+          fragment="console-core"
         >
-          Operator
-        </p>
-        <p class="text-sm font-semibold text-white">
-          {{ (githubService$ | async)?.name }}
-        </p>
+          Overview
+        </a>
+        <a
+          class="nav-link"
+          [class.nav-link--active]="isExperienceRoute()"
+          [routerLink]="['/experience']"
+        >
+          Experience
+        </a>
       </div>
     </div>
-    <button
-      class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[#adc6ff] transition hover:border-[#81ecff]/50 hover:bg-white/10 md:hidden"
-      type="button"
-      aria-controls="mainNavbar"
-      [attr.aria-expanded]="menuOpen"
-      aria-label="Toggle navigation"
-      (click)="toggleMenu()"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
+
+    <div class="console-navbar__actions">
+      <p class="console-navbar__status" aria-live="polite">
+        <span class="console-navbar__status-label">Context</span>
+        <span class="console-navbar__status-value">{{
+          currentContextLabel()
+        }}</span>
+      </p>
+
+      <a
+        class="console-navbar__github"
+        [href]="(githubService$ | async)?.html_url"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <i class="fab fa-github" aria-hidden="true"></i>
+        <span>{{ (githubService$ | async)?.login }}</span>
+      </a>
+
+      <button
+        class="console-navbar__toggle"
+        type="button"
+        aria-controls="mainNavbar"
+        [attr.aria-expanded]="menuOpen"
+        aria-label="Toggle navigation"
+        (click)="toggleMenu()"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
     <div
       id="mainNavbar"
-      class="w-full md:flex md:w-auto md:items-center md:justify-end"
+      class="console-navbar__mobile"
       [class.hidden]="!menuOpen"
       [class.block]="menuOpen"
     >
-      <div
-        class="flex flex-col gap-3 border-t border-white/10 pt-3 md:flex-row md:items-center md:border-0 md:pt-0"
-      >
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-2"
-        >
-          <span
-            class="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_12px_rgba(110,231,183,0.8)]"
-          ></span>
-          <span
-            class="font-mono text-[10px] uppercase tracking-[0.28em] text-emerald-100"
+      <div class="console-navbar__mobile-links">
+        <p class="console-navbar__mobile-status">{{ currentContextLabel() }}</p>
+        <div class="grid gap-2 md:hidden">
+          <a
+            class="mobile-nav-link"
+            [class.mobile-nav-link--active]="isHomeRoute()"
+            [routerLink]="['/']"
+            fragment="console-core"
+            (click)="closeMenu()"
           >
-            Build Stable
-          </span>
+            Overview
+          </a>
+          <a
+            class="mobile-nav-link"
+            [class.mobile-nav-link--active]="isExperienceRoute()"
+            [routerLink]="['/experience']"
+            (click)="closeMenu()"
+          >
+            Experience
+          </a>
         </div>
-        <a
-          class="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#81ecff] to-[#4b8eff] px-4 py-2 text-sm font-semibold text-[#001a41] shadow-lg shadow-cyan-500/20 transition hover:-translate-y-0.5 hover:shadow-cyan-400/30"
-          href="{{ (githubService$ | async)?.html_url }}"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <i class="fab fa-github"></i> {{ (githubService$ | async)?.login }}
-        </a>
       </div>
     </div>
   </div>

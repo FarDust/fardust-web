@@ -1,103 +1,32 @@
-<!-- Footer -->
-<footer class="border-t border-white/10 bg-[#060e20] text-white">
-  <div
-    class="mx-auto flex max-w-screen-xl flex-col gap-6 px-4 py-8 sm:px-6 lg:flex-row lg:items-start lg:justify-between lg:px-8"
-  >
-    <div class="space-y-4 text-center lg:text-left">
-      <div>
-        <p
-          class="font-mono text-[10px] uppercase tracking-[0.32em] text-[#81ecff]/70"
-        >
-          System Links
-        </p>
-        <p class="mt-2 max-w-xl text-sm text-slate-400">
-          Portfolio routes, source access, and direct contact endpoints for the
-          landing system.
-        </p>
-      </div>
-      <ul class="flex flex-wrap justify-center gap-2 lg:justify-start">
-        <li>
-          <button
-            class="curriculum-link rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-[#81ecff]/40 hover:bg-white/10"
-            type="button"
-            (click)="goToCurriculum()"
-          >
-            Curriculum
-          </button>
-        </li>
-        <li>
-          <a
-            href="mailto:gnfaundez@uc.cl"
-            class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-[#81ecff]/40 hover:bg-white/10"
-          >
-            Email
-          </a>
-        </li>
-        <li>
-          <a
-            href="{{ (githubService$ | async)?.html_url }}/fardust-web"
-            class="inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-[#81ecff]/40 hover:bg-white/10"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Source
-          </a>
-        </li>
-      </ul>
-      <p class="text-sm text-slate-500">&copy; Gabriel Faundez 2021.</p>
-    </div>
-    <div class="text-center lg:text-right">
-      <p
-        class="font-mono text-[10px] uppercase tracking-[0.32em] text-white/40"
+<footer class="console-footer">
+  <div class="console-footer__inner">
+    <p class="console-footer__status" aria-label="Profile summary">
+      <span>FOCUS: ML_ENGINEERING</span>
+      <span class="console-footer__divider" aria-hidden="true">|</span>
+      <span class="hidden sm:inline">STACK: PYTHON_TS_GCP</span>
+      <span class="console-footer__divider hidden sm:inline" aria-hidden="true"
+        >|</span
       >
-        Social Channels
-      </p>
-      <ul class="mt-4 flex justify-center gap-3 lg:justify-end">
-        <li>
-          <a
-            href="{{ (githubService$ | async)?.html_url }}"
-            target="_blank"
-            rel="noopener"
-            aria-label="Github"
-            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
-          >
-            <i class="fab fa-github fa-2x fa-fw"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/gnfaundez/"
-            target="_blank"
-            rel="noopener"
-            aria-label="LinkedIn"
-            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
-          >
-            <i class="fab fa-linkedin fa-2x fa-fw"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://twitter.com/gxfaundez"
-            target="_blank"
-            rel="noopener"
-            aria-label="Twitter"
-            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
-          >
-            <i class="fab fa-twitter-square fa-2x fa-fw"></i>
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.instagram.com/gabrielxfs/"
-            target="_blank"
-            rel="noopener"
-            aria-label="Instagram"
-            class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-[#81ecff]/40 hover:bg-white/10 hover:text-[#81ecff]"
-          >
-            <i class="fab fa-instagram fa-2x fa-fw"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
+      <span class="hidden lg:inline">LANG: ES_EN</span>
+      <span class="console-footer__divider hidden lg:inline" aria-hidden="true"
+        >|</span
+      >
+      <span class="hidden xl:inline">CV: 2026_01_30</span>
+    </p>
+
+    <nav class="console-footer__links" aria-label="Footer links">
+      <a
+        [href]="
+          ((githubService$ | async)?.html_url || 'https://github.com/FarDust') +
+          '/fardust-web'
+        "
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Source
+      </a>
+      <a routerLink="/experience">Curriculum</a>
+      <a href="mailto:gnfaundez@uc.cl">Contact</a>
+    </nav>
   </div>
 </footer>
