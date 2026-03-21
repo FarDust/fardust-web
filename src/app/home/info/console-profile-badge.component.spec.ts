@@ -44,4 +44,16 @@ describe('ConsoleProfileBadgeComponent', () => {
     );
     expect(status).toBeNull();
   });
+
+  it('should render a fallback label when the image is missing', () => {
+    fixture.componentRef.setInput('imageSrc', null);
+    fixture.componentRef.setInput('fallbackLabel', 'GF');
+    fixture.detectChanges();
+
+    const placeholder = fixture.debugElement.query(
+      By.css('.console-profile-badge__placeholder'),
+    );
+
+    expect(placeholder.nativeElement.textContent.trim()).toBe('GF');
+  });
 });

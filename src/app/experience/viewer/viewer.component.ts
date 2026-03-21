@@ -41,7 +41,7 @@ export class ViewerComponent {
   }
 
   nextPage(): void {
-    if (this.totalPages && this.page >= this.totalPages) {
+    if (!this.totalPages || this.page >= this.totalPages) {
       return;
     }
     this.page += 1;

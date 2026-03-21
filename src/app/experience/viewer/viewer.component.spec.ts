@@ -30,8 +30,11 @@ describe('ViewerComponent', () => {
   });
 
   it('should increment and decrement pages respecting limits', () => {
-    component.totalPages = 2;
     component.page = 1;
+    component.nextPage();
+    expect(component.page).toBe(1);
+
+    component.totalPages = 2;
     component.nextPage();
     expect(component.page).toBe(2);
     component.nextPage();

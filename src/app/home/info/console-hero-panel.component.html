@@ -3,8 +3,9 @@
 
   <div class="console-hero__profile">
     <app-console-profile-badge
-      [imageSrc]="github().avatar_url"
+      [imageSrc]="avatarSrc()"
       [imageAlt]="avatarAlt()"
+      [fallbackLabel]="displayInitials()"
     ></app-console-profile-badge>
 
     <div class="console-hero__copy">
@@ -31,7 +32,7 @@
           FETCH_CV.PDF
         </a>
         <a
-          [href]="github().html_url"
+          [href]="githubUrl()"
           target="_blank"
           rel="noopener noreferrer"
           class="console-hero__action"

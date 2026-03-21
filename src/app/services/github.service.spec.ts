@@ -26,19 +26,27 @@ describe('GithubService', () => {
     http = TestBed.inject(HttpTestingController);
   });
 
+  afterEach(() => {
+    http.verify();
+  });
+
+  const flushGithubUser = (login: string, name = '') => {
+    const req = http.expectOne(`https://api.github.com/users/${login}`);
+    req.flush({
+      login,
+      avatar_url: '',
+      url: '',
+      html_url: '',
+      name,
+    });
+  };
+
   it('should be created and load default user', (done) => {
     service.subscribe((user) => {
       expect(user.login).toBe('FarDust');
       done();
     });
-    const req = http.expectOne('https://api.github.com/users/FarDust');
-    req.flush({
-      login: 'FarDust',
-      avatar_url: '',
-      url: '',
-      html_url: '',
-      name: '',
-    });
+    flushGithubUser('FarDust');
   });
 
   it('should fetch given user', (done) => {
@@ -48,14 +56,8 @@ describe('GithubService', () => {
         done();
       }
     });
+    flushGithubUser('FarDust');
     service.checkUser('foo');
-    const req = http.expectOne('https://api.github.com/users/foo');
-    req.flush({
-      login: 'foo',
-      avatar_url: '',
-      url: '',
-      html_url: '',
-      name: 'Foo Bar',
-    });
+    flushGithubUser('foo', 'Foo Bar');
   });
 });

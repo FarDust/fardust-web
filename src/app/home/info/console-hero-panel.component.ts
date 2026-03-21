@@ -24,10 +24,24 @@ import { ConsoleProfileBadgeComponent } from './console-profile-badge.component'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConsoleHeroPanelComponent {
-  github = input.required<GithubUser>();
+  github = input<GithubUser | null>(null);
   metrics = input.required<ReadonlyArray<ConsoleMetric>>();
   specifications = input.required<ReadonlyArray<ConsoleSpecField>>();
 
-  displayName = computed(() => this.github().name || this.github().login);
+  displayName = computed(
+    () => this.github()?.name || this.github()?.login || 'Gabriel Faundez',
+  );
+  displayInitials = computed(() =>
+    this.displayName()
+      .split(/\s+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((chunk) => chunk[0]?.toUpperCase() ?? '')
+      .join(''),
+  );
   avatarAlt = computed(() => `${this.displayName()} GitHub avatar`);
+  avatarSrc = computed(() => this.github()?.avatar_url || null);
+  githubUrl = computed(
+    () => this.github()?.html_url || 'https://github.com/FarDust',
+  );
 }

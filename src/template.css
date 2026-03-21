@@ -170,8 +170,8 @@ header.masthead h1 {
 
 .call-to-action {
   position: relative;
-  background-color: var(--console-bg);
-  background: url('assets/img/bg-masthead.jpg') no-repeat center center;
+  background: var(--console-bg) url('assets/img/bg-masthead.jpg') no-repeat
+    center center;
   background-size: cover;
   padding-top: 7rem;
   padding-bottom: 7rem;

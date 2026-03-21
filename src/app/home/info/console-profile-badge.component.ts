@@ -11,8 +11,9 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   },
 })
 export class ConsoleProfileBadgeComponent {
-  imageSrc = input.required<string>();
+  imageSrc = input<string | null>(null);
   imageAlt = input.required<string>();
+  fallbackLabel = input('GF');
   size = input<'hero' | 'compact'>('hero');
   showStatus = input(true);
 }

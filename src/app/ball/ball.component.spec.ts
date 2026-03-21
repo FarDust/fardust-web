@@ -40,4 +40,33 @@ describe('BallComponent', () => {
       fixture.nativeElement.querySelector('.ball-fallback'),
     ).not.toBeNull();
   });
+
+  it('should ignore resize events while the canvas has no measurable size', () => {
+    fixture = TestBed.createComponent(BallComponent);
+    component = fixture.componentInstance;
+
+    const updateProjectionMatrix = jasmine.createSpy('updateProjectionMatrix');
+    const setSize = jasmine.createSpy('setSize');
+    const dispose = jasmine.createSpy('dispose');
+
+    (component as any).camera = {
+      aspect: 2,
+      updateProjectionMatrix,
+    };
+    (component as any).renderer = { setSize, dispose };
+    component.canvasRef = {
+      nativeElement: {
+        clientWidth: 0,
+        clientHeight: 0,
+        width: 0,
+        height: 0,
+      },
+    } as any;
+
+    (component as any).onWindowResize();
+
+    expect((component as any).camera.aspect).toBe(2);
+    expect(updateProjectionMatrix).not.toHaveBeenCalled();
+    expect(setSize).not.toHaveBeenCalled();
+  });
 });

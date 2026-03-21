@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { provideRouter, RouterModule } from '@angular/router';
+import { provideRouter, Router, RouterModule } from '@angular/router';
 import { GithubService } from '../services/github.service';
 
 import { NavbarComponent } from './navbar.component';
@@ -12,6 +12,7 @@ import {
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
+  let router: Router;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -32,8 +33,16 @@ describe('NavbarComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
+
+  const setRouterUrl = (url: string) => {
+    Object.defineProperty(router, 'url', {
+      configurable: true,
+      get: () => url,
+    });
+  };
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -49,5 +58,21 @@ describe('NavbarComponent', () => {
     component.menuOpen = true;
     component.closeMenu();
     expect(component.menuOpen).toBeFalse();
+  });
+
+  it('should treat home fragments as the home route', () => {
+    setRouterUrl('/#console-core');
+
+    expect(component.isHomeRoute()).toBeTrue();
+    expect(component.currentContextLabel()).toBe('PROFILE_ACTIVE');
+  });
+
+  it('should only match the experience route and its children', () => {
+    setRouterUrl('/experience-archive');
+    expect(component.isExperienceRoute()).toBeFalse();
+
+    setRouterUrl('/experience/details');
+    expect(component.isExperienceRoute()).toBeTrue();
+    expect(component.currentContextLabel()).toBe('CURRICULUM_ACTIVE');
   });
 });

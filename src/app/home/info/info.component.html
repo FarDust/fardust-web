@@ -4,43 +4,41 @@
   ></div>
   <div class="relative z-10 animate-fade-in">
     <div class="console-route__inner text-white">
-      @if (githubService$ | async; as github) {
-        <section class="console-layout" id="console-core">
-          <app-console-left-rail
-            class="console-layout__rail"
-            [primaryItems]="railPrimaryItems"
-            [utilityItems]="railUtilityItems"
-            [focus]="currentFocus"
-          ></app-console-left-rail>
+      <section class="console-layout" id="console-core">
+        <app-console-left-rail
+          class="console-layout__rail"
+          [primaryItems]="railPrimaryItems"
+          [utilityItems]="railUtilityItems"
+          [focus]="currentFocus"
+        ></app-console-left-rail>
 
-          <div class="console-layout__body">
-            <div class="console-layout__main">
-              <app-console-hero-panel
-                [github]="github"
-                [metrics]="heroMetrics"
-                [specifications]="modelSpecifications"
-              ></app-console-hero-panel>
-
-              <app-console-pipeline-panel
-                [stages]="pipelineStages"
-              ></app-console-pipeline-panel>
-
-              <app-console-project-registry
-                id="console-projects"
-                [cards]="registryCards"
-                [modules]="supportModules"
-              ></app-console-project-registry>
-            </div>
-
-            <app-console-sidebar-panel
-              class="console-layout__sidebar"
+        <div class="console-layout__body">
+          <div class="console-layout__main">
+            <app-console-hero-panel
+              [github]="(githubService$ | async) ?? null"
+              [metrics]="heroMetrics"
               [specifications]="modelSpecifications"
-              [logs]="systemLogs"
-              [action]="primaryAction"
-            ></app-console-sidebar-panel>
+            ></app-console-hero-panel>
+
+            <app-console-pipeline-panel
+              [stages]="pipelineStages"
+            ></app-console-pipeline-panel>
+
+            <app-console-project-registry
+              id="console-projects"
+              [cards]="registryCards"
+              [modules]="supportModules"
+            ></app-console-project-registry>
           </div>
-        </section>
-      }
+
+          <app-console-sidebar-panel
+            class="console-layout__sidebar"
+            [specifications]="modelSpecifications"
+            [logs]="systemLogs"
+            [action]="primaryAction"
+          ></app-console-sidebar-panel>
+        </div>
+      </section>
     </div>
 
     @if (easterEgg) {

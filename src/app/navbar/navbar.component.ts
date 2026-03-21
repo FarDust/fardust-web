@@ -24,12 +24,17 @@ export class NavbarComponent {
     this.menuOpen = false;
   }
 
+  private currentPath(): string {
+    return this.router.url.split(/[?#]/, 1)[0] || '/';
+  }
+
   isHomeRoute(): boolean {
-    return this.router.url === '/' || this.router.url.startsWith('/?');
+    return this.currentPath() === '/';
   }
 
   isExperienceRoute(): boolean {
-    return this.router.url.startsWith('/experience');
+    const path = this.currentPath();
+    return path === '/experience' || path.startsWith('/experience/');
   }
 
   currentContextLabel(): string {

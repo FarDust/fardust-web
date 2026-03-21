@@ -26,31 +26,53 @@ describe('CountryService', () => {
     http = TestBed.inject(HttpTestingController);
   });
 
+  afterEach(() => {
+    http.verify();
+  });
+
+  const expectCountryRequest = (ip: string) =>
+    http.expectOne((request) => {
+      const url = new URL(request.urlWithParams);
+      const normalizedPath = url.pathname.replace(/^\/|\/$/g, '');
+
+      return (
+        url.origin === 'https://ipinfo.io' &&
+        normalizedPath === ip &&
+        url.searchParams.has('token')
+      );
+    });
+
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
   it('should fetch country info', (done) => {
     service.subscribe((value) => {
-      expect(value).toEqual({ ip: '1.1.1.1', country: 'US' });
-      done();
+      if (value.ip === '1.1.1.1') {
+        expect(value).toEqual({ ip: '1.1.1.1', country: 'US' });
+        done();
+      }
     });
+    expectCountryRequest('').flush({ ip: '', country: '??' });
     service.checkIP('1.1.1.1');
-    const req = http.expectOne(
-      'https://ipinfo.io/1.1.1.1?token=9351e0f5fa9e8c',
-    );
-    req.flush({ ip: '1.1.1.1', country: 'US' });
+    expectCountryRequest('1.1.1.1').flush({ ip: '1.1.1.1', country: 'US' });
   });
 
   it('should return default on error', (done) => {
+    let emissionCount = 0;
+
     service.subscribe((value) => {
-      expect(value).toEqual({ ip: '', country: '??' });
-      done();
+      emissionCount += 1;
+      if (emissionCount === 2) {
+        expect(value).toEqual({ ip: '', country: '??' });
+        done();
+      }
     });
+    expectCountryRequest('').flush({ ip: '', country: '??' });
     service.checkIP('2.2.2.2');
-    const req = http.expectOne(
-      'https://ipinfo.io/2.2.2.2?token=9351e0f5fa9e8c',
-    );
-    req.flush('err', { status: 500, statusText: 'Server Error' });
+    expectCountryRequest('2.2.2.2').flush('err', {
+      status: 500,
+      statusText: 'Server Error',
+    });
   });
 });
