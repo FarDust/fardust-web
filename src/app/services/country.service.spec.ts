@@ -9,6 +9,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 describe('CountryService', () => {
   let service: CountryService;
@@ -38,7 +39,7 @@ describe('CountryService', () => {
       return (
         url.origin === 'https://ipinfo.io' &&
         normalizedPath === ip &&
-        url.searchParams.has('token')
+        url.searchParams.get('token') === environment.ipInfoToken
       );
     });
 

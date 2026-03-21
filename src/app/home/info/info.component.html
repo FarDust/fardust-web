@@ -1,7 +1,4 @@
 <div class="background console-route relative">
-  <div
-    class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(173,198,255,0.14),transparent_28%),linear-gradient(180deg,rgba(11,19,38,0.9),rgba(11,19,38,0.98))]"
-  ></div>
   <div class="relative z-10 animate-fade-in">
     <div class="console-route__inner text-white">
       <section class="console-layout" id="console-core">
@@ -17,6 +14,7 @@
             <app-console-hero-panel
               [github]="(githubService$ | async) ?? null"
               [metrics]="heroMetrics"
+              [primaryAction]="primaryAction"
               [specifications]="modelSpecifications"
             ></app-console-hero-panel>
 

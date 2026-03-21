@@ -25,7 +25,10 @@
 
       <div class="console-hero__actions">
         <a
-          routerLink="/experience"
+          [href]="primaryActionHref()"
+          download="gabriel-faundez-cv.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           class="console-hero__action console-hero__action--primary"
         >
           <span class="material-symbols-outlined">download</span>
