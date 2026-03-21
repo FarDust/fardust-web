@@ -1,0 +1,63 @@
+<section class="console-hero animate-panel-rise">
+  <div class="console-hero__ref">REF_ID: G_F_0912</div>
+
+  <div class="console-hero__profile">
+    <app-console-profile-badge
+      [imageSrc]="github().avatar_url"
+      [imageAlt]="avatarAlt()"
+    ></app-console-profile-badge>
+
+    <div class="console-hero__copy">
+      <header>
+        <p class="console-hero__kicker">System User Active</p>
+        <h1 class="console-hero__title">{{ displayName() }}</h1>
+        <p class="console-hero__role">
+          SOFTWARE_ENGINEER // MACHINE_LEARNING_ENGINEER
+        </p>
+      </header>
+
+      <div class="console-hero__quote">
+        <p class="console-hero__quote-copy">
+          <span>&gt;</span> "{{ 'ai_passion' | translate }}"
+        </p>
+      </div>
+
+      <div class="console-hero__actions">
+        <a
+          routerLink="/experience"
+          class="console-hero__action console-hero__action--primary"
+        >
+          <span class="material-symbols-outlined">download</span>
+          FETCH_CV.PDF
+        </a>
+        <a
+          [href]="github().html_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="console-hero__action"
+        >
+          OPEN_GITHUB
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="console-hero__specs">
+    @for (field of specifications(); track field.label) {
+      <div class="console-hero__spec-line">
+        <span>{{ field.label }}</span>
+        <span>{{ field.value }}</span>
+      </div>
+    }
+  </div>
+
+  <div class="console-hero__metrics">
+    @for (metric of metrics(); track metric.label) {
+      <article class="console-hero__metric">
+        <p class="console-hero__metric-label">{{ metric.label }}</p>
+        <p class="console-hero__metric-value">{{ metric.value }}</p>
+        <p class="console-hero__metric-detail">{{ metric.detail }}</p>
+      </article>
+    }
+  </div>
+</section>

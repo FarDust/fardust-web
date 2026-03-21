@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideRouter, RouterModule } from '@angular/router';
 import { GithubService } from '../services/github.service';
 
 import { NavbarComponent } from './navbar.component';
@@ -15,12 +16,13 @@ describe('NavbarComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
-      imports: [],
+      imports: [RouterModule],
       providers: [
         {
           provide: GithubService,
           useValue: { subscribe: () => ({ unsubscribe() {} }) },
         },
+        provideRouter([]),
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClientTesting(),
       ],
@@ -41,5 +43,11 @@ describe('NavbarComponent', () => {
     expect(component.menuOpen).toBeFalse();
     component.toggleMenu();
     expect(component.menuOpen).toBeTrue();
+  });
+
+  it('should close the menu', () => {
+    component.menuOpen = true;
+    component.closeMenu();
+    expect(component.menuOpen).toBeFalse();
   });
 });

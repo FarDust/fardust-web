@@ -1,0 +1,35 @@
+<section class="console-pipelines animate-panel-rise">
+  <div class="console-pipelines__header">
+    <h2 class="console-pipelines__title">CORE_CAPABILITIES</h2>
+    <span class="console-pipelines__meta">SOURCE: CV_2026 + LIVE_SITE</span>
+  </div>
+
+  <div class="console-pipelines__grid">
+    @for (stage of stages(); track stage.label; let last = $last) {
+      <article class="console-pipelines__stage">
+        <div class="console-pipelines__stage-header">
+          <span class="console-pipelines__label">{{ stage.label }}</span>
+          <span
+            class="console-pipelines__state"
+            [ngClass]="stageToneClass(stage)"
+          >
+            {{ stage.emphasis }}
+          </span>
+        </div>
+        <div class="console-pipelines__track">
+          <div
+            class="console-pipelines__fill"
+            [style.width.%]="stage.progress"
+          ></div>
+        </div>
+        <p class="console-pipelines__detail">{{ stage.detail }}</p>
+      </article>
+
+      @if (!last) {
+        <div class="console-pipelines__arrow" aria-hidden="true">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      }
+    }
+  </div>
+</section>

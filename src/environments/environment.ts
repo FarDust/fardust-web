@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   githubUser: 'FarDust',
-  personalInfoUrl: ''
+  personalInfoUrl: '',
 };
 
 /*

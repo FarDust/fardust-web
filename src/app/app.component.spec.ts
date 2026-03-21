@@ -44,11 +44,11 @@ describe('AppComponent', () => {
     expect(translateService.use).toHaveBeenCalledWith('es');
   });
 
-  it('should position footer at the bottom on large screens', () => {
+  it('should reserve space for the fixed footer', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const footerEl: HTMLElement | null =
-      fixture.nativeElement.querySelector('app-footer');
-    expect(footerEl?.classList.contains('mt-auto')).toBeTrue();
+    const contentEl: HTMLElement | null =
+      fixture.nativeElement.querySelector('.flex-grow');
+    expect(contentEl?.classList.contains('pb-10')).toBeTrue();
   });
 });

@@ -5,19 +5,16 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ExperienceComponent } from './experience.component';
 import { ExperienceRoutingModule } from './experience-routing.module';
 import { ViewerComponent } from './viewer/viewer.component';
-
-
+import { ConsoleLeftRailComponent } from '../home/info/console-left-rail.component';
 
 @NgModule({
-  declarations: [
-    ExperienceComponent,
-    ViewerComponent
-  ],
+  declarations: [ExperienceComponent, ViewerComponent],
   imports: [
     CommonModule,
     ExperienceRoutingModule,
     PdfViewerModule,
-    TranslateModule
-  ]
+    TranslateModule,
+    ConsoleLeftRailComponent,
+  ],
 })
-export class ExperienceModule { }
+export class ExperienceModule {}

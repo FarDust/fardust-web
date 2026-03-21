@@ -1,0 +1,87 @@
+<section class="console-registry animate-panel-rise">
+  <div class="console-registry__header">
+    <h2 class="console-registry__title">SELECTED_WORK</h2>
+    <span class="console-registry__meta">LIVE_SITE_REFERENCES</span>
+  </div>
+
+  <div class="console-registry__grid">
+    @for (card of cards(); track card.title) {
+      @if (card.href) {
+        <a
+          [href]="card.href"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="console-registry__card"
+        >
+          <div class="console-registry__card-header">
+            <div class="console-registry__path">{{ card.eyebrow }}</div>
+          </div>
+          <h3 class="console-registry__card-title">{{ card.title }}</h3>
+          <p class="console-registry__card-copy">{{ card.description }}</p>
+
+          <div class="console-registry__stats">
+            @for (stat of card.meta; track stat.label) {
+              <div class="console-registry__stat-line">
+                <span>{{ stat.label }}</span>
+                <span>{{ stat.value }}</span>
+              </div>
+            }
+          </div>
+        </a>
+      } @else {
+        <a [routerLink]="card.routerLink" class="console-registry__card">
+          <div class="console-registry__card-header">
+            <div class="console-registry__path">{{ card.eyebrow }}</div>
+          </div>
+          <h3 class="console-registry__card-title">{{ card.title }}</h3>
+          <p class="console-registry__card-copy">{{ card.description }}</p>
+
+          <div class="console-registry__stats">
+            @for (stat of card.meta; track stat.label) {
+              <div class="console-registry__stat-line">
+                <span>{{ stat.label }}</span>
+                <span>{{ stat.value }}</span>
+              </div>
+            }
+          </div>
+        </a>
+      }
+    }
+
+    <div class="console-registry__placeholder">
+      <span class="material-symbols-outlined">add_circle</span>
+      <span>MORE_REFERENCES_ON_GITHUB</span>
+    </div>
+  </div>
+
+  <div class="console-registry__modules">
+    @for (item of modules(); track item.title) {
+      @if (item.href) {
+        <a
+          [href]="item.href"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="console-registry__module"
+        >
+          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <span>
+            <span class="console-registry__module-title">{{ item.title }}</span>
+            <span class="console-registry__module-copy">{{
+              item.description
+            }}</span>
+          </span>
+        </a>
+      } @else {
+        <a [routerLink]="item.routerLink" class="console-registry__module">
+          <span class="material-symbols-outlined">{{ item.icon }}</span>
+          <span>
+            <span class="console-registry__module-title">{{ item.title }}</span>
+            <span class="console-registry__module-copy">{{
+              item.description
+            }}</span>
+          </span>
+        </a>
+      }
+    }
+  </div>
+</section>

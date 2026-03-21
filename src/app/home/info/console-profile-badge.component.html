@@ -1,0 +1,15 @@
+<div class="console-profile-badge__shell">
+  <div class="console-profile-badge__ring">
+    <img
+      class="console-profile-badge__image"
+      [src]="imageSrc()"
+      [alt]="imageAlt()"
+    />
+  </div>
+
+  @if (showStatus()) {
+    <span class="console-profile-badge__status" aria-hidden="true">
+      <span class="console-profile-badge__status-ping"></span>
+    </span>
+  }
+</div>

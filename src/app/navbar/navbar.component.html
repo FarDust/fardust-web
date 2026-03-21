@@ -1,28 +1,92 @@
-<!-- Navigation -->
-<nav class="bg-[#343a40] text-white">
-  <div class="max-w-screen-lg mx-auto flex items-center justify-between p-4">
-    <a class="text-lg font-bold" href="/">{{ (githubService$ | async)?.name }}</a>
-    <button
-      class="md:hidden focus:outline-none"
-      type="button"
-      aria-controls="mainNavbar"
-      [attr.aria-expanded]="menuOpen"
-      aria-label="Toggle navigation"
-      (click)="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </button>
+<nav class="console-navbar">
+  <div class="console-navbar__inner">
+    <div class="console-navbar__cluster">
+      <a
+        class="console-navbar__brand"
+        [routerLink]="['/']"
+        fragment="console-core"
+      >
+        <span class="console-navbar__brand-mark">G.FAUNDEZ</span>
+        <span class="console-navbar__brand-context">PROFILE_CONSOLE</span>
+      </a>
+
+      <div class="console-navbar__links" aria-label="Primary navigation">
+        <a
+          class="nav-link"
+          [class.nav-link--active]="isHomeRoute()"
+          [routerLink]="['/']"
+          fragment="console-core"
+        >
+          Overview
+        </a>
+        <a
+          class="nav-link"
+          [class.nav-link--active]="isExperienceRoute()"
+          [routerLink]="['/experience']"
+        >
+          Experience
+        </a>
+      </div>
+    </div>
+
+    <div class="console-navbar__actions">
+      <p class="console-navbar__status" aria-live="polite">
+        <span class="console-navbar__status-label">Context</span>
+        <span class="console-navbar__status-value">{{
+          currentContextLabel()
+        }}</span>
+      </p>
+
+      <a
+        class="console-navbar__github"
+        [href]="(githubService$ | async)?.html_url"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <i class="fab fa-github" aria-hidden="true"></i>
+        <span>{{ (githubService$ | async)?.login }}</span>
+      </a>
+
+      <button
+        class="console-navbar__toggle"
+        type="button"
+        aria-controls="mainNavbar"
+        [attr.aria-expanded]="menuOpen"
+        aria-label="Toggle navigation"
+        (click)="toggleMenu()"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
     <div
       id="mainNavbar"
-      class="md:flex md:items-center md:justify-end w-full md:w-auto"
+      class="console-navbar__mobile"
       [class.hidden]="!menuOpen"
-      [class.block]="menuOpen">
-      <a
-        class="mt-2 md:mt-0 md:ml-4 inline-block bg-[#002b36] hover:bg-[#343a40] text-white px-4 py-2 rounded"
-        href="{{ (githubService$ | async)?.html_url }}"
-        rel="noopener noreferrer"
-        target="_blank">
-        <i class="fab fa-github"></i> {{ (githubService$ | async)?.login }}
-      </a>
+      [class.block]="menuOpen"
+    >
+      <div class="console-navbar__mobile-links">
+        <p class="console-navbar__mobile-status">{{ currentContextLabel() }}</p>
+        <div class="grid gap-2 md:hidden">
+          <a
+            class="mobile-nav-link"
+            [class.mobile-nav-link--active]="isHomeRoute()"
+            [routerLink]="['/']"
+            fragment="console-core"
+            (click)="closeMenu()"
+          >
+            Overview
+          </a>
+          <a
+            class="mobile-nav-link"
+            [class.mobile-nav-link--active]="isExperienceRoute()"
+            [routerLink]="['/experience']"
+            (click)="closeMenu()"
+          >
+            Experience
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
