@@ -1,0 +1,95 @@
+:host
+  --badge-size: 5.9rem
+  --badge-frame-offset: -0.35rem
+  display: block
+  width: var(--badge-size)
+  height: var(--badge-size)
+
+:host.console-profile-badge--compact
+  --badge-size: 4.6rem
+  --badge-frame-offset: -0.24rem
+
+.console-profile-badge__shell
+  position: relative
+  display: grid
+  place-items: center
+  width: 100%
+  height: 100%
+  padding: 0.26rem
+  border-radius: 999px
+  background: linear-gradient(180deg, rgba(19, 27, 46, 0.96), rgba(6, 14, 32, 0.94))
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05)
+
+.console-profile-badge__shell::before
+  content: ''
+  position: absolute
+  inset: var(--badge-frame-offset)
+  border: 1px solid rgba(65, 71, 85, 0.28)
+  border-radius: .5rem
+  pointer-events: none
+  z-index: 0
+
+.console-profile-badge__ring
+  position: relative
+  z-index: 1
+  width: 100%
+  height: 100%
+  padding: 0.18rem
+  border: 1px solid rgba(173, 198, 255, 0.22)
+  border-radius: 999px
+  background: rgba(6, 14, 32, 0.82)
+
+.console-profile-badge__image
+  width: 100%
+  height: 100%
+  object-fit: cover
+  border-radius: 999px
+  filter: saturate(0.9) contrast(1.03)
+
+.console-profile-badge__placeholder
+  display: grid
+  place-items: center
+  width: 100%
+  height: 100%
+  border-radius: 999px
+  font-family: 'Inter Tight', sans-serif
+  font-size: 1.15rem
+  font-weight: 700
+  letter-spacing: 0.08em
+  text-transform: uppercase
+  color: rgba(218, 226, 253, 0.92)
+  background: radial-gradient(circle at top, rgba(173, 198, 255, 0.18), rgba(11, 19, 38, 0.82))
+
+.console-profile-badge__status,
+.console-profile-badge__status-ping
+  position: absolute
+  width: 0.85rem
+  height: 0.85rem
+  border-radius: 999px
+  background: var(--console-success)
+
+.console-profile-badge__status
+  right: 0.05rem
+  bottom: 0.05rem
+  border: 2px solid var(--console-bg)
+  overflow: visible
+
+.console-profile-badge__status-ping
+  top: 50%
+  left: 50%
+  width: calc(100% + 4px)
+  height: calc(100% + 4px)
+  opacity: 0.5
+  pointer-events: none
+  animation: console-profile-badge-pulse 1.8s ease-out infinite
+
+@keyframes console-profile-badge-pulse
+  0%
+    transform: translate(-50%, -50%) scale(1)
+    opacity: 0.6
+  70%
+    transform: translate(-50%, -50%) scale(1.9)
+    opacity: 0
+  100%
+    transform: translate(-50%, -50%) scale(1.9)
+    opacity: 0

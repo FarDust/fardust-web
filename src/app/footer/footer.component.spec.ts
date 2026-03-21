@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { Router } from '@angular/router';
+import { By } from '@angular/platform-browser';
+import { provideRouter, RouterModule } from '@angular/router';
 import { GithubService } from '../services/github.service';
 
 import { FooterComponent } from './footer.component';
@@ -14,26 +15,22 @@ describe('FooterComponent', () => {
   let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async () => {
-    const navigateSpy = jasmine.createSpy('navigate');
     await TestBed.configureTestingModule({
       declarations: [FooterComponent],
-      imports: [],
+      imports: [RouterModule],
       providers: [
-        { provide: Router, useValue: { navigate: navigateSpy } },
         {
           provide: GithubService,
           useValue: { subscribe: () => ({ unsubscribe() {} }) },
         },
+        provideRouter([]),
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClientTesting(),
       ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);
-    component = fixture.componentInstance as FooterComponent & {
-      navigateSpy: jasmine.Spy;
-    };
-    (component as any).navigateSpy = navigateSpy;
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
@@ -41,9 +38,11 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should navigate to experience on curriculum click', () => {
-    component.goToCurriculum();
-    const spy = (component as any).navigateSpy as jasmine.Spy;
-    expect(spy).toHaveBeenCalledWith(['/experience']);
+  it('should render a curriculum router link', () => {
+    const curriculumLink = fixture.debugElement
+      .queryAll(By.css('.console-footer__links a'))
+      .find((link) => link.nativeElement.textContent.trim() === 'Curriculum');
+
+    expect(curriculumLink).toBeTruthy();
   });
 });

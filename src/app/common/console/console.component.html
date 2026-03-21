@@ -4,7 +4,6 @@
   class="container text-center lg:text-left floating-text console"
 >
   <h6>
-    <span class="console-home">~</span> via
     <span class="ingenieria-uc">
       <fa-icon [icon]="faUniversity"></fa-icon> {{ header }}
     </span>
@@ -12,18 +11,15 @@
   <p>
     @if ((countryservice$ | async)?.country === defaultCountry) {
       <span
-        ><span class="console-input">> </span>
-        <span class="console-command">Degree</span> in {{ degree }}<br
+        ><span class="console-command">Degree</span>: {{ degree }}<br
       /></span>
     }
-    <span class="console-input">> </span>
     @if ((countryservice$ | async)?.country === 'CL') {
-      <span class="console-command">Major</span> of {{ major }}
+      <span class="console-command">Major</span>: {{ major }}
     } @else {
-      <span class="console-command">Degree</span> in {{ major }}
+      <span class="console-command">Degree</span>: {{ degree }}
     }
     <br />
-    <span class="console-input">> </span>
-    <span class="console-command">Minor</span> in {{ minor }} <br />
+    <span class="console-command">Minor</span>: {{ minor }} <br />
   </p>
 </div>

@@ -1,45 +1,32 @@
-<!-- Footer -->
-<footer class="bg-gray-800 text-white">
-  <div class="max-w-screen-lg mx-auto px-4 py-6 md:flex md:items-center md:justify-between">
-    <div class="md:flex-1 text-center md:text-left">
-      <ul class="flex flex-wrap justify-center md:justify-start mb-2 space-x-2">
-        <li>
-          <button class="curriculum-link underline" type="button" (click)="goToCurriculum()">Curriculum</button>
-        </li>
-        <li>&sdot;</li>
-        <li>
-          <a href="mailto:gnfaundez@uc.cl" class="underline">Email</a>
-        </li>
-        <li>&sdot;</li>
-        <li>
-          <a href="{{ (githubService$ | async)?.html_url }}/fardust-web" class="underline">Source</a>
-        </li>
-      </ul>
-      <p class="text-gray-400 text-sm">&copy; Gabriel Faundez 2021.</p>
-    </div>
-    <div class="mt-4 md:mt-0 md:flex-1 text-center md:text-right">
-      <ul class="flex justify-center md:justify-end space-x-3">
-        <li>
-          <a href="{{ (githubService$ | async)?.html_url }}" target="_blank" rel="noopener" aria-label="Github" class="text-white hover:text-gray-300">
-            <i class="fab fa-github fa-2x fa-fw"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/gnfaundez/" target="_blank" rel="noopener" aria-label="LinkedIn" class="text-white hover:text-gray-300">
-            <i class="fab fa-linkedin fa-2x fa-fw"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://twitter.com/gxfaundez" target="_blank" rel="noopener" aria-label="Twitter" class="text-white hover:text-gray-300">
-            <i class="fab fa-twitter-square fa-2x fa-fw"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/gabrielxfs/" target="_blank" rel="noopener" aria-label="Instagram" class="text-white hover:text-gray-300">
-            <i class="fab fa-instagram fa-2x fa-fw"></i>
-          </a>
-        </li>
-      </ul>
-    </div>
+<footer class="console-footer">
+  <div class="console-footer__inner">
+    <p class="console-footer__status" aria-label="Profile summary">
+      <span>FOCUS: ML_ENGINEERING</span>
+      <span class="console-footer__divider" aria-hidden="true">|</span>
+      <span class="hidden sm:inline">STACK: PYTHON_TS_GCP</span>
+      <span class="console-footer__divider hidden sm:inline" aria-hidden="true"
+        >|</span
+      >
+      <span class="hidden lg:inline">LANG: ES_EN</span>
+      <span class="console-footer__divider hidden lg:inline" aria-hidden="true"
+        >|</span
+      >
+      <span class="hidden xl:inline">CV: 2026_01_30</span>
+    </p>
+
+    <nav class="console-footer__links" aria-label="Footer links">
+      <a
+        [href]="
+          ((githubService$ | async)?.html_url || 'https://github.com/FarDust') +
+          '/fardust-web'
+        "
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Source
+      </a>
+      <a routerLink="/experience">Curriculum</a>
+      <a href="mailto:gnfaundez@uc.cl">Contact</a>
+    </nav>
   </div>
 </footer>

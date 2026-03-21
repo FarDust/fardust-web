@@ -4,6 +4,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CountryService } from 'src/app/services/country.service';
 import { GithubService } from 'src/app/services/github.service';
+import { NEVER } from 'rxjs';
 
 import { InfoComponent } from './info.component';
 import {
@@ -30,7 +31,7 @@ describe('HeaderComponent', () => {
         },
         {
           provide: GithubService,
-          useValue: { subscribe: () => ({ unsubscribe() {} }) },
+          useValue: NEVER,
         },
         provideHttpClient(withInterceptorsFromDi()),
         provideHttpClientTesting(),
@@ -44,5 +45,11 @@ describe('HeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the console shell before GitHub data resolves', () => {
+    expect(
+      fixture.nativeElement.querySelector('.console-layout'),
+    ).not.toBeNull();
   });
 });

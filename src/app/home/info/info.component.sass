@@ -1,4 +1,4 @@
-ul.list-group  
+ul.list-group
   li
     list-style: none
     background-image: none
@@ -11,5 +11,33 @@ ul.list-group
   align-items: center
   flex-direction: column
 
+.console-layout
+  display: grid
+  gap: 1.5rem
+
+.console-layout__rail
+  display: none
+
+.console-layout__body,
+.console-layout__main,
+.console-layout__sidebar
+  display: grid
+  gap: 1.5rem
+
+@media (min-width: 1024px)
+  .console-layout
+    grid-template-columns: 14rem minmax(0, 1fr)
+    align-items: start
+
+  .console-layout__rail
+    display: block
+    align-self: stretch
+
+@media (min-width: 1280px)
+  .console-layout__body
+    grid-template-columns: minmax(0, 1.35fr) 22rem
+    align-items: start
+
 .easter-egg
   z-index: 50
+  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.3)

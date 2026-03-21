@@ -17,7 +17,7 @@ describe('ConsoleComponent', () => {
 
   beforeEach(async () => {
     checkIPSpy = jasmine.createSpy('checkIP');
-    const countryResult$ = of({ ip: '', country: 'US' });
+    const countryResult$ = of({ ip: '', country: 'CL' });
     countryServiceStub = {
       checkIP: checkIPSpy,
       subscribe: countryResult$.subscribe.bind(countryResult$),
@@ -50,10 +50,27 @@ describe('ConsoleComponent', () => {
     expect(checkIPSpy).toHaveBeenCalledWith('');
   });
 
-  it('should render the degree line without duplicating the major suffix', () => {
+  it('should render the education line without duplicating the major suffix', () => {
     const text = fixture.nativeElement.textContent.replace(/\s+/g, ' ');
 
-    expect(text).toContain('Degree in Software Engineering');
+    expect(text).toContain('Major: Software Engineering');
     expect(text).not.toContain('Software Engineeringing');
+  });
+
+  it('should render the degree label for non-CL locales', () => {
+    const countryResult$ = of({ ip: '', country: 'US' });
+    countryServiceStub.subscribe =
+      countryResult$.subscribe.bind(countryResult$);
+
+    fixture = TestBed.createComponent(ConsoleComponent);
+    component = fixture.componentInstance;
+    component.degree = 'B.Eng.';
+    component.major = 'Software Engineering';
+    component.minor = 'Computer Science';
+    fixture.detectChanges();
+
+    const text = fixture.nativeElement.textContent.replace(/\s+/g, ' ');
+    expect(text).toContain('Degree: B.Eng.');
+    expect(text).not.toContain('Degree: Software Engineering');
   });
 });

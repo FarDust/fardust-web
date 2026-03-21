@@ -1,0 +1,136 @@
+:host
+  display: block
+
+.console-sidebar
+  display: grid
+  gap: 1rem
+  align-content: start
+
+.console-sidebar__card
+  overflow: hidden
+  border: 1px solid rgba(65, 71, 85, 0.45)
+  border-radius: .25rem
+  background: rgba(19, 27, 46, 0.96)
+
+.console-sidebar__card-header
+  display: flex
+  align-items: center
+  justify-content: space-between
+  padding: 0.85rem 1rem
+  border-bottom: 1px solid rgba(65, 71, 85, 0.35)
+  background: rgba(34, 42, 61, 0.92)
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.64rem
+  font-weight: 700
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: var(--console-primary)
+
+.console-sidebar__card-header--split
+  color: rgba(193, 198, 215, 0.78)
+
+.console-sidebar__window-controls
+  display: flex
+  gap: 0.35rem
+
+.console-sidebar__window-controls span
+  display: block
+  width: 0.35rem
+  height: 0.35rem
+  border-radius: 999px
+
+.console-sidebar__window-controls span:first-child
+  background: rgba(255, 180, 171, 0.45)
+
+.console-sidebar__window-controls span:last-child
+  background: var(--console-success)
+
+.console-sidebar__card-body
+  padding: 1rem
+
+.console-sidebar__specs
+  display: grid
+  gap: 0.65rem
+
+.console-sidebar__spec-line
+  display: flex
+  justify-content: space-between
+  gap: 1rem
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.68rem
+  line-height: 1.5
+
+.console-sidebar__spec-line span:first-child
+  color: var(--console-success)
+  letter-spacing: 0.12em
+  text-transform: uppercase
+
+.console-sidebar__spec-line span:last-child
+  text-align: right
+  color: #dae2fd
+
+.console-sidebar__logs
+  min-height: 14rem
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.64rem
+  line-height: 1.7
+  color: rgba(193, 198, 215, 0.7)
+
+.console-sidebar__log-line
+  display: flex
+  gap: 0.45rem
+
+.console-sidebar__log-time
+  flex: none
+
+.console-sidebar__log-time--success
+  color: var(--console-success)
+
+.console-sidebar__log-time--primary
+  color: var(--console-primary)
+
+.console-sidebar__log-time--muted
+  color: rgba(193, 198, 215, 0.5)
+
+.console-sidebar__cursor
+  margin-top: 0.5rem
+  animation: pulse 1.4s ease-in-out infinite
+
+.console-sidebar__action
+  padding: 1rem
+  border: 1px solid rgba(173, 198, 255, 0.18)
+  border-radius: .25rem
+  background: rgba(173, 198, 255, 0.05)
+
+.console-sidebar__action-label
+  margin-bottom: 0.6rem
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.64rem
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: var(--console-primary)
+
+.console-sidebar__action-button
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: 100%
+  min-height: 3rem
+  border-radius: .125rem
+  background: var(--console-primary)
+  color: #002e69
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.75rem
+  font-weight: 700
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  transition: filter 180ms ease
+
+.console-sidebar__action-button:hover
+  filter: brightness(1.08)
+
+@keyframes pulse
+  0%, 100%
+    opacity: 0.3
+  50%
+    opacity: 1

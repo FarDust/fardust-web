@@ -1,0 +1,71 @@
+<aside class="console-sidebar animate-panel-rise">
+  <section class="console-sidebar__card">
+    <header class="console-sidebar__card-header">
+      <span>PROFILE_DETAILS</span>
+    </header>
+    <div class="console-sidebar__card-body console-sidebar__specs">
+      @for (field of specifications(); track field.label) {
+        <div class="console-sidebar__spec-line">
+          <span>{{ field.label }}</span>
+          <span>{{ field.value }}</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="console-sidebar__card">
+    <header
+      class="console-sidebar__card-header console-sidebar__card-header--split"
+    >
+      <span>EXPERIENCE_LOG</span>
+      <span class="console-sidebar__window-controls" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
+    </header>
+    <div class="console-sidebar__card-body console-sidebar__logs">
+      @for (entry of logs(); track entry.time + entry.message) {
+        <p class="console-sidebar__log-line">
+          <span
+            class="console-sidebar__log-time"
+            [ngClass]="logToneClass(entry.tone)"
+          >
+            {{ entry.time }}
+          </span>
+          <span>{{ entry.message }}</span>
+        </p>
+      }
+      <p class="console-sidebar__cursor">_</p>
+    </div>
+  </section>
+
+  <section class="console-sidebar__action">
+    <p class="console-sidebar__action-label">Primary_Action</p>
+    @if (action().href) {
+      <a
+        [href]="action().href"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="console-sidebar__action-button"
+      >
+        {{ action().label }}
+      </a>
+    } @else {
+      <a
+        [routerLink]="action().routerLink"
+        class="console-sidebar__action-button"
+      >
+        {{ action().label }}
+      </a>
+    }
+  </section>
+
+  <section class="console-sidebar__card">
+    <header class="console-sidebar__card-header">
+      <span>PERSONAL_NOTE</span>
+    </header>
+    <div class="console-sidebar__card-body">
+      <app-personal-info></app-personal-info>
+    </div>
+  </section>
+</aside>

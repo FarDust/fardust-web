@@ -10,11 +10,10 @@ describe('ViewerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewerComponent ],
+      declarations: [ViewerComponent],
       imports: [TranslateModule.forRoot()],
-      schemas: [NO_ERRORS_SCHEMA]
-    })
-    .compileComponents();
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ViewerComponent);
     component = fixture.componentInstance;
@@ -31,8 +30,11 @@ describe('ViewerComponent', () => {
   });
 
   it('should increment and decrement pages respecting limits', () => {
-    component.totalPages = 2;
     component.page = 1;
+    component.nextPage();
+    expect(component.page).toBe(1);
+
+    component.totalPages = 2;
     component.nextPage();
     expect(component.page).toBe(2);
     component.nextPage();

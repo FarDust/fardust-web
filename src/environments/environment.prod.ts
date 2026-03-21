@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
   githubUser: 'FarDust',
-  personalInfoUrl: ''
+  ipInfoToken: '9351e0f5fa9e8c',
+  personalInfoUrl: '',
 };

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { of, throwError } from 'rxjs';
 import { PersonalInfoComponent } from './personal-info.component';
@@ -26,8 +25,7 @@ describe('PersonalInfoComponent', () => {
     );
 
     await TestBed.configureTestingModule({
-      declarations: [PersonalInfoComponent],
-      imports: [FormsModule, TranslateModule.forRoot()],
+      imports: [PersonalInfoComponent, TranslateModule.forRoot()],
       providers: [
         { provide: PersonalInfoService, useValue: personalInfoService },
       ],
