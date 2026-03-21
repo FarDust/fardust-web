@@ -1,0 +1,101 @@
+:host
+  display: block
+
+.console-pipelines
+  display: grid
+  gap: 1rem
+  padding: 1.5rem
+  border: 1px solid rgba(65, 71, 85, 0.45)
+  border-radius: .25rem
+  background: rgba(19, 27, 46, 0.96)
+
+.console-pipelines__header
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  gap: 0.75rem
+  align-items: end
+
+.console-pipelines__title
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.78rem
+  font-weight: 700
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.78)
+
+.console-pipelines__meta,
+.console-pipelines__label,
+.console-pipelines__detail
+  font-family: 'JetBrains Mono', monospace
+
+.console-pipelines__meta
+  font-size: 0.66rem
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: var(--console-primary)
+
+.console-pipelines__grid
+  display: grid
+  gap: 1rem
+
+.console-pipelines__stage
+  display: grid
+  gap: 0.75rem
+
+.console-pipelines__stage-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  gap: 1rem
+
+.console-pipelines__label
+  font-size: 0.68rem
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.72)
+
+.console-pipelines__state
+  font-size: 0.64rem
+  font-weight: 700
+  letter-spacing: 0.12em
+  text-transform: uppercase
+
+.console-pipelines__state--success
+  color: var(--console-success)
+
+.console-pipelines__state--primary
+  color: var(--console-primary)
+
+.console-pipelines__state--muted
+  color: rgba(193, 198, 215, 0.72)
+
+.console-pipelines__track
+  height: 0.4rem
+  overflow: hidden
+  border-radius: .125rem
+  background: rgba(6, 14, 32, 0.95)
+
+.console-pipelines__fill
+  height: 100%
+  background: linear-gradient(90deg, var(--console-success), var(--console-primary))
+
+.console-pipelines__detail
+  font-size: 0.64rem
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.56)
+
+.console-pipelines__arrow
+  display: none
+  align-items: center
+  justify-content: center
+  color: rgba(193, 198, 215, 0.16)
+
+@media (min-width: 900px)
+  .console-pipelines__grid
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr)
+    align-items: center
+
+  .console-pipelines__arrow
+    display: flex

@@ -1,0 +1,155 @@
+:host
+  display: block
+
+.console-registry
+  display: grid
+  gap: 1rem
+  padding: 1.5rem
+  border: 1px solid rgba(65, 71, 85, 0.45)
+  border-radius: .25rem
+  background: rgba(19, 27, 46, 0.96)
+
+.console-registry__header
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  gap: 0.75rem
+  align-items: end
+
+.console-registry__title
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.78rem
+  font-weight: 700
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.78)
+
+.console-registry__meta,
+.console-registry__path,
+.console-registry__module-copy,
+.console-registry__stat-line
+  font-family: 'JetBrains Mono', monospace
+
+.console-registry__meta
+  font-size: 0.66rem
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: var(--console-success)
+
+.console-registry__grid
+  display: grid
+  gap: 1rem
+
+.console-registry__card,
+.console-registry__placeholder
+  display: grid
+  gap: 0.9rem
+  padding: 1.25rem
+  border: 1px solid transparent
+  border-radius: .25rem
+  background: rgba(23, 31, 51, 0.96)
+  transition: border-color 180ms ease, background-color 180ms ease
+
+.console-registry__card:hover,
+.console-registry__module:hover
+  border-color: rgba(173, 198, 255, 0.22)
+  background: rgba(34, 42, 61, 0.94)
+
+.console-registry__card-header
+  display: flex
+  justify-content: flex-start
+  align-items: start
+  gap: 1rem
+
+.console-registry__path
+  font-size: 0.64rem
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.5)
+
+.console-registry__card-title,
+.console-registry__module-title
+  font-family: 'Inter Tight', sans-serif
+  font-weight: 700
+  color: #dae2fd
+
+.console-registry__card-title
+  font-size: 1.15rem
+
+.console-registry__card-copy
+  font-size: 0.82rem
+  line-height: 1.55
+  color: rgba(193, 198, 215, 0.78)
+
+.console-registry__stats
+  display: grid
+  gap: 0.4rem
+  padding: 0.85rem
+  border-radius: .125rem
+  background: rgba(6, 14, 32, 0.95)
+
+.console-registry__stat-line
+  display: flex
+  justify-content: space-between
+  gap: 1rem
+  font-size: 0.62rem
+  letter-spacing: 0.08em
+
+.console-registry__stat-line span:first-child
+  color: rgba(193, 198, 215, 0.5)
+
+.console-registry__stat-line span:last-child
+  color: #dae2fd
+
+.console-registry__placeholder
+  place-items: center
+  align-content: center
+  min-height: 15rem
+  border-style: dashed
+  border-color: rgba(65, 71, 85, 0.45)
+  color: rgba(193, 198, 215, 0.32)
+
+.console-registry__placeholder .material-symbols-outlined
+  font-size: 2.4rem
+
+.console-registry__placeholder span:last-child
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.7rem
+  letter-spacing: 0.18em
+  text-transform: uppercase
+
+.console-registry__modules
+  display: grid
+  gap: 0.75rem
+
+.console-registry__module
+  display: flex
+  gap: 0.75rem
+  align-items: start
+  padding: 0.85rem
+  border: 1px solid rgba(65, 71, 85, 0.45)
+  border-radius: .25rem
+  background: rgba(6, 14, 32, 0.72)
+  transition: border-color 180ms ease, background-color 180ms ease
+
+.console-registry__module .material-symbols-outlined
+  color: var(--console-primary)
+
+.console-registry__module-title
+  display: block
+  font-size: 0.88rem
+
+.console-registry__module-copy
+  display: block
+  margin-top: 0.18rem
+  font-size: 0.64rem
+  letter-spacing: 0.08em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.58)
+
+@media (min-width: 900px)
+  .console-registry__grid
+    grid-template-columns: repeat(2, minmax(0, 1fr))
+
+  .console-registry__modules
+    grid-template-columns: repeat(2, minmax(0, 1fr))

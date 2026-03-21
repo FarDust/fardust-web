@@ -1,23 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConsoleModule } from '../common/console/console.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateModule } from '@ngx-translate/core';
-import { FormsModule } from '@angular/forms';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { HomeComponent } from './home.component';
 import { InfoComponent } from './info/info.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { ConsoleHeroPanelComponent } from './info/console-hero-panel.component';
+import { ConsoleLeftRailComponent } from './info/console-left-rail.component';
+import { ConsolePipelinePanelComponent } from './info/console-pipeline-panel.component';
+import { ConsoleProjectRegistryComponent } from './info/console-project-registry.component';
+import { ConsoleSidebarPanelComponent } from './info/console-sidebar-panel.component';
 
 @NgModule({
-  declarations: [HomeComponent, InfoComponent, PersonalInfoComponent],
+  declarations: [HomeComponent, InfoComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    ConsoleModule,
-    FontAwesomeModule,
-    TranslateModule,
-    FormsModule,
+    PersonalInfoComponent,
+    ConsoleHeroPanelComponent,
+    ConsoleLeftRailComponent,
+    ConsolePipelinePanelComponent,
+    ConsoleProjectRegistryComponent,
+    ConsoleSidebarPanelComponent,
   ],
 })
 export class HomeModule {}

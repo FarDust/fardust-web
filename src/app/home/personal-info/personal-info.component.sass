@@ -2,3 +2,84 @@
   max-width: none
   margin-left: auto
   margin-right: auto
+  margin-top: 0
+  margin-bottom: 0
+
+.personal-info__public,
+.personal-info__private
+  white-space: pre-line
+  font-size: 0.82rem
+  line-height: 1.65
+  color: rgba(193, 198, 215, 0.82)
+
+.personal-info__details,
+.personal-info__private
+  margin-top: 0.85rem
+  padding: 1rem
+  border: 1px solid rgba(65, 71, 85, 0.45)
+  border-radius: .25rem
+  background: rgba(6, 14, 32, 0.92)
+
+.personal-info__summary
+  cursor: pointer
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.72rem
+  font-weight: 700
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--console-primary)
+
+.personal-info__controls
+  display: grid
+  gap: 0.75rem
+  margin-top: 0.85rem
+
+.personal-info__label
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.68rem
+  letter-spacing: 0.08em
+  text-transform: uppercase
+  color: rgba(193, 198, 215, 0.72)
+
+.personal-info__input
+  width: 100%
+  min-height: 2.75rem
+  padding: 0 0.85rem
+  border: 1px solid rgba(65, 71, 85, 0.45)
+  border-radius: .125rem
+  background: rgba(19, 27, 46, 0.96)
+  color: #dae2fd
+
+.personal-info__input::placeholder
+  color: rgba(193, 198, 215, 0.4)
+
+.personal-info__actions
+  display: flex
+  flex-wrap: wrap
+  gap: 0.6rem
+
+.personal-info__button
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  min-height: 2.5rem
+  padding: 0 0.95rem
+  border: 1px solid rgba(65, 71, 85, 0.45)
+  border-radius: .125rem
+  background: rgba(19, 27, 46, 0.96)
+  color: #dae2fd
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.7rem
+  font-weight: 700
+  letter-spacing: 0.14em
+  text-transform: uppercase
+
+.personal-info__button--primary
+  border-color: transparent
+  background: linear-gradient(90deg, rgba(173, 198, 255, 0.98), #4b8eff)
+  color: #00285c
+
+.personal-info__error
+  margin-top: 0.75rem
+  font-size: 0.8rem
+  color: #ffb4ab

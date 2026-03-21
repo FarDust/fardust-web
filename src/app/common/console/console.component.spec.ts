@@ -50,10 +50,10 @@ describe('ConsoleComponent', () => {
     expect(checkIPSpy).toHaveBeenCalledWith('');
   });
 
-  it('should render the degree line without duplicating the major suffix', () => {
+  it('should render the education line without duplicating the major suffix', () => {
     const text = fixture.nativeElement.textContent.replace(/\s+/g, ' ');
 
-    expect(text).toContain('Degree in Software Engineering');
+    expect(text).toContain('Degree: Software Engineering');
     expect(text).not.toContain('Software Engineeringing');
   });
 });
