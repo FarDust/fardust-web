@@ -3,19 +3,31 @@
 
 name: Deploy to Firebase Hosting on PR
 'on': pull_request
+
+permissions:
+  checks: write
+  contents: read
+  pull-requests: write
+
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: 'npm'
+      - run: node scripts/privacy-scan-staged.mjs --all
       - run: npm ci
       - run: npm test -- --browsers ChromeHeadlessNoSandbox --watch=false
       - run: npm run lint
       - run: npm run build
+      - run: npm run lhci:collect
+      - run: npm run lhci:assert
+      - run: npm run lhci:upload
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

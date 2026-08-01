@@ -1,0 +1,14 @@
+node_modules
+dist
+tmp
+out-tsc
+coverage
+.angular
+build
+output
+.artifacts
+.codex
+.firecrawl
+.lighthouseci
+.sisyphus
+src/assets/vendor

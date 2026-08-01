@@ -8,12 +8,20 @@
     "test": "ng test",
     "test:dryrun": "npm run test -- --browsers ChromeHeadlessNoSandbox --watch=false",
     "lint": "ng lint",
+    "audit:visual": "node scripts/visual-audit.mjs",
     "fix": "ng lint --fix",
-    "e2e": "ng e2e",
+    "e2e": "playwright test",
     "deploy": "firebase deploy --only hosting:fardust",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "format:check:staged": "node scripts/format-check-staged.mjs"
+    "format:check:staged": "node scripts/format-check-staged.mjs",
+    "privacy:scan": "node scripts/privacy-scan-staged.mjs",
+    "lhci:collect": "lhci collect --config=.lighthouserc.cjs",
+    "lhci:assert": "lhci assert --config=.lighthouserc.cjs",
+    "lhci:check": "npm run build && npm run lhci:collect && npm run lhci:assert && npm run lhci:upload",
+    "precommit:verify": "npm run format:check:staged && npm run privacy:scan && npm run lint && npm run test:dryrun && npm run build && npm run lhci:collect && npm run lhci:assert && npm run lhci:upload",
+    "privacy:scan:ci": "node scripts/privacy-scan-staged.mjs --all",
+    "lhci:upload": "lhci upload --config=.lighthouserc.cjs"
   },
   "private": true,
   "dependencies": {
@@ -26,15 +34,16 @@
     "@angular/platform-browser-dynamic": "~21.2.5",
     "@angular/router": "~21.2.5",
     "@angular/service-worker": "~21.2.5",
+    "@chenglou/pretext": "^0.0.4",
     "@fortawesome/angular-fontawesome": "^4.0.0",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@huggingface/transformers": "^4.0.1",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "ng2-pdf-viewer": "^9.0.0",
-    "pre-commit": "^1.2.2",
     "rxjs": "~7.5.5",
     "three": "^0.152.2",
     "tslib": "^2.4.0",
@@ -50,6 +59,8 @@
     "@angular/cli": "~21.2.3",
     "@angular/compiler-cli": "~21.2.5",
     "@angular/language-service": "~21.2.5",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.59.1",
     "@types/jasmine": "~4.0.3",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^18.0.0",
@@ -66,14 +77,13 @@
     "karma-jasmine-html-reporter": "^2.0.0",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.0.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^3.5.3",
     "tailwindcss": "^3.2.7",
     "ts-node": "~10.8.0",
     "typescript": "~5.9.3"
   },
   "pre-commit": [
-    "fix",
-    "test:dryrun",
-    "format:check:staged"
+    "precommit:verify"
   ]
 }
