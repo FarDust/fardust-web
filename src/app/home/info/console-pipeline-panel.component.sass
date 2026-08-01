@@ -2,10 +2,11 @@
   display: block
 
 .console-pipelines
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1rem
   padding: 1.5rem
-  border: 1px solid rgba(65, 71, 85, 0.45)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .25rem
   background: rgba(19, 27, 46, 0.96)
 
@@ -36,26 +37,35 @@
   color: var(--console-primary)
 
 .console-pipelines__grid
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1rem
+  min-width: 0
 
 .console-pipelines__stage
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.75rem
+  min-width: 0
 
 .console-pipelines__stage-header
   display: flex
+  flex-wrap: wrap
   justify-content: space-between
-  align-items: center
+  align-items: flex-start
   gap: 1rem
+  min-width: 0
 
 .console-pipelines__label
+  min-width: 0
   font-size: 0.68rem
   letter-spacing: 0.14em
   text-transform: uppercase
   color: rgba(193, 198, 215, 0.72)
 
 .console-pipelines__state
+  min-width: 0
+  max-width: 100%
   font-size: 0.64rem
   font-weight: 700
   letter-spacing: 0.12em
@@ -85,6 +95,7 @@
   letter-spacing: 0.1em
   text-transform: uppercase
   color: rgba(193, 198, 215, 0.56)
+  overflow-wrap: anywhere
 
 .console-pipelines__arrow
   display: none
@@ -94,8 +105,21 @@
 
 @media (min-width: 900px)
   .console-pipelines__grid
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr)
+    flex-direction: row
     align-items: center
+
+  .console-pipelines__stage
+    flex: 1 1 0
 
   .console-pipelines__arrow
     display: flex
+    flex: none
+
+@media (max-width: 420px)
+  .console-pipelines
+    padding: 1.1rem
+
+  .console-pipelines__stage-header
+    flex-direction: column
+    align-items: stretch
+    gap: 0.55rem

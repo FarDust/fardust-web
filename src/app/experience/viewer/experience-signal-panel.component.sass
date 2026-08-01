@@ -1,0 +1,120 @@
+:host
+  display: block
+
+.experience-signal-panel__tabs
+  display: flex
+  gap: 0.45rem
+  margin-bottom: 0.8rem
+
+.experience-signal-panel__tab,
+.experience-signal-panel__button,
+.experience-signal-panel__result
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  min-height: 2.45rem
+  padding: 0 0.9rem
+  border: 1px solid rgba(96, 155, 255, 0.14)
+  border-radius: .2rem
+  background: rgba(6, 14, 32, 0.92)
+  color: #edf2ff
+
+.experience-signal-panel__tab
+  flex: 1 1 0
+  text-transform: uppercase
+
+.experience-signal-panel__tab--active
+  border-color: rgba(96, 155, 255, 0.42)
+  background: rgba(17, 29, 56, 0.96)
+
+.experience-signal-panel__stack
+  display: flex
+  flex-direction: column
+  gap: 1rem
+
+.experience-signal-panel__card
+  overflow: hidden
+  border: 1px solid rgba(70, 71, 82, 0.15)
+  border-radius: .25rem
+  background: rgba(19, 27, 46, 0.96)
+
+.experience-signal-panel__header
+  display: flex
+  align-items: center
+  min-height: 2.8rem
+  padding: 0 1rem
+  border-bottom: 1px solid rgba(70, 71, 82, 0.12)
+  background: rgba(34, 42, 61, 0.92)
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.64rem
+  font-weight: 700
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: var(--console-primary)
+
+.experience-signal-panel__body
+  display: flex
+  flex-direction: column
+  gap: 0.7rem
+  padding: 1rem
+
+.experience-signal-panel__line
+  display: flex
+  justify-content: space-between
+  gap: 0.8rem
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.68rem
+  line-height: 1.55
+  text-transform: uppercase
+
+.experience-signal-panel__search
+  display: flex
+  flex-direction: column
+  gap: 0.45rem
+
+.experience-signal-panel__search-label,
+.experience-signal-panel__status,
+.experience-signal-panel__empty
+  margin: 0
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.72rem
+  line-height: 1.6
+  color: rgba(225, 232, 255, 0.8)
+
+.experience-signal-panel__search-input
+  min-height: 2.8rem
+  padding: 0 0.85rem
+  border: 1px solid rgba(96, 155, 255, 0.18)
+  border-radius: .25rem
+  background: rgba(6, 14, 32, 0.82)
+  color: #edf2ff
+  font: inherit
+
+.experience-signal-panel__results
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+
+.experience-signal-panel__result
+  align-items: start
+  flex-direction: column
+  gap: 0.25rem
+  width: 100%
+  padding: 0.8rem
+  text-align: left
+
+.experience-signal-panel__actions
+  display: flex
+  flex-wrap: wrap
+  gap: 0.6rem
+
+@media (min-width: 768px)
+  .experience-signal-panel__tabs
+    display: none
+
+  .experience-signal-panel__card--hidden
+    display: block
+
+@media (max-width: 767px)
+  .experience-signal-panel__card--hidden
+    display: none

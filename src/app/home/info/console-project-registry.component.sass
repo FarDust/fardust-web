@@ -2,10 +2,11 @@
   display: block
 
 .console-registry
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1rem
   padding: 1.5rem
-  border: 1px solid rgba(65, 71, 85, 0.45)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .25rem
   background: rgba(19, 27, 46, 0.96)
 
@@ -37,21 +38,25 @@
   color: var(--console-success)
 
 .console-registry__grid
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1rem
 
 .console-registry__card,
 .console-registry__placeholder
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.9rem
   padding: 1.25rem
-  border: 1px solid transparent
+  border: none
   border-radius: .25rem
   background: rgba(23, 31, 51, 0.96)
   transition: border-color 180ms ease, background-color 180ms ease
 
 .console-registry__card:hover,
-.console-registry__module:hover
+.console-registry__card:focus-visible,
+.console-registry__module:hover,
+.console-registry__module:focus-visible
   border-color: rgba(173, 198, 255, 0.22)
   background: rgba(34, 42, 61, 0.94)
 
@@ -82,7 +87,8 @@
   color: rgba(193, 198, 215, 0.78)
 
 .console-registry__stats
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.4rem
   padding: 0.85rem
   border-radius: .125rem
@@ -95,19 +101,20 @@
   font-size: 0.62rem
   letter-spacing: 0.08em
 
-.console-registry__stat-line span:first-child
+.console-registry__stat-key
   color: rgba(193, 198, 215, 0.5)
 
-.console-registry__stat-line span:last-child
+.console-registry__stat-value
   color: #dae2fd
 
 .console-registry__placeholder
-  place-items: center
-  align-content: center
+  align-items: center
+  justify-content: center
   min-height: 15rem
   border-style: dashed
   border-color: rgba(65, 71, 85, 0.45)
   color: rgba(193, 198, 215, 0.32)
+  text-align: center
 
 .console-registry__placeholder .material-symbols-outlined
   font-size: 2.4rem
@@ -119,7 +126,8 @@
   text-transform: uppercase
 
 .console-registry__modules
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.75rem
 
 .console-registry__module
@@ -127,7 +135,7 @@
   gap: 0.75rem
   align-items: start
   padding: 0.85rem
-  border: 1px solid rgba(65, 71, 85, 0.45)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .25rem
   background: rgba(6, 14, 32, 0.72)
   transition: border-color 180ms ease, background-color 180ms ease
@@ -147,9 +155,32 @@
   text-transform: uppercase
   color: rgba(193, 198, 215, 0.58)
 
+@media (max-width: 767px)
+  .console-registry
+    padding: 1.15rem
+
+  .console-registry__placeholder
+    flex-direction: row
+    justify-content: flex-start
+    min-height: 7rem
+    padding: 1rem
+    text-align: left
+
+  .console-registry__placeholder .material-symbols-outlined
+    font-size: 1.6rem
+
 @media (min-width: 900px)
   .console-registry__grid
-    grid-template-columns: repeat(2, minmax(0, 1fr))
+    flex-direction: row
+    flex-wrap: wrap
+
+  .console-registry__card,
+  .console-registry__placeholder
+    flex: 1 1 calc(50% - 0.5rem)
 
   .console-registry__modules
-    grid-template-columns: repeat(2, minmax(0, 1fr))
+    flex-direction: row
+    flex-wrap: wrap
+
+  .console-registry__module
+    flex: 1 1 calc(50% - 0.375rem)

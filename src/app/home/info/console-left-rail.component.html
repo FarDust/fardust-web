@@ -1,8 +1,17 @@
 <nav class="console-rail animate-panel-rise" aria-label="Landing navigation">
   <div class="console-rail__identity">
-    <p class="console-rail__eyebrow">Profile console</p>
-    <h2 class="console-rail__title">G_FAUNDEZ</h2>
-    <p class="console-rail__path">~/fardust-web/home</p>
+    <p class="console-rail__eyebrow">
+      <app-pretext-text
+        [text]="'Profile console'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </p>
+    <h2 class="console-rail__title">
+      <app-pretext-text [text]="'G_FAUNDEZ'" [noWrap]="true"></app-pretext-text>
+    </h2>
+    <p class="console-rail__path">
+      <app-pretext-text [text]="path()" [noWrap]="true"></app-pretext-text>
+    </p>
   </div>
 
   <div class="console-rail__group">
@@ -18,7 +27,10 @@
           <span class="material-symbols-outlined" aria-hidden="true">{{
             item.icon
           }}</span>
-          <span>{{ item.label }}</span>
+          <app-pretext-text
+            [text]="item.label"
+            [noWrap]="true"
+          ></app-pretext-text>
         </a>
       } @else {
         <a
@@ -30,15 +42,25 @@
           <span class="material-symbols-outlined" aria-hidden="true">{{
             item.icon
           }}</span>
-          <span>{{ item.label }}</span>
+          <app-pretext-text
+            [text]="item.label"
+            [noWrap]="true"
+          ></app-pretext-text>
         </a>
       }
     }
   </div>
 
   <section class="console-rail__focus">
-    <p class="console-rail__focus-label">Current focus</p>
-    <p class="console-rail__focus-value">{{ focus() }}</p>
+    <p class="console-rail__focus-label">
+      <app-pretext-text
+        [text]="'Current focus'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </p>
+    <p class="console-rail__focus-value">
+      <app-pretext-text [text]="focus()"></app-pretext-text>
+    </p>
   </section>
 
   <div class="console-rail__group console-rail__group--minor">
@@ -53,7 +75,10 @@
           <span class="material-symbols-outlined" aria-hidden="true">{{
             item.icon
           }}</span>
-          <span>{{ item.label }}</span>
+          <app-pretext-text
+            [text]="item.label"
+            [noWrap]="true"
+          ></app-pretext-text>
         </a>
       } @else {
         <a
@@ -64,7 +89,10 @@
           <span class="material-symbols-outlined" aria-hidden="true">{{
             item.icon
           }}</span>
-          <span>{{ item.label }}</span>
+          <app-pretext-text
+            [text]="item.label"
+            [noWrap]="true"
+          ></app-pretext-text>
         </a>
       }
     }

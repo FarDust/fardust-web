@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import { getStorage, ref } from "@angular/fire";
 
 @Component({
   selector: 'app-experience',

@@ -1,7 +1,9 @@
-<div class="min-h-screen flex flex-col bg-[#0b1326] text-white">
+<a class="app-shell__skip-link" href="#main-content">Skip to content</a>
+
+<div class="app-shell">
   <app-navbar></app-navbar>
-  <div class="flex-grow pb-10">
+  <main id="main-content" class="app-shell__main">
     <router-outlet></router-outlet>
-  </div>
+  </main>
   <app-footer></app-footer>
 </div>

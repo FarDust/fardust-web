@@ -2,7 +2,7 @@
   position: sticky
   top: 0
   z-index: 50
-  border-bottom: 1px solid rgba(45, 52, 73, 0.92)
+  border-bottom: 1px solid rgba(70, 71, 82, 0.12)
   background: rgba(11, 19, 38, 0.84)
   color: #dae2fd
   backdrop-filter: blur(16px)
@@ -25,7 +25,8 @@
   gap: 0.85rem
 
 .console-navbar__brand
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.16rem
   color: inherit
 
@@ -42,7 +43,7 @@
   font-size: 0.56rem
   letter-spacing: 0.18em
   text-transform: uppercase
-  color: rgba(193, 198, 215, 0.58)
+  color: rgba(211, 217, 233, 0.68)
 
 .console-navbar__links
   display: none
@@ -74,7 +75,7 @@
   gap: 0.5rem
   min-height: 2.35rem
   padding: 0 0.9rem
-  border: 1px solid rgba(45, 52, 73, 0.92)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .125rem
   background: rgba(19, 27, 46, 0.92)
   font-family: 'Space Grotesk', sans-serif
@@ -85,7 +86,8 @@
   color: #dae2fd
   transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease
 
-.console-navbar__github:hover
+.console-navbar__github:hover,
+.console-navbar__github:focus-visible
   border-color: rgba(173, 198, 255, 0.36)
   background: rgba(26, 36, 61, 0.95)
   color: #fff
@@ -96,13 +98,14 @@
   justify-content: center
   width: 2.35rem
   height: 2.35rem
-  border: 1px solid rgba(45, 52, 73, 0.92)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .125rem
   background: rgba(19, 27, 46, 0.9)
   color: var(--console-primary)
   transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease
 
-.console-navbar__toggle:hover
+.console-navbar__toggle:hover,
+.console-navbar__toggle:focus-visible
   border-color: rgba(173, 198, 255, 0.36)
   background: rgba(26, 36, 61, 0.95)
 
@@ -110,10 +113,16 @@
   width: 100%
 
 .console-navbar__mobile-links
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.8rem
   padding-top: 0.9rem
-  border-top: 1px solid rgba(45, 52, 73, 0.82)
+  border-top: 1px solid rgba(70, 71, 82, 0.12)
+
+.console-navbar__mobile-list
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
 
 .console-navbar__mobile-status
   margin: 0
@@ -132,28 +141,28 @@
   color: rgba(218, 226, 253, 0.62)
   transition: color 180ms ease
 
-.nav-link:hover
+.nav-link:hover,
+.nav-link:focus-visible
   color: #fff
 
 .nav-link--active
-  color: #adc6ff
-  text-decoration: underline
-  text-decoration-thickness: 2px
-  text-underline-offset: 8px
+  color: rgba(129, 236, 255, 0.92)
+  text-shadow: 0 0 8px rgba(129, 236, 255, 0.3)
 
 .mobile-nav-link
-  border: 1px solid #2d3449
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .125rem
   background: rgba(19, 27, 46, 0.9)
   padding: 0.5rem 1rem
   font-family: 'Space Grotesk', sans-serif
-  font-size: 11px
+  font-size: 0.69rem
   letter-spacing: 0.08em
   text-transform: uppercase
   color: rgba(255, 255, 255, 0.8)
   transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease
 
-.mobile-nav-link:hover
+.mobile-nav-link:hover,
+.mobile-nav-link:focus-visible
   border-color: rgba(173, 198, 255, 0.4)
   background: #1a243d
   color: #fff
@@ -166,6 +175,33 @@
   .console-navbar__inner
     padding-right: 1.5rem
     padding-left: 1.5rem
+
+@media (max-width: 767px)
+  .console-navbar__cluster
+    flex: 0 0 auto
+    min-width: 7rem
+
+  .console-navbar__brand
+    flex: 0 0 auto
+    min-width: 7rem
+
+  .console-navbar__brand-mark
+    min-width: 7rem
+
+@media (max-width: 420px)
+  .console-navbar__brand-context
+    display: none
+
+  .console-navbar__brand-mark
+    font-size: 0.62rem
+    letter-spacing: 0.04em
+
+  .console-navbar__github
+    min-width: 2.35rem
+    padding: 0
+
+  .console-navbar__github app-pretext-text
+    display: none
 
 @media (min-width: 768px)
   .console-navbar__links

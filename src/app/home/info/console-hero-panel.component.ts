@@ -7,6 +7,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { GithubUser } from 'src/app/services/github.service';
+import { PretextTextComponent } from 'src/app/pretext/pretext-text.component';
 import {
   ConsoleAction,
   ConsoleMetric,
@@ -16,7 +17,12 @@ import { ConsoleProfileBadgeComponent } from './console-profile-badge.component'
 
 @Component({
   selector: 'app-console-hero-panel',
-  imports: [CommonModule, TranslateModule, ConsoleProfileBadgeComponent],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    ConsoleProfileBadgeComponent,
+    PretextTextComponent,
+  ],
   templateUrl: './console-hero-panel.component.html',
   styleUrls: ['./console-hero-panel.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,

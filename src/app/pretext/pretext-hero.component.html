@@ -1,0 +1,129 @@
+<div class="pretext-hero__deckhead">
+  <p class="pretext-hero__eyebrow">
+    <app-pretext-text
+      [text]="content().eyebrow"
+      [noWrap]="true"
+    ></app-pretext-text>
+  </p>
+  <p class="pretext-hero__status">
+    <app-pretext-text
+      [text]="content().status"
+      [noWrap]="true"
+    ></app-pretext-text>
+  </p>
+</div>
+
+<div class="pretext-hero__main">
+  <div class="pretext-hero__content">
+    <h1 class="pretext-hero__title">
+      <app-pretext-text [text]="content().title"></app-pretext-text>
+    </h1>
+    <p class="pretext-hero__copy">
+      <app-pretext-text [text]="content().copy"></app-pretext-text>
+    </p>
+
+    <div class="pretext-hero__actions">
+      <a
+        class="pretext-hero__action pretext-hero__action--primary"
+        [routerLink]="content().returnActionLink"
+      >
+        <app-pretext-text
+          [text]="content().returnActionLabel"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </a>
+      <a
+        class="pretext-hero__action"
+        [href]="content().libraryActionHref"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <app-pretext-text
+          [text]="content().libraryActionLabel"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </a>
+    </div>
+
+    <div class="pretext-hero__metrics">
+      @for (metric of content().metrics; track metric.label) {
+        <article class="pretext-hero__metric">
+          <p class="pretext-hero__metric-label">
+            <app-pretext-text
+              [text]="metric.label"
+              [noWrap]="true"
+            ></app-pretext-text>
+          </p>
+          <p class="pretext-hero__metric-value">
+            <app-pretext-text
+              [text]="metric.value"
+              [noWrap]="true"
+            ></app-pretext-text>
+          </p>
+          <p class="pretext-hero__metric-detail">
+            <app-pretext-text [text]="metric.detail"></app-pretext-text>
+          </p>
+        </article>
+      }
+    </div>
+  </div>
+
+  <aside class="pretext-hero__log">
+    <div class="pretext-hero__log-header">
+      <span class="pretext-hero__log-emblem" aria-hidden="true"></span>
+      <div class="pretext-hero__log-heading">
+        <p class="pretext-hero__log-label">
+          <app-pretext-text
+            [text]="content().logLabel"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+        <h2 class="pretext-hero__log-title">
+          <app-pretext-text
+            [text]="content().logTitle"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </h2>
+      </div>
+    </div>
+
+    <p class="pretext-hero__log-copy">
+      <app-pretext-text [text]="content().logCopy"></app-pretext-text>
+    </p>
+
+    <div class="pretext-hero__timeline">
+      @for (entry of content().timeline; track entry.timestamp) {
+        <div class="pretext-hero__timeline-row">
+          <app-pretext-text
+            class="pretext-hero__timeline-stardate"
+            [text]="entry.timestamp"
+            [noWrap]="true"
+          ></app-pretext-text>
+          <app-pretext-text
+            class="pretext-hero__timeline-summary"
+            [text]="entry.summary"
+          ></app-pretext-text>
+        </div>
+      }
+    </div>
+  </aside>
+</div>
+
+<div class="pretext-hero__features">
+  @for (feature of content().featureCards; track feature.title) {
+    <article class="pretext-hero__feature">
+      <p class="pretext-hero__feature-kicker">
+        <app-pretext-text
+          [text]="feature.kicker"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </p>
+      <h2 class="pretext-hero__feature-title">
+        <app-pretext-text [text]="feature.title"></app-pretext-text>
+      </h2>
+      <p class="pretext-hero__feature-copy">
+        <app-pretext-text [text]="feature.copy"></app-pretext-text>
+      </p>
+    </article>
+  }
+</div>

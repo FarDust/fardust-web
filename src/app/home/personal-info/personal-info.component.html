@@ -1,15 +1,21 @@
 <div class="personal-info my-4">
   <p class="personal-info__public">
-    {{ 'personal_info_public_bio' | translate }}
+    <app-pretext-text
+      [text]="'personal_info_public_bio' | translate"
+    ></app-pretext-text>
   </p>
   @if (personalInfoEnabled) {
     <details class="personal-info__details">
       <summary class="personal-info__summary">
-        {{ 'personal_info_toggle' | translate }}
+        <app-pretext-text
+          [text]="'personal_info_toggle' | translate"
+        ></app-pretext-text>
       </summary>
       <div class="personal-info__controls">
         <label class="personal-info__label" for="personal-token">
-          {{ 'personal_info_token_label' | translate }}
+          <app-pretext-text
+            [text]="'personal_info_token_label' | translate"
+          ></app-pretext-text>
         </label>
         <input
           id="personal-token"
@@ -27,7 +33,9 @@
             class="personal-info__button personal-info__button--primary"
             (click)="submitToken()"
           >
-            {{ 'personal_info_load' | translate }}
+            <app-pretext-text
+              [text]="'personal_info_load' | translate"
+            ></app-pretext-text>
           </button>
           @if (token) {
             <button
@@ -35,7 +43,9 @@
               class="personal-info__button"
               (click)="clearToken()"
             >
-              {{ 'personal_info_clear' | translate }}
+              <app-pretext-text
+                [text]="'personal_info_clear' | translate"
+              ></app-pretext-text>
             </button>
           }
         </div>
@@ -43,11 +53,16 @@
     </details>
   }
   @if (errorKey) {
-    <p class="personal-info__error">{{ errorKey | translate }}</p>
+    <p class="personal-info__error">
+      <app-pretext-text [text]="errorKey | translate"></app-pretext-text>
+    </p>
   }
   @if (personal$ | async; as personal) {
     <div class="personal-info__private">
-      {{ personal.privateBio }}
+      <app-pretext-text
+        [text]="personal.privateBio"
+        [whiteSpace]="'pre-wrap'"
+      ></app-pretext-text>
     </div>
   }
 </div>

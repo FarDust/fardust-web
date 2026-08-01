@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { CountryService } from 'src/app/services/country.service';
 import { GithubService } from 'src/app/services/github.service';
 import { NEVER } from 'rxjs';
 
@@ -12,7 +11,7 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 
-describe('HeaderComponent', () => {
+describe('InfoComponent', () => {
   let component: InfoComponent;
   let fixture: ComponentFixture<InfoComponent>;
 
@@ -22,13 +21,6 @@ describe('HeaderComponent', () => {
       schemas: [NO_ERRORS_SCHEMA],
       imports: [TranslateModule.forRoot()],
       providers: [
-        {
-          provide: CountryService,
-          useValue: {
-            checkIP: () => {},
-            subscribe: () => ({ unsubscribe() {} }),
-          },
-        },
         {
           provide: GithubService,
           useValue: NEVER,

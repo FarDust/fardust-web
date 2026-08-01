@@ -10,19 +10,30 @@
         [primaryItems]="railPrimaryItems"
         [utilityItems]="railUtilityItems"
         [focus]="currentFocus"
+        [path]="'~/fardust-web/experience'"
       ></app-console-left-rail>
 
       <div class="experience-layout__body">
         <section class="experience-viewer animate-panel-rise">
           <div class="experience-viewer__header">
             <div>
-              <p class="experience-viewer__kicker">Artifact Browser</p>
+              <p class="experience-viewer__kicker">
+                <app-pretext-text
+                  [text]="'Artifact Browser'"
+                  [noWrap]="true"
+                ></app-pretext-text>
+              </p>
               <h1 class="experience-viewer__title">
-                {{ 'cv_title' | translate }}
+                <app-pretext-text
+                  [text]="'cv_title' | translate"
+                ></app-pretext-text>
               </h1>
               <p class="experience-viewer__copy">
-                Current curriculum artifact with direct download, pagination,
-                and zoom controls.
+                <app-pretext-text
+                  [text]="
+                    'Recruiter workstation for the live curriculum artifact. Keep the PDF intact, search the extracted index, and generate grounded hover notes with a local multimodal coprocessor when the device budget allows it.'
+                  "
+                ></app-pretext-text>
               </p>
             </div>
 
@@ -33,127 +44,260 @@
                 rel="noopener noreferrer"
                 class="experience-viewer__action experience-viewer__action--primary"
               >
-                {{ 'open_pdf' | translate }}
+                <app-pretext-text
+                  [text]="'open_pdf' | translate"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </a>
               <a [href]="pdfSrc" download class="experience-viewer__action">
-                {{ 'download' | translate }}
+                <app-pretext-text
+                  [text]="'download' | translate"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </a>
+              <button
+                type="button"
+                class="experience-viewer__action"
+                (click)="copyDeepLink()"
+              >
+                <app-pretext-text
+                  [text]="'Copy deep link'"
+                  [noWrap]="true"
+                ></app-pretext-text>
+              </button>
             </div>
           </div>
 
           <div class="experience-viewer__toolbar">
-            <div class="experience-viewer__chips">
-              <span
-                class="experience-viewer__chip experience-viewer__chip--success"
+            <div
+              class="experience-viewer__chips"
+              aria-label="Document telemetry"
+            >
+              <article
+                class="experience-viewer__chip"
+                [class.experience-viewer__chip--success]="!!totalPages"
               >
-                Pdf Loaded
-              </span>
-              <span class="experience-viewer__chip">
-                Page {{ page }} / {{ totalPages || '?' }}
-              </span>
-              <span class="experience-viewer__chip">
-                Zoom {{ zoom.toFixed(1) }}x
-              </span>
+                <p class="experience-viewer__chip-label">
+                  <app-pretext-text
+                    [text]="'Status'"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+                <p class="experience-viewer__chip-value">
+                  <app-pretext-text
+                    [text]="toolbarStatusValue()"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+              </article>
+              <article class="experience-viewer__chip">
+                <p class="experience-viewer__chip-label">
+                  <app-pretext-text
+                    [text]="'Page'"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+                <p class="experience-viewer__chip-value">
+                  <app-pretext-text
+                    [text]="toolbarPageValue()"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+              </article>
+              <article class="experience-viewer__chip">
+                <p class="experience-viewer__chip-label">
+                  <app-pretext-text
+                    [text]="'Zoom'"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+                <p class="experience-viewer__chip-value">
+                  <app-pretext-text
+                    [text]="toolbarZoomValue()"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+              </article>
+              <article
+                class="experience-viewer__chip experience-viewer__chip--search"
+              >
+                <p class="experience-viewer__chip-label">
+                  <app-pretext-text
+                    [text]="'Search'"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+                <p class="experience-viewer__chip-value">
+                  <app-pretext-text
+                    [text]="toolbarSearchValue()"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </p>
+              </article>
             </div>
 
             <div class="experience-viewer__controls">
               <button
+                type="button"
                 (click)="prevPage()"
                 [disabled]="page <= 1"
                 class="experience-viewer__button"
               >
-                {{ 'previous' | translate }}
+                <app-pretext-text
+                  [text]="'previous' | translate"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </button>
               <button
+                type="button"
                 (click)="nextPage()"
                 [disabled]="totalPages && page >= totalPages"
                 class="experience-viewer__button"
               >
-                {{ 'next' | translate }}
+                <app-pretext-text
+                  [text]="'next' | translate"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </button>
               <button
+                type="button"
                 (click)="zoomOut()"
                 [disabled]="zoom <= 0.5"
                 class="experience-viewer__button"
+                aria-label="Zoom out"
               >
-                -
+                <app-pretext-text
+                  [text]="'-'"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </button>
-              <button (click)="zoomIn()" class="experience-viewer__button">
-                +
+              <button
+                type="button"
+                (click)="zoomIn()"
+                class="experience-viewer__button"
+                aria-label="Zoom in"
+              >
+                <app-pretext-text
+                  [text]="'+'"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </button>
             </div>
           </div>
 
-          <div class="experience-viewer__frame">
-            <div class="experience-viewer__frame-inner">
-              <div class="experience-viewer__pdf-shell">
-                <pdf-viewer
-                  [src]="pdfSrc"
-                  [render-text]="true"
-                  [original-size]="false"
-                  [page]="page"
-                  [zoom]="zoom"
-                  (after-load-complete)="onPdfLoad($event)"
-                  style="width: 100%; height: 100%"
-                ></pdf-viewer>
+          <div class="experience-viewer__ops">
+            <label class="experience-viewer__search">
+              <span class="experience-viewer__search-label">
+                <app-pretext-text
+                  [text]="'Search the extracted index'"
+                  [noWrap]="true"
+                ></app-pretext-text>
+              </span>
+              <input
+                id="experience-route-search"
+                class="experience-viewer__search-input"
+                type="search"
+                name="experience-route-search"
+                [value]="searchDraft"
+                (input)="onSearchQueryChange($any($event.target).value)"
+                placeholder="LLMOps, Angular, Betterfly…"
+              />
+            </label>
+
+            <label class="experience-viewer__page-jump">
+              <span class="experience-viewer__search-label">
+                <app-pretext-text
+                  [text]="'Page jump'"
+                  [noWrap]="true"
+                ></app-pretext-text>
+              </span>
+              <div class="experience-viewer__page-jump-field">
+                <input
+                  id="experience-page-jump"
+                  class="experience-viewer__search-input"
+                  type="number"
+                  min="1"
+                  name="experience-page-jump"
+                  [max]="totalPages || null"
+                  [value]="pageJumpValue"
+                  (input)="pageJumpValue = $any($event.target).value"
+                />
+                <button
+                  type="button"
+                  class="experience-viewer__button"
+                  (click)="jumpToPage()"
+                >
+                  <app-pretext-text
+                    [text]="'Go'"
+                    [noWrap]="true"
+                  ></app-pretext-text>
+                </button>
+              </div>
+            </label>
+          </div>
+
+          <div class="experience-viewer__workstation">
+            <div class="experience-viewer__frame">
+              <div class="experience-viewer__frame-inner">
+                <div
+                  class="experience-viewer__pdf-shell"
+                  #pdfShell
+                  [style.height]="pdfShellHeight || null"
+                >
+                  <pdf-viewer
+                    class="experience-viewer__pdf"
+                    [src]="pdfSrc"
+                    [render-text]="true"
+                    [original-size]="false"
+                    [show-all]="showAllPages"
+                    [page]="page"
+                    [zoom]="zoom"
+                    (after-load-complete)="onPdfLoad($event)"
+                    (page-rendered)="onPdfPageRendered()"
+                    style="width: 100%; height: 100%"
+                  ></pdf-viewer>
+
+                  @for (target of document.hoverTargets(); track target.id) {
+                    <button
+                      type="button"
+                      class="experience-viewer__hotspot"
+                      [class.experience-viewer__hotspot--active]="
+                        hoverTargetIsActive(target.id)
+                      "
+                      [style.left.px]="target.rect.left"
+                      [style.top.px]="target.rect.top"
+                      [style.width.px]="target.rect.width"
+                      [style.height.px]="target.rect.height"
+                      [attr.aria-label]="
+                        'Open recruiter hover note for ' + target.label
+                      "
+                      (mouseenter)="onHoverTargetActivated(target)"
+                      (focus)="onHoverTargetActivated(target)"
+                      (click)="onHoverTargetActivated(target)"
+                    >
+                      <span class="sr-only">{{ target.label }}</span>
+                    </button>
+                  }
+
+                  <app-experience-hover-card
+                    [card]="ai.hoverCard()"
+                    (closeRequested)="closeHoverCard()"
+                  ></app-experience-hover-card>
+                </div>
               </div>
             </div>
+
+            <app-experience-signal-panel
+              class="experience-viewer__signal-panel"
+              [state]="signalPanelState()"
+              (tabChange)="onInspectorTabChange($event)"
+              (searchQueryChange)="onSearchQueryChange($event)"
+              (resultSelected)="onSearchResultSelected($event)"
+              (clearCacheRequested)="clearAiCache()"
+              (warmUpRequested)="warmLocalModel()"
+            ></app-experience-signal-panel>
           </div>
         </section>
-
-        <aside class="experience-meta animate-panel-rise">
-          <section class="experience-meta__card">
-            <header class="experience-meta__header">
-              <span>PROFILE_DETAILS</span>
-            </header>
-            <div class="experience-meta__body experience-meta__grid">
-              @for (field of profileDetails; track field.label) {
-                <div class="experience-meta__line">
-                  <span>{{ field.label }}</span>
-                  <span>{{ field.value }}</span>
-                </div>
-              }
-            </div>
-          </section>
-
-          <section class="experience-meta__card">
-            <header class="experience-meta__header">
-              <span>DOCUMENT_STATE</span>
-            </header>
-            <div class="experience-meta__body experience-meta__grid">
-              @for (field of documentFacts; track field.label) {
-                <div class="experience-meta__line">
-                  <span>{{ field.label }}</span>
-                  <span>{{ field.value }}</span>
-                </div>
-              }
-            </div>
-          </section>
-
-          <section class="experience-meta__card">
-            <header class="experience-meta__header">
-              <span>SESSION_STATE</span>
-            </header>
-            <div class="experience-meta__body experience-meta__grid">
-              <div class="experience-meta__line">
-                <span>Page</span>
-                <span>{{ page }}</span>
-              </div>
-              <div class="experience-meta__line">
-                <span>Total</span>
-                <span>{{ totalPages || '?' }}</span>
-              </div>
-              <div class="experience-meta__line">
-                <span>Zoom</span>
-                <span>{{ zoom.toFixed(1) }}x</span>
-              </div>
-              <div class="experience-meta__line">
-                <span>Route</span>
-                <span>/experience</span>
-              </div>
-            </div>
-          </section>
-        </aside>
       </div>
     </section>
   </div>

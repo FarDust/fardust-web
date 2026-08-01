@@ -12,7 +12,8 @@ ul.list-group
   flex-direction: column
 
 .console-layout
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1.5rem
 
 .console-layout__rail
@@ -21,23 +22,35 @@ ul.list-group
 .console-layout__body,
 .console-layout__main,
 .console-layout__sidebar
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1.5rem
+  min-width: 0
 
 @media (min-width: 1024px)
   .console-layout
-    grid-template-columns: 14rem minmax(0, 1fr)
+    flex-direction: row
     align-items: start
 
   .console-layout__rail
     display: block
+    flex: 0 0 14rem
     align-self: stretch
+
+  .console-layout__body
+    flex: 1 1 auto
 
 @media (min-width: 1280px)
   .console-layout__body
-    grid-template-columns: minmax(0, 1.35fr) 22rem
+    flex-direction: row
     align-items: start
+
+  .console-layout__main
+    flex: 1 1 auto
+
+  .console-layout__sidebar
+    flex: 0 0 22rem
 
 .easter-egg
   z-index: 50
-  box-shadow: 0 18px 55px rgba(2, 6, 23, 0.3)
+  box-shadow: 0 0 40px rgba(129, 236, 255, 0.07)

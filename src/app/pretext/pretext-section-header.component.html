@@ -1,0 +1,17 @@
+<div class="pretext-section-header__copy">
+  <p class="pretext-section-header__eyebrow">
+    <app-pretext-text [text]="eyebrow()" [noWrap]="true"></app-pretext-text>
+  </p>
+  <h2 class="pretext-section-header__title">
+    <app-pretext-text [text]="title()"></app-pretext-text>
+  </h2>
+  @if (lead(); as summary) {
+    <p class="pretext-section-header__lead">
+      <app-pretext-text [text]="summary"></app-pretext-text>
+    </p>
+  }
+</div>
+
+<div class="pretext-section-header__aside">
+  <ng-content select="[sectionAside]"></ng-content>
+</div>

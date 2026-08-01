@@ -5,23 +5,36 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   {
     path: '',
+    title: 'G. Faundez — ML Engineer',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'experience',
+    title: 'Experience — G. Faundez',
     loadChildren: () =>
       import('./experience/experience.module').then((m) => m.ExperienceModule),
   },
   {
-    path: 'ball',
-    loadChildren: () => import('./ball/ball.module').then((m) => m.BallModule),
-  },
-  {
-    path: 'projects',
+    path: 'embedding-space',
+    title: 'Embedding Space — G. Faundez',
     loadChildren: () =>
-      import('./projects/projects.module').then((m) => m.ProjectsModule),
+      import('./embedding-space/embedding-space.module').then(
+        (m) => m.EmbeddingSpaceModule,
+      ),
   },
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'ball', redirectTo: 'embedding-space', pathMatch: 'full' },
+  {
+    path: 'pretext',
+    title: 'Pretext Lab — G. Faundez',
+    loadChildren: () =>
+      import('./pretext/pretext.module').then((m) => m.PretextModule),
+  },
+  { path: 'projects', redirectTo: 'pretext', pathMatch: 'full' },
+  {
+    path: '**',
+    title: 'Not Found — G. Faundez',
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({

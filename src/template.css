@@ -53,6 +53,7 @@ header.masthead {
     linear-gradient(180deg, rgba(11, 19, 38, 0.9), rgba(11, 19, 38, 0.98));
   min-height: 100vh;
   isolation: isolate;
+  overflow-x: hidden;
 }
 
 .background::before {

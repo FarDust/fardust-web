@@ -1,0 +1,43 @@
+<div
+  class="embedding-api-panel"
+  role="dialog"
+  aria-label="Connect embedding API"
+>
+  <p class="embedding-api-panel__label">API ENDPOINT</p>
+  <p class="embedding-api-panel__schema">
+    Your API must return a GET response matching this schema:
+  </p>
+  <button
+    class="embedding-api-panel__sample-toggle"
+    (click)="toggleSample()"
+    [attr.aria-expanded]="sampleExpanded()"
+    aria-label="Toggle example payload"
+  >
+    {{ sampleExpanded() ? '▾' : '▸' }} Example payload
+  </button>
+  @if (sampleExpanded()) {
+    <pre class="embedding-api-panel__sample">{{
+      '{\n  "clusters": [\n    {\n      "id": "group-a",\n      "label": "Cluster A",\n      "color": "#81ecff",\n      "points": [[0.1, 0.5, -1.2], ...]\n    }\n  ]\n}'
+    }}</pre>
+  }
+  <div class="embedding-api-panel__row">
+    <input
+      class="embedding-api-panel__input"
+      type="url"
+      [ngModel]="apiUrl()"
+      (ngModelChange)="updateApiUrl($event)"
+      placeholder="https://your-api.example.com/embeddings"
+    />
+    <button
+      class="embedding-api-panel__connect"
+      [disabled]="connectDisabled()"
+      (click)="requestConnect()"
+    >
+      {{ connectLabel() }}
+    </button>
+  </div>
+  @if (apiStatus() === 'error') {
+    <p class="embedding-api-panel__error">{{ apiError() }}</p>
+  }
+  <p class="embedding-api-panel__note">API must allow CORS from this origin.</p>
+</div>

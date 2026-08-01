@@ -3,10 +3,11 @@
 
 .console-hero
   position: relative
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1.25rem
   padding: 1.5rem
-  border: 1px solid var(--console-outline)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .25rem
   background: var(--console-surface-low)
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04)
@@ -22,12 +23,15 @@
   color: rgba(193, 198, 215, 0.28)
 
 .console-hero__profile
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 1rem
 
 .console-hero__copy
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.85rem
+  min-width: 0
 
 .console-hero__kicker,
 .console-hero__metric-label
@@ -77,12 +81,14 @@
 
 .console-hero__action
   display: inline-flex
+  flex: 0 0 auto
   align-items: center
   justify-content: center
   gap: 0.55rem
   min-height: 2.9rem
+  min-width: 0
   padding: 0 1rem
-  border: 1px solid rgba(65, 71, 85, 0.5)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .125rem
   background: var(--console-surface-high)
   font-family: 'Space Grotesk', sans-serif
@@ -93,7 +99,8 @@
   color: #dae2fd
   transition: border-color 180ms ease, background-color 180ms ease
 
-.console-hero__action:hover
+.console-hero__action:hover,
+.console-hero__action:focus-visible
   border-color: rgba(173, 198, 255, 0.28)
   background: var(--console-surface-highest)
 
@@ -103,10 +110,11 @@
   color: #00285c
 
 .console-hero__specs
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.6rem
   padding: 0.85rem 1rem
-  border: 1px solid rgba(65, 71, 85, 0.45)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .25rem
   background: rgba(6, 14, 32, 0.95)
 
@@ -118,22 +126,24 @@
   font-size: 0.72rem
   line-height: 1.5
 
-.console-hero__spec-line span:first-child
+.console-hero__spec-key
   color: var(--console-success)
   letter-spacing: 0.12em
   text-transform: uppercase
 
-.console-hero__spec-line span:last-child
+.console-hero__spec-value
   text-align: right
   color: #dae2fd
 
 .console-hero__metrics
-  display: grid
+  display: flex
+  flex-direction: column
   gap: 0.75rem
 
 .console-hero__metric
+  flex: 1 1 12rem
   padding: 0.85rem 0.95rem
-  border: 1px solid rgba(65, 71, 85, 0.45)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
   border-radius: .25rem
   background: rgba(19, 27, 46, 0.96)
 
@@ -152,10 +162,22 @@
   text-transform: uppercase
   color: rgba(193, 198, 215, 0.7)
 
+@media (max-width: 767px)
+  .console-hero__actions
+    flex-direction: column
+    align-items: stretch
+
+  .console-hero__action
+    width: 100%
+    padding: 0 0.9rem
+    font-size: 0.7rem
+    letter-spacing: 0.12em
+
 @media (min-width: 768px)
   .console-hero__profile
-    grid-template-columns: 5.9rem minmax(0, 1fr)
+    flex-direction: row
     align-items: start
 
   .console-hero__metrics
-    grid-template-columns: repeat(3, minmax(0, 1fr))
+    flex-direction: row
+    flex-wrap: wrap

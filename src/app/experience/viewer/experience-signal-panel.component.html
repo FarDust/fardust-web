@@ -1,0 +1,203 @@
+@let panel = state();
+
+<div
+  class="experience-signal-panel__tabs"
+  role="tablist"
+  aria-label="Experience route tabs"
+>
+  @for (tab of tabs; track tab) {
+    <button
+      type="button"
+      class="experience-signal-panel__tab"
+      [class.experience-signal-panel__tab--active]="panel.activeTab === tab"
+      [attr.aria-selected]="panel.activeTab === tab"
+      (click)="tabChange.emit(tab)"
+    >
+      <app-pretext-text [text]="tab" [noWrap]="true"></app-pretext-text>
+    </button>
+  }
+</div>
+
+<section class="experience-signal-panel__stack">
+  <article
+    class="experience-signal-panel__card"
+    [class.experience-signal-panel__card--hidden]="
+      panel.activeTab !== 'overview'
+    "
+  >
+    <header class="experience-signal-panel__header">
+      <app-pretext-text
+        [text]="'Profile details'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </header>
+    <div class="experience-signal-panel__body">
+      @for (field of panel.overviewFields; track field.label) {
+        <div class="experience-signal-panel__line">
+          <app-pretext-text
+            [text]="field.label"
+            [noWrap]="true"
+          ></app-pretext-text>
+          <app-pretext-text
+            [text]="field.value"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </div>
+      }
+    </div>
+    <div class="experience-signal-panel__body">
+      @for (field of panel.documentFields; track field.label) {
+        <div class="experience-signal-panel__line">
+          <app-pretext-text
+            [text]="field.label"
+            [noWrap]="true"
+          ></app-pretext-text>
+          <app-pretext-text
+            [text]="field.value"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </div>
+      }
+    </div>
+    <div class="experience-signal-panel__body">
+      @for (field of panel.sessionFields; track field.label) {
+        <div class="experience-signal-panel__line">
+          <app-pretext-text
+            [text]="field.label"
+            [noWrap]="true"
+          ></app-pretext-text>
+          <app-pretext-text
+            [text]="field.value"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </div>
+      }
+    </div>
+  </article>
+
+  <article
+    class="experience-signal-panel__card"
+    [class.experience-signal-panel__card--hidden]="panel.activeTab !== 'search'"
+  >
+    <header class="experience-signal-panel__header">
+      <app-pretext-text
+        [text]="'Document search'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </header>
+
+    <div
+      class="experience-signal-panel__body experience-signal-panel__body--search"
+    >
+      <label class="experience-signal-panel__search">
+        <span class="experience-signal-panel__search-label">
+          <app-pretext-text
+            [text]="'Search the curriculum'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </span>
+        <input
+          id="experience-panel-search"
+          class="experience-signal-panel__search-input"
+          type="search"
+          name="experience-panel-search"
+          [value]="panel.searchQuery"
+          (input)="searchQueryChange.emit($any($event.target).value)"
+          placeholder="LLMOps, Betterfly, Angular…"
+        />
+      </label>
+
+      <div class="experience-signal-panel__results">
+        @if (panel.searchResults.length) {
+          @for (result of panel.searchResults; track result.id) {
+            <button
+              type="button"
+              class="experience-signal-panel__result"
+              (click)="resultSelected.emit(result.id)"
+            >
+              <app-pretext-text
+                [text]="'Page ' + result.pageNumber"
+                [noWrap]="true"
+              ></app-pretext-text>
+              <app-pretext-text [text]="result.excerpt"></app-pretext-text>
+            </button>
+          }
+        } @else {
+          <p class="experience-signal-panel__empty">
+            <app-pretext-text
+              [text]="
+                'Search matches will appear here once the index is ready.'
+              "
+            ></app-pretext-text>
+          </p>
+        }
+      </div>
+    </div>
+  </article>
+
+  <article
+    class="experience-signal-panel__card"
+    [class.experience-signal-panel__card--hidden]="
+      panel.activeTab !== 'copilot'
+    "
+  >
+    <header class="experience-signal-panel__header">
+      <app-pretext-text
+        [text]="'Local copilot'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </header>
+
+    <div
+      class="experience-signal-panel__body experience-signal-panel__body--copilot"
+    >
+      <p class="experience-signal-panel__status">
+        <app-pretext-text [text]="panel.aiStatusCopy"></app-pretext-text>
+      </p>
+
+      <div class="experience-signal-panel__line">
+        <app-pretext-text
+          [text]="'Hover targets'"
+          [noWrap]="true"
+        ></app-pretext-text>
+        <app-pretext-text
+          [text]="'' + panel.hoverTargetCount"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </div>
+      <div class="experience-signal-panel__line">
+        <app-pretext-text
+          [text]="'Cached notes'"
+          [noWrap]="true"
+        ></app-pretext-text>
+        <app-pretext-text
+          [text]="'' + panel.cacheCount"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </div>
+
+      <div class="experience-signal-panel__actions">
+        <button
+          type="button"
+          class="experience-signal-panel__button"
+          (click)="warmUpRequested.emit()"
+        >
+          <app-pretext-text
+            [text]="'Warm local model'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </button>
+        <button
+          type="button"
+          class="experience-signal-panel__button"
+          (click)="clearCacheRequested.emit()"
+        >
+          <app-pretext-text
+            [text]="'Clear 1 min cache'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </button>
+      </div>
+    </div>
+  </article>
+</section>

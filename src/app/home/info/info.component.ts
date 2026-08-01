@@ -52,21 +52,21 @@ export class InfoComponent {
 
   readonly pipelineStages: ReadonlyArray<ConsolePipelineStage> = [
     {
-      label: 'MACHINE_LEARNING',
+      label: 'Machine learning',
       emphasis: 'PRIMARY',
       progress: 92,
       detail: 'MLOps, GenAI, RAG, VertexAI, TensorFlow',
       tone: 'success',
     },
     {
-      label: 'SOFTWARE_ENGINEERING',
+      label: 'Software engineering',
       emphasis: 'FOUNDATION',
       progress: 86,
       detail: 'Backend, web development, maintainability',
       tone: 'primary',
     },
     {
-      label: 'CLOUD_AND_WEB',
+      label: 'Cloud and web',
       emphasis: 'DELIVERY',
       progress: 84,
       detail: 'GCP, AWS, Docker, Terraform, Angular, React',
@@ -154,10 +154,17 @@ export class InfoComponent {
     },
     {
       eyebrow: 'MODULE',
-      title: 'WebGL Ball Demo',
-      description: 'WebGL render',
-      icon: 'lens_blur',
-      routerLink: '/ball',
+      title: 'Embedding Space',
+      description: 'Cluster visualization',
+      icon: 'scatter_plot',
+      routerLink: '/embedding-space',
+    },
+    {
+      eyebrow: 'MODULE',
+      title: 'Pretext Lab',
+      description: 'Text layout systems',
+      icon: 'text_fields',
+      routerLink: '/pretext',
     },
   ];
 
@@ -190,7 +197,7 @@ export class InfoComponent {
   ];
 
   readonly primaryAction: ConsoleAction = {
-    label: 'OPEN_CV',
+    label: 'Open CV',
     href: 'https://storage.googleapis.com/landing-artifacts/curriculum/cv-gabriel-faundez.pdf',
   };
 

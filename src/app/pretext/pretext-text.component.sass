@@ -1,0 +1,39 @@
+:host
+  display: block
+  min-width: 0
+  max-width: 100%
+
+:host.pretext-text--shrinkwrap,
+:host.pretext-text--no-wrap
+  width: fit-content
+  max-width: 100%
+
+.pretext-text__surface
+  display: flex
+  flex-direction: column
+  gap: 0
+  min-width: 0
+  max-width: 100%
+  width: 100%
+
+:host.pretext-text--shrinkwrap .pretext-text__surface,
+:host.pretext-text--no-wrap .pretext-text__surface
+  width: var(--pretext-surface-width)
+
+.pretext-text__line
+  display: block
+  min-width: 0
+  white-space: pre-wrap
+
+:host.pretext-text--no-wrap .pretext-text__line,
+:host.pretext-text--no-wrap .pretext-text__fallback
+  white-space: nowrap
+
+:host.pretext-text--pre-wrap .pretext-text__line,
+:host.pretext-text--pre-wrap .pretext-text__fallback
+  white-space: pre
+
+.pretext-text__fallback
+  display: block
+  min-width: 0
+  white-space: pre-wrap

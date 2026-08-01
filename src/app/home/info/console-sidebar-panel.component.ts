@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PersonalInfoComponent } from '../personal-info/personal-info.component';
+import { PretextTextComponent } from 'src/app/pretext/pretext-text.component';
 import {
   ConsoleAction,
   ConsoleLogEntry,
@@ -10,7 +11,12 @@ import {
 
 @Component({
   selector: 'app-console-sidebar-panel',
-  imports: [CommonModule, RouterLink, PersonalInfoComponent],
+  imports: [
+    CommonModule,
+    RouterLink,
+    PersonalInfoComponent,
+    PretextTextComponent,
+  ],
   templateUrl: './console-sidebar-panel.component.html',
   styleUrls: ['./console-sidebar-panel.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,

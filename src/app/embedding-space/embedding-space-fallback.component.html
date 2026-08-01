@@ -1,0 +1,107 @@
+<div class="embedding-fallback-stack">
+  <div class="embedding-fallback">
+    <p class="embedding-fallback__kicker">
+      <app-pretext-text
+        [text]="'Fallback render path'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </p>
+    <h1 class="embedding-fallback__title">
+      <app-pretext-text
+        [text]="'webgl_embedding_title' | translate"
+      ></app-pretext-text>
+    </h1>
+    <p class="embedding-fallback__copy">
+      <app-pretext-text
+        [text]="'webgl_embedding_unavailable' | translate"
+      ></app-pretext-text>
+    </p>
+    <div class="embedding-fallback__facts" aria-label="Fallback telemetry">
+      <article class="embedding-fallback__fact">
+        <p class="embedding-fallback__fact-label">
+          <app-pretext-text
+            [text]="'Status'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+        <p class="embedding-fallback__fact-value">
+          <app-pretext-text
+            [text]="'WebGL offline'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+      </article>
+      <article class="embedding-fallback__fact">
+        <p class="embedding-fallback__fact-label">
+          <app-pretext-text [text]="'Route'" [noWrap]="true"></app-pretext-text>
+        </p>
+        <p class="embedding-fallback__fact-value">
+          <app-pretext-text
+            [text]="'/embedding-space'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+      </article>
+      <article class="embedding-fallback__fact">
+        <p class="embedding-fallback__fact-label">
+          <app-pretext-text
+            [text]="'Recovery'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+        <p class="embedding-fallback__fact-value">
+          <app-pretext-text
+            [text]="'Back to console'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+      </article>
+    </div>
+    <div class="embedding-fallback__actions">
+      <a class="embedding-fallback__action" routerLink="/">
+        <app-pretext-text
+          [text]="'back_home' | translate"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </a>
+    </div>
+  </div>
+
+  <section class="embedding-fallback-aside" aria-label="Route alternatives">
+    <div class="embedding-fallback-aside__copy">
+      <p class="embedding-fallback__kicker embedding-fallback-aside__eyebrow">
+        <app-pretext-text
+          [text]="'Route alternatives'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </p>
+      <p class="embedding-fallback__copy embedding-fallback-aside__body">
+        <app-pretext-text
+          [text]="
+            'The rest of the site stays online: the curriculum viewer, the home console, and the Pretext lab do not depend on WebGL.'
+          "
+        ></app-pretext-text>
+      </p>
+    </div>
+    <div class="embedding-fallback-aside__links">
+      <a
+        class="embedding-fallback__action embedding-fallback__action--secondary embedding-fallback-aside__link"
+        routerLink="/pretext"
+      >
+        <app-pretext-text
+          [text]="'Open Pretext lab'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </a>
+      <a
+        class="embedding-fallback__action embedding-fallback__action--secondary embedding-fallback-aside__link"
+        routerLink="/experience"
+      >
+        <app-pretext-text
+          [text]="'Open curriculum'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </a>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,174 @@
+:host
+  display: block
+
+.embedding-hud
+  position: absolute
+  inset: 0
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  padding: 1.25rem 1.5rem
+  pointer-events: none
+  z-index: 10
+
+.embedding-hud__top
+  display: flex
+  align-items: flex-start
+  justify-content: space-between
+  gap: 1rem
+
+.embedding-hud__meta
+  display: flex
+  flex-direction: column
+  gap: 0.45rem
+  max-width: 28rem
+
+.embedding-hud__eyebrow
+  margin: 0
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.6rem
+  font-weight: 600
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: #ffdd7c
+
+.embedding-hud__title
+  margin: 0
+  font-family: 'Space Grotesk', sans-serif
+  font-size: clamp(1.5rem, 4vw, 2.6rem)
+  font-weight: 800
+  line-height: 0.95
+  letter-spacing: -0.04em
+  color: #f7f5fd
+
+.embedding-hud__desc
+  margin: 0
+  max-width: 24rem
+  font-size: 0.72rem
+  line-height: 1.68
+  color: rgba(171, 170, 177, 0.8)
+
+.embedding-hud__back,
+.embedding-hud__try-btn
+  display: inline-flex
+  align-items: center
+  min-height: 2.1rem
+  padding: 0 0.85rem
+  outline: 1px solid rgba(129, 236, 255, 0.2)
+  border-radius: 0.25rem
+  background: rgba(13, 14, 19, 0.72)
+  backdrop-filter: blur(12px)
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.64rem
+  font-weight: 700
+  letter-spacing: 0.14em
+  text-transform: uppercase
+  color: rgba(129, 236, 255, 0.88)
+  transition: outline-color 180ms ease, background-color 180ms ease, color 180ms ease
+
+.embedding-hud__back
+  pointer-events: auto
+  white-space: nowrap
+  flex-shrink: 0
+
+  &:hover,
+  &:focus-visible
+    outline-color: rgba(129, 236, 255, 0.45)
+    background: rgba(13, 14, 19, 0.9)
+    color: #f7f5fd
+
+.embedding-hud__bottom
+  display: flex
+  align-items: flex-end
+  justify-content: space-between
+  gap: 1rem
+
+.embedding-hud__legend
+  display: flex
+  flex-direction: column
+  gap: 0.4rem
+  list-style: none
+  margin: 0
+  padding: 0
+
+.embedding-hud__legend-item
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.62rem
+  font-weight: 500
+  letter-spacing: 0.06em
+  color: rgba(171, 170, 177, 0.82)
+
+.embedding-hud__legend-dot
+  width: 0.5rem
+  height: 0.5rem
+  border-radius: 50%
+  flex-shrink: 0
+  box-shadow: 0 0 6px currentColor
+
+.embedding-hud__right
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  gap: 0.5rem
+  pointer-events: auto
+
+.embedding-hud__status
+  display: inline-flex
+  align-items: center
+  gap: 0.4rem
+  margin: 0
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.58rem
+  font-weight: 600
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: rgba(83, 225, 111, 0.82)
+
+.embedding-hud__status-dot
+  width: 0.45rem
+  height: 0.45rem
+  border-radius: 50%
+  background: #53e16f
+  box-shadow: 0 0 6px rgba(83, 225, 111, 0.7)
+  animation: embedding-hud-pulse 2.4s ease-in-out infinite
+  flex-shrink: 0
+
+  &.live
+    background: #ffdd7c
+    box-shadow: 0 0 6px rgba(255, 221, 124, 0.7)
+
+.embedding-hud__try-btn
+  cursor: pointer
+
+  &:hover,
+  &:focus-visible,
+  &.active
+    outline-color: rgba(129, 236, 255, 0.45)
+    background: rgba(13, 14, 19, 0.9)
+    color: #f7f5fd
+
+@keyframes embedding-hud-pulse
+  0%, 100%
+    opacity: 1
+  50%
+    opacity: 0.45
+
+@media (max-width: 600px)
+  .embedding-hud
+    padding: 1rem
+
+  .embedding-hud__desc
+    display: none
+
+  .embedding-hud__title
+    font-size: 1.35rem
+
+  .embedding-hud__meta
+    gap: 0.3rem
+
+@media (prefers-reduced-motion: reduce)
+  .embedding-hud__status-dot
+    animation: none

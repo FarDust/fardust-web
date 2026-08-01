@@ -16,7 +16,12 @@ export const CONSOLE_RAIL_UTILITY_ITEMS: ReadonlyArray<ConsoleNavItem> = [
 ];
 
 export function createConsoleRailPrimaryItems(
-  activeLabel: 'Overview' | 'Selected work' | 'Experience' | 'WebGL demo',
+  activeLabel:
+    | 'Overview'
+    | 'Selected work'
+    | 'Experience'
+    | 'Embedding space'
+    | 'Pretext lab',
 ): ReadonlyArray<ConsoleNavItem> {
   return [
     {
@@ -40,10 +45,16 @@ export function createConsoleRailPrimaryItems(
       active: activeLabel === 'Experience',
     },
     {
-      label: 'WebGL demo',
-      icon: 'lens_blur',
-      routerLink: '/ball',
-      active: activeLabel === 'WebGL demo',
+      label: 'Embedding space',
+      icon: 'scatter_plot',
+      routerLink: '/embedding-space',
+      active: activeLabel === 'Embedding space',
+    },
+    {
+      label: 'Pretext lab',
+      icon: 'text_fields',
+      routerLink: '/pretext',
+      active: activeLabel === 'Pretext lab',
     },
   ];
 }

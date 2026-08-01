@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConsolePipelineStage } from './console.models';
+import { PretextTextComponent } from 'src/app/pretext/pretext-text.component';
 
 @Component({
   selector: 'app-console-pipeline-panel',
-  imports: [CommonModule],
+  imports: [CommonModule, PretextTextComponent],
   templateUrl: './console-pipeline-panel.component.html',
   styleUrls: ['./console-pipeline-panel.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,

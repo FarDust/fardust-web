@@ -9,6 +9,7 @@ import { ConsoleLeftRailComponent } from './info/console-left-rail.component';
 import { ConsolePipelinePanelComponent } from './info/console-pipeline-panel.component';
 import { ConsoleProjectRegistryComponent } from './info/console-project-registry.component';
 import { ConsoleSidebarPanelComponent } from './info/console-sidebar-panel.component';
+import { PretextTextComponent } from '../pretext/pretext-text.component';
 
 @NgModule({
   declarations: [HomeComponent, InfoComponent],
@@ -21,6 +22,7 @@ import { ConsoleSidebarPanelComponent } from './info/console-sidebar-panel.compo
     ConsolePipelinePanelComponent,
     ConsoleProjectRegistryComponent,
     ConsoleSidebarPanelComponent,
+    PretextTextComponent,
   ],
 })
 export class HomeModule {}

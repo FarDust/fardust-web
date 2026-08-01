@@ -1,5 +1,13 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# environment
+.env*
+!.env.example
+
+# stitch design project tracking
+.stitch
+.stitch-experiments.md
+
 # compiled output
 /dist
 /tmp
@@ -36,6 +44,7 @@ speed-measure-plugin*.json
 /.sass-cache
 /connect.lock
 /coverage
+/output/visual-audit
 /libpeerconnection.log
 npm-debug.log
 yarn-error.log
@@ -45,3 +54,14 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# local audit and agent artifacts
+/.artifacts
+/.codex
+/.firecrawl
+/.lighthouseci
+/.sisyphus
+/build
+/output
+/undefined:
+/[\\][\\]wsl.localhost*

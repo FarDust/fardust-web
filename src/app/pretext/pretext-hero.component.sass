@@ -1,0 +1,295 @@
+:host
+  display: block
+
+.pretext-hero__deckhead
+  display: flex
+  flex-wrap: wrap
+  gap: 0.75rem
+  align-items: center
+  justify-content: space-between
+
+.pretext-hero__eyebrow
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.72rem
+  letter-spacing: 0.22em
+  text-transform: uppercase
+  color: rgba(255, 196, 133, 0.9)
+
+.pretext-hero__status
+  display: inline-flex
+  align-items: center
+  min-height: 2.25rem
+  padding: 0 0.9rem
+  border-radius: 999px
+  background: rgba(18, 28, 48, 0.82)
+  outline: 1px solid rgba(70, 71, 82, 0.15)
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.65rem
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: rgba(182, 240, 255, 0.88)
+
+.pretext-hero__main
+  display: flex
+  flex-direction: column
+  gap: 1.15rem
+  margin-top: 1rem
+
+.pretext-hero__content,
+.pretext-hero__log
+  position: relative
+  z-index: 1
+  min-width: 0
+
+.pretext-hero__title
+  max-width: 40rem
+  font-family: 'Inter Tight', sans-serif
+  font-size: clamp(2.25rem, 6vw, 4.6rem)
+  line-height: 0.92
+  letter-spacing: -0.055em
+  color: #faf3e6
+
+.pretext-hero__copy
+  max-width: 46rem
+  margin-top: 1rem
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.82rem
+  line-height: 1.78
+  color: rgba(221, 228, 242, 0.78)
+
+.pretext-hero__actions
+  display: flex
+  flex-wrap: wrap
+  gap: 0.75rem
+  margin-top: 1rem
+
+.pretext-hero__action
+  display: inline-flex
+  flex: 0 0 auto
+  align-items: center
+  justify-content: center
+  min-height: 2.8rem
+  padding: 0 1rem
+  outline: 1px solid rgba(129, 236, 255, 0.2)
+  border-radius: 999px
+  background: rgba(13, 14, 19, 0.72)
+  backdrop-filter: blur(12px)
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.72rem
+  font-weight: 700
+  letter-spacing: 0.15em
+  text-transform: uppercase
+  color: rgba(129, 236, 255, 0.88)
+  transition: outline-color 180ms ease, background-color 180ms ease, color 180ms ease
+
+  &:hover,
+  &:focus-visible
+    outline-color: rgba(129, 236, 255, 0.45)
+    background: rgba(13, 14, 19, 0.9)
+    color: #f7f5fd
+
+.pretext-hero__action--primary
+  outline-color: transparent
+  background: linear-gradient(135deg, #8be7ff, #ffbf75)
+  color: #081421
+
+  &:hover,
+  &:focus-visible
+    filter: brightness(1.05)
+    outline-color: transparent
+
+.pretext-hero__metrics
+  display: flex
+  flex-wrap: wrap
+  gap: 0.8rem
+  margin-top: 1.15rem
+
+.pretext-hero__metric
+  flex: 1 1 11rem
+  min-width: 11rem
+  padding: 0.9rem 1rem
+  outline: 1px solid rgba(70, 71, 82, 0.15)
+  border-radius: 0.95rem 0.5rem 1.35rem 0.5rem
+  background: linear-gradient(180deg, rgba(18, 25, 42, 0.96), rgba(11, 16, 30, 0.98))
+
+.pretext-hero__metric-label
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.64rem
+  letter-spacing: 0.16em
+  text-transform: uppercase
+  color: rgba(110, 238, 255, 0.76)
+
+.pretext-hero__metric-value
+  margin-top: 0.4rem
+  font-family: 'Inter Tight', sans-serif
+  font-size: 1.25rem
+  font-weight: 700
+  color: #fff5e8
+
+.pretext-hero__metric-detail
+  margin-top: 0.4rem
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.69rem
+  line-height: 1.6
+  color: rgba(208, 215, 234, 0.7)
+
+.pretext-hero__log
+  padding: 1rem
+  outline: 1px solid rgba(70, 71, 82, 0.15)
+  border-radius: 1rem 0.55rem 1.7rem 0.55rem
+  background: linear-gradient(180deg, rgba(18, 24, 40, 0.92), rgba(10, 14, 27, 0.96))
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03)
+
+.pretext-hero__log-header
+  display: flex
+  gap: 0.85rem
+  align-items: center
+
+.pretext-hero__log-emblem
+  position: relative
+  width: 3.1rem
+  height: 3.1rem
+  flex: none
+  border-radius: 999px
+  outline: 1px solid rgba(70, 71, 82, 0.15)
+  background: radial-gradient(circle at 50% 50%, rgba(108, 238, 255, 0.12), rgba(14, 21, 37, 0.94) 58%, rgba(255, 190, 118, 0.12) 100%)
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.03) inset, 0 0 14px rgba(108, 238, 255, 0.08)
+
+.pretext-hero__log-emblem::before,
+.pretext-hero__log-emblem::after
+  content: ''
+  position: absolute
+  inset: 0
+  border-radius: 999px
+
+.pretext-hero__log-emblem::before
+  inset: 0.45rem
+  outline: 1px solid rgba(70, 71, 82, 0.15)
+
+.pretext-hero__log-emblem::after
+  inset: 1.2rem
+  background: linear-gradient(135deg, rgba(108, 238, 255, 0.92), rgba(255, 190, 118, 0.72))
+
+.pretext-hero__log-heading
+  display: flex
+  flex-direction: column
+  gap: 0.18rem
+  min-width: 0
+
+.pretext-hero__log-label
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.62rem
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: rgba(255, 196, 133, 0.82)
+
+.pretext-hero__log-title
+  max-width: none
+  font-family: 'Inter Tight', sans-serif
+  font-size: 1.28rem
+  line-height: 0.96
+  color: #fff5e8
+
+.pretext-hero__log-copy
+  margin-top: 1rem
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.78rem
+  line-height: 1.74
+  color: rgba(229, 231, 244, 0.76)
+
+.pretext-hero__timeline
+  display: flex
+  flex-direction: column
+  gap: 0.7rem
+  margin-top: 1rem
+
+.pretext-hero__timeline-row
+  display: flex
+  gap: 0.8rem
+  align-items: flex-start
+  padding-top: 0.7rem
+  border-top: 1px solid rgba(70, 71, 82, 0.12)
+
+.pretext-hero__timeline-stardate
+  flex: none
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.62rem
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: rgba(110, 238, 255, 0.84)
+
+.pretext-hero__timeline-summary
+  flex: 1 1 auto
+  min-width: 0
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.72rem
+  line-height: 1.6
+  color: rgba(219, 224, 239, 0.76)
+
+.pretext-hero__features
+  display: flex
+  flex-wrap: wrap
+  gap: 0.9rem
+  margin-top: 1.2rem
+
+.pretext-hero__feature
+  flex: 1 1 15rem
+  min-width: 15rem
+  display: flex
+  flex-direction: column
+  gap: 0.55rem
+  padding: 1rem
+  outline: 1px solid rgba(70, 71, 82, 0.15)
+  border-radius: 0.95rem 0.5rem 1.35rem 0.5rem
+  background: rgba(10, 16, 31, 0.9)
+
+.pretext-hero__feature-kicker
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.62rem
+  letter-spacing: 0.18em
+  text-transform: uppercase
+  color: rgba(255, 174, 116, 0.82)
+
+.pretext-hero__feature-title
+  font-family: 'Inter Tight', sans-serif
+  font-size: 1.18rem
+  font-weight: 700
+  line-height: 1.05
+  color: #f8fafc
+
+.pretext-hero__feature-copy
+  font-family: 'JetBrains Mono', monospace
+  font-size: 0.74rem
+  line-height: 1.68
+  color: rgba(206, 213, 232, 0.72)
+
+@media (min-width: 1024px)
+  .pretext-hero__main
+    flex-direction: row
+    align-items: stretch
+
+  .pretext-hero__content
+    flex: 1 1 auto
+
+  .pretext-hero__log
+    flex: 0 0 min(30rem, 38%)
+
+@media (max-width: 767px)
+  .pretext-hero__actions
+    flex-direction: column
+    align-items: stretch
+
+  .pretext-hero__action
+    width: 100%
+    min-width: 0
+    padding: 0 0.9rem
+    font-size: 0.68rem
+    letter-spacing: 0.12em
+
+  .pretext-hero__metric,
+  .pretext-hero__feature
+    min-width: 100%
+
+  .pretext-hero__timeline-row
+    flex-direction: column
+    gap: 0.35rem

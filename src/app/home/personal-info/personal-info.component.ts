@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { PretextTextComponent } from 'src/app/pretext/pretext-text.component';
 import {
   PersonalInfoService,
   PrivateInfo,
@@ -13,7 +14,7 @@ const TOKEN_COOKIE = 'personal_token';
 
 @Component({
   selector: 'app-personal-info',
-  imports: [CommonModule, FormsModule, TranslateModule],
+  imports: [CommonModule, FormsModule, TranslateModule, PretextTextComponent],
   templateUrl: './personal-info.component.html',
   styleUrls: ['./personal-info.component.sass'],
 })

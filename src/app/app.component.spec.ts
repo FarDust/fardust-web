@@ -44,11 +44,29 @@ describe('AppComponent', () => {
     expect(translateService.use).toHaveBeenCalledWith('es');
   });
 
-  it('should reserve space for the fixed footer', () => {
+  it('should render the shell main container without footer spacer padding', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const contentEl: HTMLElement | null =
-      fixture.nativeElement.querySelector('.flex-grow');
-    expect(contentEl?.classList.contains('pb-10')).toBeTrue();
+      fixture.nativeElement.querySelector('main');
+    expect(contentEl?.classList.contains('app-shell__main')).toBeTrue();
+    expect(getComputedStyle(contentEl as HTMLElement).paddingBottom).toBe(
+      '0px',
+    );
+  });
+
+  it('should render a skip link and a main landmark for the routed content', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+
+    const skipLink = fixture.nativeElement.querySelector(
+      '.app-shell__skip-link',
+    ) as HTMLAnchorElement | null;
+    const main = fixture.nativeElement.querySelector(
+      'main',
+    ) as HTMLElement | null;
+
+    expect(skipLink?.getAttribute('href')).toBe('#main-content');
+    expect(main?.getAttribute('id')).toBe('main-content');
   });
 });

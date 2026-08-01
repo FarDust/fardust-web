@@ -6,35 +6,47 @@
         [routerLink]="['/']"
         fragment="console-core"
       >
-        <span class="console-navbar__brand-mark">G.FAUNDEZ</span>
-        <span class="console-navbar__brand-context">PROFILE_CONSOLE</span>
+        <app-pretext-text
+          class="console-navbar__brand-mark"
+          [text]="'G.FAUNDEZ'"
+          [noWrap]="true"
+        ></app-pretext-text>
+        <app-pretext-text
+          class="console-navbar__brand-context"
+          [text]="'Profile console'"
+          [noWrap]="true"
+        ></app-pretext-text>
       </a>
 
       <div class="console-navbar__links" aria-label="Primary navigation">
-        <a
-          class="nav-link"
-          [class.nav-link--active]="isHomeRoute()"
-          [routerLink]="['/']"
-          fragment="console-core"
-        >
-          Overview
-        </a>
-        <a
-          class="nav-link"
-          [class.nav-link--active]="isExperienceRoute()"
-          [routerLink]="['/experience']"
-        >
-          Experience
-        </a>
+        @for (item of navItems; track item.id) {
+          <a
+            class="nav-link"
+            [class.nav-link--active]="isNavItemActive(item.id)"
+            [routerLink]="[item.route]"
+            [fragment]="item.fragment ?? null"
+          >
+            <app-pretext-text
+              [text]="item.label"
+              [noWrap]="true"
+            ></app-pretext-text>
+          </a>
+        }
       </div>
     </div>
 
     <div class="console-navbar__actions">
       <p class="console-navbar__status" aria-live="polite">
-        <span class="console-navbar__status-label">Context</span>
-        <span class="console-navbar__status-value">{{
-          currentContextLabel()
-        }}</span>
+        <app-pretext-text
+          class="console-navbar__status-label"
+          [text]="'Context'"
+          [noWrap]="true"
+        ></app-pretext-text>
+        <app-pretext-text
+          class="console-navbar__status-value"
+          [text]="currentContextLabel()"
+          [noWrap]="true"
+        ></app-pretext-text>
       </p>
 
       <a
@@ -42,9 +54,13 @@
         [href]="(githubService$ | async)?.html_url"
         rel="noopener noreferrer"
         target="_blank"
+        aria-label="GitHub profile (opens in new tab)"
       >
         <i class="fab fa-github" aria-hidden="true"></i>
-        <span>{{ (githubService$ | async)?.login }}</span>
+        <app-pretext-text
+          [text]="(githubService$ | async)?.login || 'FarDust'"
+          [noWrap]="true"
+        ></app-pretext-text>
       </a>
 
       <button
@@ -66,25 +82,27 @@
       [class.block]="menuOpen"
     >
       <div class="console-navbar__mobile-links">
-        <p class="console-navbar__mobile-status">{{ currentContextLabel() }}</p>
-        <div class="grid gap-2 md:hidden">
-          <a
-            class="mobile-nav-link"
-            [class.mobile-nav-link--active]="isHomeRoute()"
-            [routerLink]="['/']"
-            fragment="console-core"
-            (click)="closeMenu()"
-          >
-            Overview
-          </a>
-          <a
-            class="mobile-nav-link"
-            [class.mobile-nav-link--active]="isExperienceRoute()"
-            [routerLink]="['/experience']"
-            (click)="closeMenu()"
-          >
-            Experience
-          </a>
+        <p class="console-navbar__mobile-status">
+          <app-pretext-text
+            [text]="currentContextLabel()"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+        <div class="console-navbar__mobile-list md:hidden">
+          @for (item of navItems; track item.id) {
+            <a
+              class="mobile-nav-link"
+              [class.mobile-nav-link--active]="isNavItemActive(item.id)"
+              [routerLink]="[item.route]"
+              [fragment]="item.fragment ?? null"
+              (click)="closeMenu()"
+            >
+              <app-pretext-text
+                [text]="item.label"
+                [noWrap]="true"
+              ></app-pretext-text>
+            </a>
+          }
         </div>
       </div>
     </div>

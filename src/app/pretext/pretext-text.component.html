@@ -1,0 +1,9 @@
+@if (lines().length) {
+  <span class="pretext-text__surface">
+    @for (line of lines(); track $index) {
+      <span class="pretext-text__line">{{ line.text }}</span>
+    }
+  </span>
+} @else {
+  <span class="pretext-text__fallback">{{ text() }}</span>
+}

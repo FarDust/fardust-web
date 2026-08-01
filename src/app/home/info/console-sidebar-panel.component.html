@@ -1,13 +1,24 @@
 <aside class="console-sidebar animate-panel-rise">
   <section class="console-sidebar__card">
     <header class="console-sidebar__card-header">
-      <span>PROFILE_DETAILS</span>
+      <app-pretext-text
+        [text]="'Profile details'"
+        [noWrap]="true"
+      ></app-pretext-text>
     </header>
     <div class="console-sidebar__card-body console-sidebar__specs">
       @for (field of specifications(); track field.label) {
         <div class="console-sidebar__spec-line">
-          <span>{{ field.label }}</span>
-          <span>{{ field.value }}</span>
+          <app-pretext-text
+            class="console-sidebar__spec-key"
+            [text]="field.label"
+            [noWrap]="true"
+          ></app-pretext-text>
+          <app-pretext-text
+            class="console-sidebar__spec-value"
+            [text]="field.value"
+            [noWrap]="true"
+          ></app-pretext-text>
         </div>
       }
     </div>
@@ -17,7 +28,10 @@
     <header
       class="console-sidebar__card-header console-sidebar__card-header--split"
     >
-      <span>EXPERIENCE_LOG</span>
+      <app-pretext-text
+        [text]="'Experience log'"
+        [noWrap]="true"
+      ></app-pretext-text>
       <span class="console-sidebar__window-controls" aria-hidden="true">
         <span></span>
         <span></span>
@@ -26,13 +40,17 @@
     <div class="console-sidebar__card-body console-sidebar__logs">
       @for (entry of logs(); track entry.time + entry.message) {
         <p class="console-sidebar__log-line">
-          <span
+          <app-pretext-text
             class="console-sidebar__log-time"
             [ngClass]="logToneClass(entry.tone)"
+            [text]="entry.time"
+            [noWrap]="true"
           >
-            {{ entry.time }}
-          </span>
-          <span>{{ entry.message }}</span>
+          </app-pretext-text>
+          <app-pretext-text
+            class="console-sidebar__log-message"
+            [text]="entry.message"
+          ></app-pretext-text>
         </p>
       }
       <p class="console-sidebar__cursor">_</p>
@@ -40,7 +58,12 @@
   </section>
 
   <section class="console-sidebar__action">
-    <p class="console-sidebar__action-label">Primary_Action</p>
+    <p class="console-sidebar__action-label">
+      <app-pretext-text
+        [text]="'Primary action'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </p>
     @if (action().href) {
       <a
         [href]="action().href"
@@ -48,21 +71,30 @@
         rel="noopener noreferrer"
         class="console-sidebar__action-button"
       >
-        {{ action().label }}
+        <app-pretext-text
+          [text]="action().label"
+          [noWrap]="true"
+        ></app-pretext-text>
       </a>
     } @else {
       <a
         [routerLink]="action().routerLink"
         class="console-sidebar__action-button"
       >
-        {{ action().label }}
+        <app-pretext-text
+          [text]="action().label"
+          [noWrap]="true"
+        ></app-pretext-text>
       </a>
     }
   </section>
 
   <section class="console-sidebar__card">
     <header class="console-sidebar__card-header">
-      <span>PERSONAL_NOTE</span>
+      <app-pretext-text
+        [text]="'Personal note'"
+        [noWrap]="true"
+      ></app-pretext-text>
     </header>
     <div class="console-sidebar__card-body">
       <app-personal-info></app-personal-info>

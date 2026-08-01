@@ -1,0 +1,37 @@
+:host
+  display: block
+
+.app-shell
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  background: #0b1326
+  color: #fff
+
+.app-shell__main
+  flex: 1 1 auto
+
+.app-shell__skip-link
+  position: fixed
+  top: 0.75rem
+  left: 0.75rem
+  z-index: 120
+  padding: 0.65rem 0.9rem
+  outline: 1px solid rgba(70, 71, 82, 0.15)
+  border-radius: 0.35rem
+  background: rgba(9, 17, 34, 0.96)
+  color: #f7f1e8
+  font-family: 'Space Grotesk', sans-serif
+  font-size: 0.78rem
+  font-weight: 700
+  letter-spacing: 0.08em
+  text-transform: uppercase
+  opacity: 0
+  pointer-events: none
+  transform: translateY(-140%)
+  transition: transform 160ms ease, opacity 160ms ease
+
+.app-shell__skip-link:focus-visible
+  opacity: 1
+  pointer-events: auto
+  transform: translateY(0)

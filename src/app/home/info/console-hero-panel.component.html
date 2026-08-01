@@ -1,5 +1,10 @@
 <section class="console-hero animate-panel-rise">
-  <div class="console-hero__ref">REF_ID: G_F_0912</div>
+  <div class="console-hero__ref">
+    <app-pretext-text
+      [text]="'Ref ID: G_F_0912'"
+      [noWrap]="true"
+    ></app-pretext-text>
+  </div>
 
   <div class="console-hero__profile">
     <app-console-profile-badge
@@ -10,16 +15,30 @@
 
     <div class="console-hero__copy">
       <header>
-        <p class="console-hero__kicker">System User Active</p>
-        <h1 class="console-hero__title">{{ displayName() }}</h1>
+        <p class="console-hero__kicker">
+          <app-pretext-text
+            [text]="'System user active'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+        <h1 class="console-hero__title">
+          <app-pretext-text [text]="displayName()"></app-pretext-text>
+        </h1>
         <p class="console-hero__role">
-          SOFTWARE_ENGINEER // MACHINE_LEARNING_ENGINEER
+          <app-pretext-text
+            [text]="'Software engineer // machine learning engineer'"
+          ></app-pretext-text>
         </p>
       </header>
 
       <div class="console-hero__quote">
         <p class="console-hero__quote-copy">
-          <span>&gt;</span> "{{ 'ai_passion' | translate }}"
+          <span aria-hidden="true">&gt;</span>
+          <span aria-hidden="true">"</span>
+          <app-pretext-text
+            [text]="'ai_passion' | translate"
+          ></app-pretext-text>
+          <span aria-hidden="true">"</span>
         </p>
       </div>
 
@@ -32,7 +51,10 @@
           class="console-hero__action console-hero__action--primary"
         >
           <span class="material-symbols-outlined">download</span>
-          FETCH_CV.PDF
+          <app-pretext-text
+            [text]="'FETCH_CV.PDF'"
+            [noWrap]="true"
+          ></app-pretext-text>
         </a>
         <a
           [href]="githubUrl()"
@@ -40,7 +62,10 @@
           rel="noopener noreferrer"
           class="console-hero__action"
         >
-          OPEN_GITHUB
+          <app-pretext-text
+            [text]="'OPEN_GITHUB'"
+            [noWrap]="true"
+          ></app-pretext-text>
         </a>
       </div>
     </div>
@@ -49,8 +74,16 @@
   <div class="console-hero__specs">
     @for (field of specifications(); track field.label) {
       <div class="console-hero__spec-line">
-        <span>{{ field.label }}</span>
-        <span>{{ field.value }}</span>
+        <app-pretext-text
+          class="console-hero__spec-key"
+          [text]="field.label"
+          [noWrap]="true"
+        ></app-pretext-text>
+        <app-pretext-text
+          class="console-hero__spec-value"
+          [text]="field.value"
+          [noWrap]="true"
+        ></app-pretext-text>
       </div>
     }
   </div>
@@ -58,9 +91,18 @@
   <div class="console-hero__metrics">
     @for (metric of metrics(); track metric.label) {
       <article class="console-hero__metric">
-        <p class="console-hero__metric-label">{{ metric.label }}</p>
-        <p class="console-hero__metric-value">{{ metric.value }}</p>
-        <p class="console-hero__metric-detail">{{ metric.detail }}</p>
+        <p class="console-hero__metric-label">
+          <app-pretext-text
+            [text]="metric.label"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+        <p class="console-hero__metric-value">
+          <app-pretext-text [text]="metric.value"></app-pretext-text>
+        </p>
+        <p class="console-hero__metric-detail">
+          <app-pretext-text [text]="metric.detail"></app-pretext-text>
+        </p>
       </article>
     }
   </div>
