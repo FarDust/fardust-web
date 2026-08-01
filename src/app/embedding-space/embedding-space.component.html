@@ -1,0 +1,42 @@
+<div
+  class="embedding-container"
+  [class.embedding-container--fallback]="renderError"
+>
+  @if (renderError) {
+    <app-embedding-space-fallback></app-embedding-space-fallback>
+  } @else {
+    <canvas #canvas></canvas>
+
+    <!-- Cluster centroid labels projected from 3D -->
+    @for (label of clusterLabels; track label.text) {
+      @if (label.visible) {
+        <span
+          class="embedding-cluster-label"
+          [style.left.px]="label.x"
+          [style.top.px]="label.y"
+          [style.color]="label.color"
+        >
+          {{ label.text }}
+        </span>
+      }
+    }
+
+    <app-embedding-space-hud
+      [apiStatus]="apiStatus"
+      [tryItOpen]="tryItOpen"
+      (toggleTryIt)="toggleTryIt()"
+    ></app-embedding-space-hud>
+
+    @if (tryItOpen) {
+      <app-embedding-space-api-panel
+        [apiUrl]="apiUrl"
+        [apiStatus]="apiStatus"
+        [apiError]="apiError"
+        [sampleExpanded]="sampleExpanded"
+        (apiUrlChange)="setApiUrl($event)"
+        (connectRequested)="loadFromApi($event)"
+        (sampleExpandedChange)="setSampleExpanded($event)"
+      ></app-embedding-space-api-panel>
+    }
+  }
+</div>
