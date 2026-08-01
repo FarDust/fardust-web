@@ -1,0 +1,80 @@
+<section class="pretext-shrinkwrap">
+  <app-pretext-section-header
+    [eyebrow]="content().eyebrow"
+    [title]="content().title"
+    [lead]="content().lead"
+  >
+    <label class="pretext-shrinkwrap__slider" for="pretext-width" sectionAside>
+      <app-pretext-text
+        [text]="content().sliderLabel + ' ' + chatWidth() + 'px'"
+        [noWrap]="true"
+      ></app-pretext-text>
+      <input
+        id="pretext-width"
+        type="range"
+        min="240"
+        [max]="maxWidth()"
+        [value]="chatWidth()"
+        (input)="setWidth($any($event.target).value)"
+      />
+    </label>
+  </app-pretext-section-header>
+
+  <div class="pretext-shrinkwrap__columns">
+    <article class="pretext-shrinkwrap__column">
+      <header class="pretext-shrinkwrap__column-header">
+        <app-pretext-text
+          class="pretext-shrinkwrap__column-title"
+          [text]="content().leftTitle"
+          [noWrap]="true"
+        ></app-pretext-text>
+        <app-pretext-text
+          class="pretext-shrinkwrap__waste"
+          [text]="cssWaste() + 'px dead space'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </header>
+
+      <div class="pretext-shrinkwrap__chat" [style.width.px]="chatWidth()">
+        @for (message of content().messages; track message; let even = $even) {
+          <div
+            #cssBubble
+            class="pretext-shrinkwrap__bubble pretext-shrinkwrap__bubble--css"
+            [class.pretext-shrinkwrap__bubble--reply]="even"
+          >
+            <app-pretext-text [text]="message"></app-pretext-text>
+          </div>
+        }
+      </div>
+    </article>
+
+    <article class="pretext-shrinkwrap__column">
+      <header class="pretext-shrinkwrap__column-header">
+        <app-pretext-text
+          class="pretext-shrinkwrap__column-title"
+          [text]="content().rightTitle"
+          [noWrap]="true"
+        ></app-pretext-text>
+        <app-pretext-text
+          class="pretext-shrinkwrap__waste"
+          [text]="content().rightWasteLabel"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </header>
+
+      <div class="pretext-shrinkwrap__chat" [style.width.px]="chatWidth()">
+        @for (bubble of pretextBubbles(); track bubble.text; let even = $even) {
+          <div
+            class="pretext-shrinkwrap__bubble pretext-shrinkwrap__bubble--pretext"
+            [class.pretext-shrinkwrap__bubble--reply]="even"
+            [ngStyle]="bubbleWidthStyle(bubble.width)"
+          >
+            @for (line of bubble.lines; track $index) {
+              <span class="pretext-shrinkwrap__line">{{ line }}</span>
+            }
+          </div>
+        }
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<div class="background pretext-route relative">
+  <div class="pretext-route__nebula" aria-hidden="true"></div>
+  <div class="pretext-route__stars" aria-hidden="true"></div>
+  <div class="pretext-route__chart" aria-hidden="true"></div>
+  <div class="pretext-route__sensor-sweep" aria-hidden="true"></div>
+
+  <div class="console-route__inner">
+    <section class="pretext-layout">
+      <div class="pretext-layout__body">
+        <app-pretext-hero [content]="heroContent"></app-pretext-hero>
+
+        <section class="pretext-section animate-panel-rise">
+          <app-pretext-editorial-engine
+            [content]="editorialContent"
+          ></app-pretext-editorial-engine>
+        </section>
+
+        <section class="pretext-section animate-panel-rise">
+          <app-pretext-shrinkwrap-showdown
+            [content]="shrinkwrapContent"
+          ></app-pretext-shrinkwrap-showdown>
+        </section>
+
+        <app-pretext-validation-section
+          [content]="validationContent"
+        ></app-pretext-validation-section>
+      </div>
+    </section>
+  </div>
+</div>

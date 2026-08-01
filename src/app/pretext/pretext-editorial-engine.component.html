@@ -1,0 +1,77 @@
+<section
+  class="pretext-editorial"
+  (pointermove)="drag($event)"
+  (pointerup)="endDrag()"
+  (pointercancel)="endDrag()"
+  (pointerleave)="endDrag()"
+>
+  <app-pretext-section-header
+    [eyebrow]="content().eyebrow"
+    [title]="content().title"
+    [lead]="content().lead"
+  ></app-pretext-section-header>
+
+  <div
+    class="pretext-editorial__stage"
+    #stage
+    [style.--pretext-editorial-font-size.px]="layoutMetrics().fontSize"
+    [style.--pretext-editorial-line-height.px]="layoutMetrics().lineHeight"
+  >
+    <div class="pretext-editorial__stage-head">
+      <app-pretext-text
+        class="pretext-editorial__stage-label"
+        [text]="content().stageLabel"
+        [noWrap]="true"
+      ></app-pretext-text>
+      <app-pretext-text
+        class="pretext-editorial__stage-hint"
+        [text]="content().stageHint"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </div>
+
+    @for (orb of visibleOrbs(); track orb.id) {
+      <button
+        type="button"
+        class="pretext-editorial__orb"
+        [class.pretext-editorial__orb--amber]="orb.tone === 'amber'"
+        [class.pretext-editorial__orb--plasma]="orb.tone === 'plasma'"
+        [class.pretext-editorial__orb--cyan]="orb.tone === 'cyan'"
+        [ngStyle]="orbStyle(orb)"
+        (pointerdown)="startDrag($event, orb.id)"
+        [attr.aria-label]="'Move ' + orb.label"
+      >
+        <span class="pretext-editorial__orb-label">{{ orb.label }}</span>
+      </button>
+    }
+
+    @if (projection(); as layout) {
+      @for (line of layout.lines; track $index) {
+        <span class="pretext-editorial__line" [ngStyle]="lineStyle(line)">{{
+          line.text
+        }}</span>
+      }
+
+      @if (layout.overflowed) {
+        <p class="pretext-editorial__overflow">
+          <app-pretext-text
+            [text]="content().overflowMessage"
+          ></app-pretext-text>
+        </p>
+      }
+    }
+  </div>
+
+  @if (projection(); as layout) {
+    <div class="pretext-editorial__stats">
+      <app-pretext-text [text]="'LINES ' + layout.lineCount"></app-pretext-text>
+      <app-pretext-text
+        [text]="'REFLOW ' + layout.reflowMs.toFixed(1) + 'ms'"
+      ></app-pretext-text>
+      <app-pretext-text [text]="'DOM READS 0'"></app-pretext-text>
+      <app-pretext-text
+        [text]="'CHANNELS ' + layout.columns"
+      ></app-pretext-text>
+    </div>
+  }
+</section>

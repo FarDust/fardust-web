@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BallComponent } from './ball.component';
+import { PretextComponent } from './pretext.component';
 
-const routes: Routes = [{ path: '', component: BallComponent }];
+const routes: Routes = [{ path: '', component: PretextComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BallRoutingModule {}
+export class PretextRoutingModule {}

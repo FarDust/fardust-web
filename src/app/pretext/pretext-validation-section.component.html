@@ -1,0 +1,85 @@
+<app-pretext-section-header
+  [eyebrow]="content().eyebrow"
+  [title]="content().title"
+>
+  <a
+    class="pretext-validation__link"
+    [href]="content().briefHref"
+    target="_blank"
+    rel="noopener noreferrer"
+    sectionAside
+  >
+    <app-pretext-text
+      [text]="content().briefLabel"
+      [noWrap]="true"
+    ></app-pretext-text>
+  </a>
+</app-pretext-section-header>
+
+<div class="pretext-validation__cards">
+  @for (sample of content().samples; track sample.label) {
+    <article class="pretext-validation__card">
+      <p class="pretext-validation__label">
+        <app-pretext-text
+          [text]="sample.label"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </p>
+      <div class="pretext-validation__sample">
+        <app-pretext-text
+          [text]="sample.text"
+          [whiteSpace]="sample.whiteSpace ?? 'normal'"
+        ></app-pretext-text>
+      </div>
+    </article>
+  }
+</div>
+
+<section class="pretext-validation__mobile" aria-label="Validation samples">
+  <div
+    class="pretext-validation__tabs"
+    role="tablist"
+    aria-label="Validation samples"
+  >
+    @for (sample of content().samples; track sample.label; let index = $index) {
+      <button
+        class="pretext-validation__tab"
+        [class.pretext-validation__tab--active]="isActiveSample(index)"
+        type="button"
+        role="tab"
+        [id]="sampleTabId(index)"
+        [attr.aria-selected]="isActiveSample(index)"
+        [attr.aria-controls]="samplePanelId(index)"
+        [attr.tabindex]="isActiveSample(index) ? 0 : -1"
+        (click)="selectSample(index)"
+      >
+        <app-pretext-text
+          [text]="sample.label"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </button>
+    }
+  </div>
+
+  @if (activeSample(); as sample) {
+    <article
+      class="pretext-validation__mobile-card"
+      role="tabpanel"
+      [id]="samplePanelId(activeSampleIndexClamped())"
+      [attr.aria-labelledby]="sampleTabId(activeSampleIndexClamped())"
+    >
+      <p class="pretext-validation__label">
+        <app-pretext-text
+          [text]="sample.label"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </p>
+      <div class="pretext-validation__sample">
+        <app-pretext-text
+          [text]="sample.text"
+          [whiteSpace]="sample.whiteSpace ?? 'normal'"
+        ></app-pretext-text>
+      </div>
+    </article>
+  }
+</section>
