@@ -1,7 +1,16 @@
 <section class="console-registry animate-panel-rise">
   <div class="console-registry__header">
-    <h2 class="console-registry__title">SELECTED_WORK</h2>
-    <span class="console-registry__meta">LIVE_SITE_REFERENCES</span>
+    <h2 class="console-registry__title">
+      <app-pretext-text
+        [text]="'Selected work'"
+        [noWrap]="true"
+      ></app-pretext-text>
+    </h2>
+    <app-pretext-text
+      class="console-registry__meta"
+      [text]="'Live site references'"
+      [noWrap]="true"
+    ></app-pretext-text>
   </div>
 
   <div class="console-registry__grid">
@@ -14,16 +23,32 @@
           class="console-registry__card"
         >
           <div class="console-registry__card-header">
-            <div class="console-registry__path">{{ card.eyebrow }}</div>
+            <app-pretext-text
+              class="console-registry__path"
+              [text]="card.eyebrow"
+              [noWrap]="true"
+            ></app-pretext-text>
           </div>
-          <h3 class="console-registry__card-title">{{ card.title }}</h3>
-          <p class="console-registry__card-copy">{{ card.description }}</p>
+          <h3 class="console-registry__card-title">
+            <app-pretext-text [text]="card.title"></app-pretext-text>
+          </h3>
+          <p class="console-registry__card-copy">
+            <app-pretext-text [text]="card.description"></app-pretext-text>
+          </p>
 
           <div class="console-registry__stats">
             @for (stat of card.meta; track stat.label) {
               <div class="console-registry__stat-line">
-                <span>{{ stat.label }}</span>
-                <span>{{ stat.value }}</span>
+                <app-pretext-text
+                  class="console-registry__stat-key"
+                  [text]="stat.label"
+                  [noWrap]="true"
+                ></app-pretext-text>
+                <app-pretext-text
+                  class="console-registry__stat-value"
+                  [text]="stat.value"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </div>
             }
           </div>
@@ -31,16 +56,32 @@
       } @else {
         <a [routerLink]="card.routerLink" class="console-registry__card">
           <div class="console-registry__card-header">
-            <div class="console-registry__path">{{ card.eyebrow }}</div>
+            <app-pretext-text
+              class="console-registry__path"
+              [text]="card.eyebrow"
+              [noWrap]="true"
+            ></app-pretext-text>
           </div>
-          <h3 class="console-registry__card-title">{{ card.title }}</h3>
-          <p class="console-registry__card-copy">{{ card.description }}</p>
+          <h3 class="console-registry__card-title">
+            <app-pretext-text [text]="card.title"></app-pretext-text>
+          </h3>
+          <p class="console-registry__card-copy">
+            <app-pretext-text [text]="card.description"></app-pretext-text>
+          </p>
 
           <div class="console-registry__stats">
             @for (stat of card.meta; track stat.label) {
               <div class="console-registry__stat-line">
-                <span>{{ stat.label }}</span>
-                <span>{{ stat.value }}</span>
+                <app-pretext-text
+                  class="console-registry__stat-key"
+                  [text]="stat.label"
+                  [noWrap]="true"
+                ></app-pretext-text>
+                <app-pretext-text
+                  class="console-registry__stat-value"
+                  [text]="stat.value"
+                  [noWrap]="true"
+                ></app-pretext-text>
               </div>
             }
           </div>
@@ -50,7 +91,10 @@
 
     <div class="console-registry__placeholder">
       <span class="material-symbols-outlined">add_circle</span>
-      <span>MORE_REFERENCES_ON_GITHUB</span>
+      <app-pretext-text
+        [text]="'More references on GitHub'"
+        [noWrap]="true"
+      ></app-pretext-text>
     </div>
   </div>
 
@@ -65,20 +109,30 @@
         >
           <span class="material-symbols-outlined">{{ item.icon }}</span>
           <span>
-            <span class="console-registry__module-title">{{ item.title }}</span>
-            <span class="console-registry__module-copy">{{
-              item.description
-            }}</span>
+            <app-pretext-text
+              class="console-registry__module-title"
+              [text]="item.title"
+            ></app-pretext-text>
+            <app-pretext-text
+              class="console-registry__module-copy"
+              [text]="item.description"
+              [noWrap]="true"
+            ></app-pretext-text>
           </span>
         </a>
       } @else {
         <a [routerLink]="item.routerLink" class="console-registry__module">
           <span class="material-symbols-outlined">{{ item.icon }}</span>
           <span>
-            <span class="console-registry__module-title">{{ item.title }}</span>
-            <span class="console-registry__module-copy">{{
-              item.description
-            }}</span>
+            <app-pretext-text
+              class="console-registry__module-title"
+              [text]="item.title"
+            ></app-pretext-text>
+            <app-pretext-text
+              class="console-registry__module-copy"
+              [text]="item.description"
+              [noWrap]="true"
+            ></app-pretext-text>
           </span>
         </a>
       }

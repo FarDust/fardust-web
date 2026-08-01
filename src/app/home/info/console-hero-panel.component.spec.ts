@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
+import { By } from '@angular/platform-browser';
 
 import { ConsoleHeroPanelComponent } from './console-hero-panel.component';
 
@@ -34,5 +35,26 @@ describe('ConsoleHeroPanelComponent', () => {
       'gabriel-faundez-cv.pdf',
     );
     expect(primaryAction.getAttribute('target')).toBe('_blank');
+  });
+
+  it('renders the GitHub avatar when profile data is available', () => {
+    fixture.componentRef.setInput('github', {
+      login: 'FarDust',
+      avatar_url: 'https://avatars.example/FarDust.png',
+      url: 'https://api.github.com/users/FarDust',
+      html_url: 'https://github.com/FarDust',
+      name: 'Gabriel Faundez',
+    });
+    fixture.detectChanges();
+
+    const portrait = fixture.debugElement.query(
+      By.css('.console-profile-badge__image'),
+    )?.nativeElement as HTMLImageElement | undefined;
+
+    expect(portrait).toBeTruthy();
+    expect(portrait?.getAttribute('src')).toContain(
+      'https://avatars.example/FarDust.png',
+    );
+    expect(portrait?.getAttribute('alt')).toBe('Gabriel Faundez GitHub avatar');
   });
 });

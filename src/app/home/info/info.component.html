@@ -7,6 +7,7 @@
           [primaryItems]="railPrimaryItems"
           [utilityItems]="railUtilityItems"
           [focus]="currentFocus"
+          [path]="'~/fardust-web/home'"
         ></app-console-left-rail>
 
         <div class="console-layout__body">
@@ -43,7 +44,9 @@
       <div
         class="easter-egg fixed bottom-4 right-4 rounded-full border border-white/10 bg-[#0b1326]/95 px-4 py-2 text-white"
       >
-        🎉 ¡Easter egg desbloqueado!
+        <app-pretext-text
+          [text]="'🎉 ¡Easter egg desbloqueado!'"
+        ></app-pretext-text>
       </div>
     }
 
@@ -51,8 +54,10 @@
       <div
         class="easter-egg fixed bottom-20 right-4 rounded-full border border-white/10 bg-[#0b1326]/95 px-4 py-2 text-white"
       >
-        🛸 Make it so!
-        <a href="https://www.startrek.com" class="underline">Captain Picard</a>
+        <app-pretext-text [text]="'🛸 Make it so!'"></app-pretext-text>
+        <a href="https://www.startrek.com" class="underline">
+          <app-pretext-text [text]="'Captain Picard'"></app-pretext-text>
+        </a>
       </div>
     }
   </div>

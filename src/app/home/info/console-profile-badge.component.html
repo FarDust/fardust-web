@@ -7,9 +7,11 @@
         [alt]="imageAlt()"
       />
     } @else {
-      <span class="console-profile-badge__placeholder">{{
-        fallbackLabel()
-      }}</span>
+      <app-pretext-text
+        class="console-profile-badge__placeholder"
+        [text]="fallbackLabel()"
+        [shrinkwrap]="true"
+      ></app-pretext-text>
     }
   </div>
 

@@ -8,6 +8,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { PretextTextComponent } from '../pretext/pretext-text.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -17,7 +18,7 @@ describe('NavbarComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [NavbarComponent],
-      imports: [RouterModule],
+      imports: [RouterModule, PretextTextComponent],
       providers: [
         {
           provide: GithubService,
@@ -34,7 +35,6 @@ describe('NavbarComponent', () => {
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     router = TestBed.inject(Router);
-    fixture.detectChanges();
   });
 
   const setRouterUrl = (url: string) => {
@@ -64,7 +64,7 @@ describe('NavbarComponent', () => {
     setRouterUrl('/#console-core');
 
     expect(component.isHomeRoute()).toBeTrue();
-    expect(component.currentContextLabel()).toBe('PROFILE_ACTIVE');
+    expect(component.currentContextLabel()).toBe('Profile active');
   });
 
   it('should only match the experience route and its children', () => {
@@ -73,6 +73,28 @@ describe('NavbarComponent', () => {
 
     setRouterUrl('/experience/details');
     expect(component.isExperienceRoute()).toBeTrue();
-    expect(component.currentContextLabel()).toBe('CURRICULUM_ACTIVE');
+    expect(component.currentContextLabel()).toBe('Curriculum active');
+  });
+
+  it('should detect the embedding space route', () => {
+    setRouterUrl('/embedding-space');
+    expect(component.isEmbeddingSpaceRoute()).toBeTrue();
+    expect(component.currentContextLabel()).toBe('Embedding active');
+  });
+
+  it('should not match embedding-space prefix on unrelated routes', () => {
+    setRouterUrl('/embedding-spaceship');
+    expect(component.isEmbeddingSpaceRoute()).toBeFalse();
+  });
+
+  it('should detect the pretext route', () => {
+    setRouterUrl('/pretext');
+    expect(component.isPretextRoute()).toBeTrue();
+    expect(component.currentContextLabel()).toBe('Pretext active');
+  });
+
+  it('should include embedding space in nav items', () => {
+    const ids = component.navItems.map((item) => item.id);
+    expect(ids).toContain('embedding-space');
   });
 });

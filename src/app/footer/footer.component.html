@@ -1,17 +1,35 @@
 <footer class="console-footer">
   <div class="console-footer__inner">
     <p class="console-footer__status" aria-label="Profile summary">
-      <span>FOCUS: ML_ENGINEERING</span>
+      <app-pretext-text
+        [text]="'Focus: ML engineering'"
+        [noWrap]="true"
+      ></app-pretext-text>
       <span class="console-footer__divider" aria-hidden="true">|</span>
-      <span class="hidden sm:inline">STACK: PYTHON_TS_GCP</span>
+      <span class="hidden sm:inline">
+        <app-pretext-text
+          [text]="'Stack: Python / TS / GCP'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </span>
       <span class="console-footer__divider hidden sm:inline" aria-hidden="true"
         >|</span
       >
-      <span class="hidden lg:inline">LANG: ES_EN</span>
+      <span class="hidden lg:inline">
+        <app-pretext-text
+          [text]="'Lang: ES / EN'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </span>
       <span class="console-footer__divider hidden lg:inline" aria-hidden="true"
         >|</span
       >
-      <span class="hidden xl:inline">CV: 2026_01_30</span>
+      <span class="hidden xl:inline">
+        <app-pretext-text
+          [text]="'CV: 2026-01-30'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </span>
     </p>
 
     <nav class="console-footer__links" aria-label="Footer links">
@@ -23,10 +41,23 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        Source
+        <app-pretext-text [text]="'Source'" [noWrap]="true"></app-pretext-text>
       </a>
-      <a routerLink="/experience">Curriculum</a>
-      <a href="mailto:gnfaundez@uc.cl">Contact</a>
+      <a routerLink="/experience">
+        <app-pretext-text
+          [text]="'Curriculum'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </a>
+      <a routerLink="/pretext">
+        <app-pretext-text
+          [text]="'Pretext lab'"
+          [noWrap]="true"
+        ></app-pretext-text>
+      </a>
+      <a href="mailto:gnfaundez@uc.cl">
+        <app-pretext-text [text]="'Contact'" [noWrap]="true"></app-pretext-text>
+      </a>
     </nav>
   </div>
 </footer>

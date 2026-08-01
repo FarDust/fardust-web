@@ -1,1 +1,36 @@
-<p>{{ 'page_not_found' | translate }}</p>
+<div class="background console-route relative">
+  <div class="console-route__inner">
+    <section class="page-not-found">
+      <p class="page-not-found__eyebrow">404</p>
+      <h1 class="page-not-found__title">
+        <app-pretext-text
+          [text]="'page_not_found' | translate"
+        ></app-pretext-text>
+      </h1>
+      <p class="page-not-found__copy">
+        <app-pretext-text
+          [text]="
+            'The requested route is outside the current console map. Return to the main shell or jump straight to the curriculum viewer.'
+          "
+        ></app-pretext-text>
+      </p>
+      <div class="page-not-found__actions">
+        <a
+          class="page-not-found__action page-not-found__action--primary"
+          routerLink="/"
+        >
+          <app-pretext-text
+            [text]="'Back to console'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </a>
+        <a class="page-not-found__action" routerLink="/experience">
+          <app-pretext-text
+            [text]="'Open curriculum'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </a>
+      </div>
+    </section>
+  </div>
+</div>

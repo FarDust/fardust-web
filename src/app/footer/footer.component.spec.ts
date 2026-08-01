@@ -9,6 +9,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { PretextTextComponent } from '../pretext/pretext-text.component';
 
 describe('FooterComponent', () => {
   let component: FooterComponent;
@@ -17,7 +18,7 @@ describe('FooterComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FooterComponent],
-      imports: [RouterModule],
+      imports: [RouterModule, PretextTextComponent],
       providers: [
         {
           provide: GithubService,
@@ -41,7 +42,7 @@ describe('FooterComponent', () => {
   it('should render a curriculum router link', () => {
     const curriculumLink = fixture.debugElement
       .queryAll(By.css('.console-footer__links a'))
-      .find((link) => link.nativeElement.textContent.trim() === 'Curriculum');
+      .find((link) => link.nativeElement.textContent.includes('Curriculum'));
 
     expect(curriculumLink).toBeTruthy();
   });

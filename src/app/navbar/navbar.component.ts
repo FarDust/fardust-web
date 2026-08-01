@@ -2,6 +2,13 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GithubService } from '../services/github.service';
 
+type NavItem = {
+  id: 'home' | 'experience' | 'embedding-space' | 'pretext';
+  label: string;
+  route: string;
+  fragment?: string;
+};
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,7 +16,30 @@ import { GithubService } from '../services/github.service';
   standalone: false,
 })
 export class NavbarComponent {
-  menuOpen: boolean = false;
+  menuOpen = false;
+  readonly navItems: ReadonlyArray<NavItem> = [
+    {
+      id: 'home',
+      label: 'Overview',
+      route: '/',
+      fragment: 'console-core',
+    },
+    {
+      id: 'experience',
+      label: 'Experience',
+      route: '/experience',
+    },
+    {
+      id: 'embedding-space',
+      label: 'Embedding space',
+      route: '/embedding-space',
+    },
+    {
+      id: 'pretext',
+      label: 'Pretext lab',
+      route: '/pretext',
+    },
+  ];
 
   constructor(
     readonly githubService$: GithubService,
@@ -22,6 +52,19 @@ export class NavbarComponent {
 
   closeMenu(): void {
     this.menuOpen = false;
+  }
+
+  isNavItemActive(itemId: NavItem['id']): boolean {
+    switch (itemId) {
+      case 'experience':
+        return this.isExperienceRoute();
+      case 'embedding-space':
+        return this.isEmbeddingSpaceRoute();
+      case 'pretext':
+        return this.isPretextRoute();
+      default:
+        return this.isHomeRoute();
+    }
   }
 
   private currentPath(): string {
@@ -37,15 +80,33 @@ export class NavbarComponent {
     return path === '/experience' || path.startsWith('/experience/');
   }
 
+  isEmbeddingSpaceRoute(): boolean {
+    const path = this.currentPath();
+    return path === '/embedding-space' || path.startsWith('/embedding-space/');
+  }
+
+  isPretextRoute(): boolean {
+    const path = this.currentPath();
+    return path === '/pretext' || path.startsWith('/pretext/');
+  }
+
   currentContextLabel(): string {
     if (this.isExperienceRoute()) {
-      return 'CURRICULUM_ACTIVE';
+      return 'Curriculum active';
+    }
+
+    if (this.isEmbeddingSpaceRoute()) {
+      return 'Embedding active';
+    }
+
+    if (this.isPretextRoute()) {
+      return 'Pretext active';
     }
 
     if (this.isHomeRoute()) {
-      return 'PROFILE_ACTIVE';
+      return 'Profile active';
     }
 
-    return 'ROUTE_ACTIVE';
+    return 'Route active';
   }
 }
