@@ -1,0 +1,51 @@
+@if (card(); as activeCard) {
+  <aside class="experience-hover-card" aria-live="polite">
+    <header class="experience-hover-card__header">
+      <div>
+        <p class="experience-hover-card__eyebrow">
+          <app-pretext-text
+            [text]="'Recruiter hover note'"
+            [noWrap]="true"
+          ></app-pretext-text>
+        </p>
+        <h2 class="experience-hover-card__title">
+          <app-pretext-text [text]="activeCard.title"></app-pretext-text>
+        </h2>
+      </div>
+      <button
+        type="button"
+        class="experience-hover-card__close"
+        (click)="closeRequested.emit()"
+        aria-label="Close recruiter hover note"
+      >
+        <app-pretext-text [text]="'Close'" [noWrap]="true"></app-pretext-text>
+      </button>
+    </header>
+
+    <p class="experience-hover-card__status">
+      @if (activeCard.state === 'generating') {
+        <app-pretext-text
+          [text]="activeCard.waitingVerb + ' recruiter signal…'"
+        ></app-pretext-text>
+      } @else {
+        <app-pretext-text [text]="activeCard.provenance"></app-pretext-text>
+      }
+    </p>
+
+    <div class="experience-hover-card__body">
+      @if (activeCard.state === 'error') {
+        <app-pretext-text
+          [text]="
+            activeCard.error || 'Local generation failed for this target.'
+          "
+        ></app-pretext-text>
+      } @else if (activeCard.text) {
+        <app-pretext-text [text]="activeCard.text"></app-pretext-text>
+      } @else {
+        <app-pretext-text
+          [text]="'Preparing in-place recruiter summary…'"
+        ></app-pretext-text>
+      }
+    </div>
+  </aside>
+}
